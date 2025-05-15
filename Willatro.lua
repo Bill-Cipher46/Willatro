@@ -8,8 +8,8 @@ SMODS.Atlas
 
 SMODS.Atlas
 {
-    key = "Blinds",
-    path = "WillatroBlinds.png",
+    key = "WillatroBlinds",
+    path = "WillowBlinds.png",
     px = 32,
     py = 32
 }
@@ -157,6 +157,12 @@ SMODS.Joker
 SMODS.Blind
 {
     key = "sand",
+    atlas = "WillatroBlinds",
+    boss = {
+        min = 3,
+        max = 0
+    },
+    boss_colour = HEX('FFFFFF')
 
 }
 
