@@ -6,6 +6,14 @@ SMODS.Atlas
     py = 93
 }
 
+SMODS.Atlas
+{
+    key = "Blinds",
+    path = "WillatroBlinds.png",
+    px = 32,
+    py = 32
+}
+
 --cooler joker - done!
 SMODS.Joker
 {
@@ -143,6 +151,12 @@ SMODS.Joker
         end
     end
 
+
+}
+
+SMODS.Blind
+{
+    key = "sand",
 
 }
 
