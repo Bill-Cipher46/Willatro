@@ -1,5 +1,31 @@
 return {
     descriptions = {
+        Blind = {
+            bl_willatro_sand = {
+                name = "The Sand",
+                text = {
+                    "-10 chips every time",
+                    "a card is retriggered"
+                }
+            },
+
+            bl_willatro_ring = {
+                name = "The Ring",
+                text = {
+                    "No hands made up of",
+                    "Only one rank or suit"
+                }
+            },
+
+            bl_willatro_arrow = {
+                name = "The Arrow",
+                text = {
+                    "1 in 6 chance to",
+                    "destroy scored cards"
+                }
+            }
+        },
+
         Joker = {
             j_willatro_thecoolerjoker = {
                 name = "The Cooler Joker",
