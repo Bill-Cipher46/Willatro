@@ -4,7 +4,7 @@ return {
             bl_willatro_sand = {
                 name = "The Sand",
                 text = {
-                    "-10 chips every time",
+                    "#1# chips every time",
                     "a card is retriggered"
                 }
             },
@@ -20,7 +20,7 @@ return {
             bl_willatro_arrow = {
                 name = "The Arrow",
                 text = {
-                    "1 in 6 chance to",
+                    "#1# in #2# chance to",
                     "destroy scored cards"
                 }
             }

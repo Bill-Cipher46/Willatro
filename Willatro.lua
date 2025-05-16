@@ -11,7 +11,9 @@ SMODS.Atlas
     key = "WillatroBlinds",
     path = "WillowBlinds.png",
     px = 32,
-    py = 32
+    py = 32,
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 1
 }
 
 --cooler joker - done!
@@ -158,11 +160,50 @@ SMODS.Blind
 {
     key = "sand",
     atlas = "WillatroBlinds",
+    pos = { x = 0, y = 0},
     boss = {
         min = 3,
         max = 0
     },
-    boss_colour = HEX('FFFFFF')
+    boss_colour = HEX('d09552'),
+    config = { extra = { neg_chips = -10 } },
+    collection_loc_vars = function(self)
+        return {
+            vars = { self.config.extra.neg_chips }
+        }
+    end
+
+}
+
+SMODS.Blind
+{
+    key = "ring",
+    atlas = "WillatroBlinds",
+    pos = { x = 0, y = 1},
+    boss = {
+        min = 5,
+        max = 0
+    },
+    boss_colour = HEX('9329b7')
+
+}
+
+SMODS.Blind
+{
+    key = "arrow",
+    atlas = "WillatroBlinds",
+    pos = { x = 0, y = 2},
+    boss = {
+        min = 1,
+        max = 0
+    },
+    boss_colour = HEX('279378'),
+    config = { extra = { odds = 6 } },
+    collection_loc_vars = function(self)
+        return {
+            vars = { G.GAME.probabilities.normal, self.config.extra.odds }
+        }
+    end
 
 }
 
