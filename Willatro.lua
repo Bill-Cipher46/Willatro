@@ -57,53 +57,56 @@ SMODS.Joker
     pos = {x = 1, y = 0},
     cost = 4,
 
+    config = { extra = { created_tag = false } },
+
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_TAGS.tag_ethereal
-        return { vars = { localize { type = "name_text", set = "Tag", key = "tag_ethereal" } } }
+        return { vars = { localize { type = "name_text", set = "Tag", key = "tag_ethereal" }, card.ability.extra.created_tag } }
     end,
 
-    calculate = function(self, card, context)
+   calculate = function(self, card, context)
+    if context.joker_main then
         local queens = 0
         local twos = 0
         local tag = false
-        if context.cardarea == G.play then
-            for i = 1, #context.scoring_hand do
-                if context.scoring_hand[i]:get_id() == 2 then twos = twos + 1 end
-                if context.scoring_hand[i]:get_id() == 12 then queens = queens + 1 end
-            end
+        for i = 1, #context.scoring_hand do
+            if context.scoring_hand[i]:get_id() == 2 then twos = twos + 1 end
+            if context.scoring_hand[i]:get_id() == 12 then queens = queens + 1 end
         end
         if twos > 0 and twos < 2 and queens > 0 and queens < 2 then
             tag = true
         end
-        if context.joker_main and tag == true then
-            return 
+        if tag then
+            card.ability.extra.created_tag = true
+            return
             {
                 func = function()
-                G.E_MANAGER:add_event(Event({
-                    func = (function()
-                        add_tag(Tag('tag_ethereal'))
-                        play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
-                        play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
-                        return true
-                    end)
-                }))
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            add_tag(Tag('tag_ethereal'))
+                            play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
+                            play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
+                            return true
+                        end)
+                    }))
                 end
             }
-            
-        end
-        if context.cardarea == G.play and not context.blueprint then
-            for i = 1, #context.scoring_hand do
-                if context.destroy_card and tag == true then
-                    if context.scoring_hand[i]:get_id() == 2 and context.destroy_card:get_id() == 2 then
-                        return
-                        {
-                            remove = true
-                        }
-                    end
-                end
-            end
         end
     end
+
+    if context.destroy_card and context.cardarea == G.play and not context.blueprint and card.ability.extra.created_tag == true then
+        if context.destroy_card:get_id() == 2 then
+            return
+            {
+                remove = true
+            }
+        end
+    end
+
+    if context.after then
+      card.ability.extra.created_tag = false
+    end
+end
 }
 
 --joke in box - done!
