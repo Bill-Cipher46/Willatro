@@ -2,18 +2,18 @@ SMODS.Atlas
 {
     key = "WillatroJokers",
     path = "WillowJokers.png",
-    px = 69,
-    py = 93
+    px = 71,
+    py = 95
 }
 
 SMODS.Atlas
 {
     key = "WillatroBlinds",
     path = "WillowBlinds.png",
-    px = 32,
-    py = 32,
+    px = 34,
+    py = 34,
     atlas_table = 'ANIMATION_ATLAS',
-    frames = 1
+    frames = 21
 }
 
 --cooler joker - done!
@@ -65,7 +65,7 @@ SMODS.Joker
     calculate = function(self, card, context)
         local queens = 0
         local twos = 0
-        local good = false
+        local tag = false
         if context.cardarea == G.play then
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:get_id() == 2 then twos = twos + 1 end
@@ -73,9 +73,9 @@ SMODS.Joker
             end
         end
         if twos > 0 and twos < 2 and queens > 0 and queens < 2 then
-            good = true
+            tag = true
         end
-        if context.joker_main and good == true then
+        if context.joker_main and tag == true then
             return 
             {
                 func = function()
@@ -93,7 +93,7 @@ SMODS.Joker
         end
         if context.cardarea == G.play and not context.blueprint then
             for i = 1, #context.scoring_hand do
-                if context.destroy_card and good == true then
+                if context.destroy_card and tag == true then
                     if context.scoring_hand[i]:get_id() == 2 and context.destroy_card:get_id() == 2 then
                         return
                         {
@@ -156,6 +156,7 @@ SMODS.Joker
 
 }
 
+--sand
 SMODS.Blind
 {
     key = "sand",
@@ -175,6 +176,7 @@ SMODS.Blind
 
 }
 
+--ring
 SMODS.Blind
 {
     key = "ring",
@@ -184,10 +186,11 @@ SMODS.Blind
         min = 5,
         max = 0
     },
-    boss_colour = HEX('9329b7')
+    boss_colour = HEX('9329b7'),
 
 }
 
+--arrow
 SMODS.Blind
 {
     key = "arrow",
