@@ -4,8 +4,8 @@ return {
             bl_willatro_sand = {
                 name = "The Sand",
                 text = {
-                    "#1# chips every time",
-                    "a card is retriggered"
+                    "After discard, flip all",
+                    "cards held in hand"
                 }
             },
 
