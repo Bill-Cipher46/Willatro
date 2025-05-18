@@ -21,7 +21,8 @@ return {
                 name = "The Arrow",
                 text = {
                     "#1# in #2# chance to",
-                    "destroy scored cards"
+                    "destroy scored cards",
+                    "{s:0.8}check collection if using oops"
                 }
             }
         },

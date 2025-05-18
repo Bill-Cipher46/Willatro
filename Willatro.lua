@@ -166,11 +166,16 @@ SMODS.Blind
     atlas = "WillatroBlinds",
     pos = { x = 0, y = 0},
     boss = {
-        min = 3,
+        min = 1,
         max = 0
     },
     boss_colour = HEX('d09552'),
     config = { extra = { neg_chips = -10 } },
+    loc_vars = function(self)
+        return {
+            vars = { self.config.extra.neg_chips }
+        }
+    end,
     collection_loc_vars = function(self)
         return {
             vars = { self.config.extra.neg_chips }
@@ -211,10 +216,18 @@ SMODS.Blind
     },
     boss_colour = HEX('279378'),
     config = { extra = { odds = 6 } },
+    loc_vars = function(self)
+        return {
+            vars = { G.GAME.probabilities.normal, self.config.extra.odds }
+        }
+    end,
     collection_loc_vars = function(self)
         return {
             vars = { G.GAME.probabilities.normal, self.config.extra.odds }
         }
+    end,
+    calculate = function(self)
+
     end
 
 }
