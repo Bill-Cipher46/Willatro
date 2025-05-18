@@ -166,23 +166,18 @@ SMODS.Blind
     atlas = "WillatroBlinds",
     pos = { x = 0, y = 0},
     boss = {
-        min = 1000,
+        min = 1,
         max = 0
     },
     boss_colour = HEX('d09552'),
-    config = { extra = { neg_chips = -10 } },
-    loc_vars = function(self)
-        return {
-            vars = { self.config.extra.neg_chips }
-        }
-    end,
-    collection_loc_vars = function(self)
-        return {
-            vars = { self.config.extra.neg_chips }
-        }
-    end,
     calculate = function(self, card, context)
-
+        if context.discard then
+            for k, v in ipairs(G.hand.cards) do
+                if v.facing == "front" then
+                    v:flip()
+                end
+		    end
+        end
     end
 
 }
