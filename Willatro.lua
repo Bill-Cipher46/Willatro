@@ -166,7 +166,7 @@ SMODS.Blind
     atlas = "WillatroBlinds",
     pos = { x = 0, y = 0},
     boss = {
-        min = 1,
+        min = 1000,
         max = 0
     },
     boss_colour = HEX('d09552'),
@@ -180,11 +180,14 @@ SMODS.Blind
         return {
             vars = { self.config.extra.neg_chips }
         }
+    end,
+    calculate = function(self, card, context)
+
     end
 
 }
 
---ring
+--ring - done!
 SMODS.Blind
 {
     key = "ring",
@@ -204,7 +207,7 @@ SMODS.Blind
     end
 }
 
---arrow
+--arrow - done!
 SMODS.Blind
 {
     key = "arrow",
