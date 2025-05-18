@@ -148,7 +148,7 @@ return {
                 text = { 
                     "{C:mult}+#1#{} Mult for every other",
                     "{C:attention}Overgrown Card{} played",
-                    "Or held in hand"
+                    "or held in hand"
                 }
             }
         }
