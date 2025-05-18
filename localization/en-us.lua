@@ -57,6 +57,28 @@ return {
                     "{s:0.8,C;inactive}suit changes at end of round"
                 }
             }
+        },
+
+        Tarot = {
+            c_willatro_tree = {
+                name = "The Tree",
+                text = {
+                    "Enhances {C:attention}3{}",
+                    "selected cards to",
+                    "{C:attention,T:#info_queue}Overgrown Cards"
+                }
+            }
+        },
+
+        Enhanced = {
+            m_willatro_overgrown = {
+                name = "Overgrown",
+                text = { 
+                    "{C:mult}+#1#{} Mult for every other",
+                    "{C:attention}Overgrown Card{} played",
+                    "Or held in hand"
+                }
+            }
         }
     }
 }
