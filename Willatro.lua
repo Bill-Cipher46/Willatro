@@ -159,7 +159,7 @@ SMODS.Joker
 
 }
 
---sand
+--sand - done!
 SMODS.Blind
 {
     key = "sand",
