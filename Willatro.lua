@@ -191,6 +191,12 @@ SMODS.Blind
     },
     boss_colour = HEX('9329b7'),
 
+    debuff_hand = function(self, cards, hand, handname, check)
+        if handname == 'Pair' or 'High Hard' or 'Three of a Kind' or 'Four of a Kind' or 'Five of a Kind' or
+        'Flush' or 'Flush Five' or 'Straight Flush' or 'Flush House' or 'Royal Flush' then
+            return true
+        end
+    end
 }
 
 --arrow
