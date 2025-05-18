@@ -226,8 +226,15 @@ SMODS.Blind
             vars = { G.GAME.probabilities.normal, self.config.extra.odds }
         }
     end,
-    calculate = function(self)
-
+    calculate = function(self, card, context)
+        if pseudorandom('arrow') < G.GAME.probabilities.normal / self.config.extra.odds then
+            if context.destroy_card and context.cardarea == G.play then
+                return
+                { 
+                    remove = true
+                }
+            end
+        end
     end
 
 }
