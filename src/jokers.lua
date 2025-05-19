@@ -11,7 +11,6 @@ SMODS.Joker
 {
     key = "thecoolerjoker",
     rarity = 3,
-    discovered = true,
     atlas = "WillatroJokers",
     pos = {x = 0, y = 0},
     cost = 8,
@@ -42,7 +41,6 @@ SMODS.Joker
 {
     key = "loss",
     rarity = 1,
-    discovered = false,
     atlas = "WillatroJokers",
     pos = {x = 1, y = 0},
     cost = 4,
@@ -104,7 +102,6 @@ SMODS.Joker
 {
     key = "jokeinthebox",
     rarity = 3,
-    discovered = false,
     atlas = "WillatroJokers",
     pos = {x = 2, y = 0},
     cost = 8,
