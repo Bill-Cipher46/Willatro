@@ -98,9 +98,9 @@ return {
             j_willatro_bodyguard = {
                 name = "Bodyguard",
                 text = {
-                    "Protects {C:attention}Joker{} to the right",
-                    "from being destroyed {C:attention}once",
-                    "{C:inactive,s:0.8}(Gets destroyed in place of joker it's protecting)"
+                    "Gives {C:attention}Joker{} to the",
+                    "right {C:attention}Eternal{} sticker",
+                    "{C:inactive,s:0.8}(Bodyguard cannot be eternal)"
                 }
             },
 
@@ -126,7 +126,7 @@ return {
                 name = "Mitosis",
                 text = {
                     "If played and scoring card has a",
-                    "{C:attention}modifier, destroy it, add two permanent",
+                    "{C:attention}modifier{}, destroy it, add two permanent",
                     "copies to deck and draw them to {C:attention}hand"
                 }
             },
