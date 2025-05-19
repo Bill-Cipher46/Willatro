@@ -90,7 +90,7 @@ return {
                 name = "Rift",
                 text = {
                     "Level up all {C:attention}poker hands{} not",
-                    "played this ante by {C:attention}#1#{} at",
+                    "played this ante by {C:attention}1{} at",
                     "the end of the ante"
                 }
             },
