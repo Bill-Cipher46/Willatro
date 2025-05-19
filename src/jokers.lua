@@ -6,36 +6,7 @@ SMODS.Atlas
     py = 95
 }
 
---cooler joker - done!
-SMODS.Joker
-{
-    key = "thecoolerjoker",
-    rarity = 3,
-    atlas = "WillatroJokers",
-    pos = {x = 0, y = 0},
-    cost = 8,
-
-    config = { x_mult = 4},
-    
-    loc_vars = function(self, info_queue, card)
-        return 
-        { 
-            vars = 
-            { card.ability.x_mult} 
-        }
-    end,
-
-    calculate = function(self, card, context)
-        if context.cardarea == G.Jokers and context.individual then
-            return
-            {
-                xmult = card.ability.x_mult
-            }
-        end
-    end
-
-}
-
+--#region common
 --loss - done!
 SMODS.Joker
 {
@@ -96,6 +67,41 @@ SMODS.Joker
     end
 end
 }
+--#endregion
+
+
+
+--#region rare
+--cooler joker - done!
+SMODS.Joker
+{
+    key = "thecoolerjoker",
+    rarity = 3,
+    atlas = "WillatroJokers",
+    pos = {x = 0, y = 0},
+    cost = 8,
+
+    config = { x_mult = 4},
+    
+    loc_vars = function(self, info_queue, card)
+        return 
+        { 
+            vars = 
+            { card.ability.x_mult} 
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.cardarea == G.Jokers and context.individual then
+            return
+            {
+                xmult = card.ability.x_mult
+            }
+        end
+    end
+
+}
+--#endregion
 
 --joke in box - done!
 SMODS.Joker

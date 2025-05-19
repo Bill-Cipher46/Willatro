@@ -99,9 +99,8 @@ return {
                 name = "Bodyguard",
                 text = {
                     "Protects {C:attention}Joker{} to the right",
-                    "from being sold or destroyed {C:attention}once",
-                    "{C:inactive,s:0.8}(Gets destroyed in place of joker it's protecting,",
-                    "{C:inactive,s:0.8}gets sold for the same value as the joker it's protecting instead)"
+                    "from being destroyed {C:attention}once",
+                    "{C:inactive,s:0.8}(Gets destroyed in place of joker it's protecting)"
                 }
             },
 
@@ -126,7 +125,18 @@ return {
             j_willatro_mitosis = {
                 name = "Mitosis",
                 text = {
+                    "If played and scoring card has a",
+                    "{C:attention}modifier, destroy it, add two permanent",
+                    "copies to deck and draw them to {C:attention}hand"
+                }
+            },
 
+            j_willatro_unseenexplosion = {
+                name = "The Unseen Explosion",
+                text = {
+                    "Adds number of times",
+                    "{C:attention}Poker Hand{} has been played",
+                    "this run to {C:white,X:mult}xMult"
                 }
             }
         },
