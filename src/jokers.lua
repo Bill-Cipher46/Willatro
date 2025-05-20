@@ -68,7 +68,7 @@ SMODS.Joker
 end
 }
 
---barcode
+--barcode - done!
 SMODS.Joker
 {
     key = "barcode",
@@ -76,9 +76,17 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 4, y = 0},
     cost = 4,
-    config = { extra = { money_gain = 2, dollars = 0 } },
+    config = { extra = { money_gain = 2, money = 0 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.money_gain, card.ability.extra.dollars } }
+        return { vars = { card.ability.extra.money_gain, card.ability.extra.money } }
+    end,
+    
+    calculate = function(self, card, context)
+        card.ability.extra.money = #G.jokers.cards * card.ability.extra.money_gain
+    end,
+
+    calc_dollar_bonus = function(self, card)
+        return card.ability.extra.money
     end
 }
 
@@ -115,7 +123,7 @@ SMODS.Joker
     end
 }
 
---jokerobot
+--jokerobot - done!
 SMODS.Joker 
 {
     key = "jokerobot",
