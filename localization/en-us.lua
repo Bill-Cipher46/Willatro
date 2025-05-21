@@ -64,7 +64,8 @@ return {
                     "Destroy all played and scoring",
                     "cards with a rank of {C:attention}8{} or lower.",
                     "Gain {C:chips}+#1#{} Chips for each",
-                    "destroyed card"
+                    "destroyed card",
+                    "{C:inactive,s:0.8}(Currently {C:chips,s:0.8}+#2#{C:inactive,s:0.8} chips)}"
                 }
             },
 
