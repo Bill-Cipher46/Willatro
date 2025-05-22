@@ -227,6 +227,15 @@ SMODS.Joker
     config = { extra = { mult_gain = 3, mult = 0 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult_gain, card.ability.extra.mult } }
+    end,
+
+    calculate = function(self, card, context)
+        card.ability.extra.mult = G.GAME.willatro_jokers_bought * card.ability.extra.mult_gain
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
     end
 }
 --#endregion
@@ -312,16 +321,6 @@ SMODS.Joker
 
 }
 
-local function reset_Willatro_jokeinthebox()
-    G.GAME.current_round.willatro_jokeinthebox = G.GAME.current_round.willatro_jokeinthebox or { suit = 'Spades' }
-    local joke_suits = {}
-    for k, v in ipairs({ 'Spades', 'Hearts', 'Clubs', 'Diamonds' }) do
-        if v ~= G.GAME.current_round.willatro_jokeinthebox.suit then joke_suits[#joke_suits + 1] = v end
-    end
-    local jokeinthebox_card = pseudorandom_element(joke_suits, pseudoseed('willatro_jokeinthebox' .. G.GAME.round_resets.ante))
-    G.GAME.current_round.willatro_jokeinthebox.suit = jokeinthebox_card
-end
-
 --rift
 SMODS.Joker
 {
@@ -377,6 +376,24 @@ SMODS.Joker
     end
 }
 --#endregion
+
+local SMODS_calculate_context_ref = SMODS.calculate_context
+function SMODS.calculate_context(context, return_table)
+   if context.buying_card and context.card.ability.set == "Joker" then
+         G.GAME.willatro_jokers_bought = (G.GAME.willatro_jokers_bought or 0) + 1
+  end
+    return SMODS_calculate_context_ref(context, return_table)
+end
+
+local function reset_Willatro_jokeinthebox()
+    G.GAME.current_round.willatro_jokeinthebox = G.GAME.current_round.willatro_jokeinthebox or { suit = 'Spades' }
+    local joke_suits = {}
+    for k, v in ipairs({ 'Spades', 'Hearts', 'Clubs', 'Diamonds' }) do
+        if v ~= G.GAME.current_round.willatro_jokeinthebox.suit then joke_suits[#joke_suits + 1] = v end
+    end
+    local jokeinthebox_card = pseudorandom_element(joke_suits, pseudoseed('willatro_jokeinthebox' .. G.GAME.round_resets.ante))
+    G.GAME.current_round.willatro_jokeinthebox.suit = jokeinthebox_card
+end
 
 function SMODS.current_mod.reset_game_globals(run_start)
     reset_Willatro_jokeinthebox()
