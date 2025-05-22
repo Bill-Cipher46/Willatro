@@ -216,7 +216,7 @@ SMODS.Joker
     end
 }
 
---jokergummy
+--jokergummy - done!
 SMODS.Joker 
 {
     key = "jokergummy",
@@ -224,7 +224,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 1, y = 1 },
     cost = 7,
-    config = { extra = { mult_gain = 3, mult = 0 } },
+    config = { extra = { mult_gain = 5, mult = 0 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult_gain, card.ability.extra.mult } }
     end,
