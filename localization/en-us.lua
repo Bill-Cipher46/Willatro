@@ -108,8 +108,8 @@ return {
             j_willatro_jokergummy = {
                 name = "Joker Gummy",
                 text = {
-                    "Gains {C:mult}+#1#{} Mult for each unique",
-                    "{C:attention}Joker{} owned this run",
+                    "Gains {C:mult}+#1#{} Mult for each",
+                    "{C:attention}Joker{} bought this run",
                     "{C:inactive,s:0.8}(Currently {s:0.8,C:mult}+#2#{C:inactive,s:0.8} Mult)"
                 }
             },
