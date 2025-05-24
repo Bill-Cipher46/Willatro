@@ -329,9 +329,30 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 6, y = 0},
     cost = 8,
-    config = { extra = { level = 1 } },
-    loc_cars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.level } }
+
+    config = { extra = { planets = 2 } },
+
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.planets } }
+    end,
+
+    calculate = function(self, card, context)
+        if context.setting_blind then
+            for i = 1, math.min(card.ability.extra.planets, G.consumeables.config.card_limit - #G.consumeables.cards) do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.4,
+                func = function()
+                    if G.consumeables.config.card_limit > #G.consumeables.cards then
+                        play_sound('timpani')
+                        SMODS.add_card({ set = 'Planet' })
+                        card:juice_up(0.3, 0.5)
+                    end
+                    return true
+                end
+            }))
+        end
+        end
     end
 }
 
@@ -354,6 +375,34 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 3, y = 1 },
     cost = 8,
+
+    calculate = function(self, card, context)
+        if context.before and context.main_eval then
+            for k, v in ipairs(context.scoring_hand) do
+                if v.enhancement or v.seal or v.edition then
+                    G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                    local card = copy_card(context.scoring_hand[v], nil, nil, G.playing_card)
+                    card:add_to_deck()
+                    G.deck.config.card_limit = G.deck.config.card_limit + 1
+                    table.insert(G.playing_cards, card)
+                    G.hand:emplace(_card)
+                    card.states.visible = nil
+
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            card:start_materialize()
+                            return true
+                        end
+                    })) 
+                    return {
+                        message = localize('k_copied_ex'),
+                        colour = G.C.CHIPS,
+                        playing_cards_created = {true}
+                    }
+                end
+            end
+        end
+    end
 }
 --#endregion
 
@@ -379,9 +428,17 @@ SMODS.Joker
 
 local SMODS_calculate_context_ref = SMODS.calculate_context
 function SMODS.calculate_context(context, return_table)
-   if context.buying_card and context.card.ability.set == "Joker" then
+    if context.buying_card and context.card.ability.set == "Joker" then
          G.GAME.willatro_jokers_bought = (G.GAME.willatro_jokers_bought or 0) + 1
-  end
+    end
+    return SMODS_calculate_context_ref(context, return_table)
+end
+
+local SMODS_calculate_context_ref = SMODS.calculate_context
+function SMODS.calculate_context(context, return_table)
+    if context.before and context.main_eval then
+        G.GAME.willatro_played_hands[#G.GAME.willatro_played_hands + 1] = G.GAME.hands[context.scoring_name].played
+    end
     return SMODS_calculate_context_ref(context, return_table)
 end
 

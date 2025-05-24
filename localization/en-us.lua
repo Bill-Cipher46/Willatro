@@ -90,9 +90,9 @@ return {
             j_willatro_rift = {
                 name = "Rift",
                 text = {
-                    "Level up all {C:attention}poker hands{} not",
-                    "played this ante by {C:attention}1{} after",
-                    "defeating the boss blind"
+                    "Creates up to {C:attention}#1#{} random {C:planet}Planet",
+                    "cards upon blind selection",
+                    "{C:inactive,s:0.8}(Must have room)"
                 }
             },
 
