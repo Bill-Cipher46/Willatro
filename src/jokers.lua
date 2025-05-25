@@ -356,7 +356,7 @@ SMODS.Joker
     end
 }
 
---bodyguard
+--bodyguard - done!
 SMODS.Joker
 {
     key = "bodyguard",
@@ -365,6 +365,25 @@ SMODS.Joker
     pos = {x = 0, y = 1},
     cost = 8,
     eternal_compat = false,
+
+    calculate = function(self, card, context)
+        if G.jokers and G.jokers.cards then
+            local other_joker = nil
+            local eternal_joker = nil
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i] == card then 
+                    eternal_joker = G.jokers.cards[i+1] 
+                    if eternal_joker then
+                        eternal_joker:set_eternal(true)
+                    end
+                end
+                if G.jokers.cards[i] ~= eternal_joker then
+                    other_joker = G.jokers.cards[i]
+                    other_joker:set_eternal(nil)
+                end
+            end
+        end
+    end
 }
 
 --mitosis - done!
