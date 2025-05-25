@@ -82,7 +82,9 @@ SMODS.Joker
     end,
     
     calculate = function(self, card, context)
-        card.ability.extra.money = #G.jokers.cards * card.ability.extra.money_gain
+        if not context.blueprint then
+            card.ability.extra.money = #G.jokers.cards * card.ability.extra.money_gain
+        end
     end,
 
     calc_dollar_bonus = function(self, card)
@@ -148,7 +150,7 @@ SMODS.Joker
                     toDestroy  = toDestroy + 1
                 end
             end
-            if toDestroy > 0 then
+            if toDestroy > 0 and not context.blueprint then
                 card.ability.extra.chips = card.ability.extra.chips + (toDestroy * card.ability.extra.chip_gain)
             end
             return {
@@ -230,7 +232,9 @@ SMODS.Joker
     end,
 
     calculate = function(self, card, context)
-        card.ability.extra.mult = G.GAME.willatro_jokers_bought * card.ability.extra.mult_gain
+        if context.buying_card and context.card.ability.set == "Joker" and not context.blueprint then
+            card.ability.extra.mult = G.GAME.willatro_jokers_bought * card.ability.extra.mult_gain
+        end
         if context.joker_main then
             return {
                 mult = card.ability.extra.mult
@@ -464,7 +468,7 @@ SMODS.Joker
 local SMODS_calculate_context_ref = SMODS.calculate_context
 function SMODS.calculate_context(context, return_table)
     if context.buying_card and context.card.ability.set == "Joker" then
-         G.GAME.willatro_jokers_bought = (G.GAME.willatro_jokers_bought or 0) + 1
+        G.GAME.willatro_jokers_bought = (G.GAME.willatro_jokers_bought or 0) + 1
     end
     return SMODS_calculate_context_ref(context, return_table)
 end
