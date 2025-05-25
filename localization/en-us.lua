@@ -167,9 +167,10 @@ return {
         Back = { 
             b_willatro_unseen = {
                 name = "Unseen Deck",
-                text = { "Start with {C:attention}The Unseen Explosion",
-                         "joker. {C:red}-#1#{} consumable slots,",
-                         "{C:red}-#2#{} hand size" }
+                text = { "Start with",
+                         "{C:attention}The Unseen Explosion{} joker",
+                         "{C:red}#1#{} consumable slot,",
+                         "{C:red}#2#{} hand size" }
             }
         }
     }
