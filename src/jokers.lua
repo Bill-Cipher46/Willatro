@@ -136,13 +136,14 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 3, y = 0},
     cost = 6,
-    config = { extra = { chip_gain = 20, chips = 0, message = false } },
+    config = { extra = { chip_gain = 20, chips = 0, message = false, play = false} },
 
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chip_gain, card.ability.extra.chips, card.ability.extra.addchips } }
     end,
 
     calculate = function(self, card, context)
+        local play = false
         if context.joker_main then
             local toDestroy = 0
             for i = 1, #context.scoring_hand do
@@ -167,18 +168,20 @@ SMODS.Joker
             end
         end
         if not context.after and card.ability.extra.message == true then
+            card.ability.extra.play = true
             return { 
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         card:juice_up(0.8, 0.8)
-                        play_sound('slice1', 0.96 + math.random() * 0.08)
-                        card.ability.extra.message = false
+                        if card.ability.extra.play == true then
+                            play_sound('slice1', 0.96 + math.random() * 0.08)
+                            card.ability.play = false
+                        end
                         return true
                     end
                 }))
             }
         end
-                
     end
 }
 
