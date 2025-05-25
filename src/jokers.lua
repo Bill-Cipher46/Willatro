@@ -378,7 +378,7 @@ SMODS.Joker
             local other_joker = nil
             local eternal_joker = nil
             for i = 1, #G.jokers.cards do
-                if G.jokers.cards[i] == card then 
+                if G.jokers.cards[i].config.center.key == 'j_willatro_bodyguard' then 
                     eternal_joker = G.jokers.cards[i+1] 
                     if eternal_joker then
                         eternal_joker:set_eternal(true)
