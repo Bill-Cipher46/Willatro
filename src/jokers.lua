@@ -143,7 +143,6 @@ SMODS.Joker
     end,
 
     calculate = function(self, card, context)
-        local play = false
         if context.joker_main then
             local toDestroy = 0
             for i = 1, #context.scoring_hand do
@@ -169,6 +168,7 @@ SMODS.Joker
         end
         if not context.after and card.ability.extra.message == true then
             card.ability.extra.play = true
+            card.ability.extra.message = false
             return { 
                 G.E_MANAGER:add_event(Event({
                     func = function()
