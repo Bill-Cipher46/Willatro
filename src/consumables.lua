@@ -5,7 +5,7 @@ SMODS.Atlas {
     py = 95
 }
 
---tree
+--tree - done!
 SMODS.Consumable {
     key = "tree",
     set = 'Tarot',
