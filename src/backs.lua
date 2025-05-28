@@ -6,7 +6,7 @@ SMODS.Atlas
     py = 95
 }
 
---unseen deck
+--unseen deck - done!
 SMODS.Back {
     key = "unseen",
     atlas = "WillatroBacks",
