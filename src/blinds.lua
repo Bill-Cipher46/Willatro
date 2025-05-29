@@ -63,7 +63,7 @@ SMODS.Blind
         max = 0
     },
     boss_colour = HEX('279378'),
-    config = { extra = { odds = 6 } },
+    config = { extra = { odds = 3 } },
     loc_vars = function(self)
         return {
             vars = { G.GAME.probabilities.normal, self.config.extra.odds }
