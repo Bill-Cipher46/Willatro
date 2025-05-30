@@ -82,9 +82,7 @@ SMODS.Joker
     end,
     
     calculate = function(self, card, context)
-        if not context.blueprint then
-            card.ability.extra.money = #G.jokers.cards * card.ability.extra.money_gain
-        end
+        card.ability.extra.money = #G.jokers.cards * card.ability.extra.money_gain
     end,
 
     calc_dollar_bonus = function(self, card)
