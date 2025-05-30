@@ -154,11 +154,11 @@ return {
         },
 
         Spectral = {
-            C_willatro_bomb = {
+            c_willatro_bomb = {
                 name = "Cashbomb",
                 text = {
-                    "Gain {C:money}$#1#{},",
-                    "{C:attention}debuff a random joker"
+                    "Gain {C:money}$#1#{},{C:attention} debuff",
+                    "a random joker"
                 }
             }
         },

@@ -86,7 +86,7 @@ SMODS.Consumable {
 SMODS.Consumable
 {
     key = "bomb",
-    set = 'spectrals',
+    set = 'Spectral',
     atlas = 'WillatroConsumables',
 
     pos = { x = 1, y = 0},
