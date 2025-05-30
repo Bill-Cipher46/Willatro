@@ -5,6 +5,7 @@ SMODS.Atlas {
     py = 95
 }
 
+--overgrown - done!
 SMODS.Enhancement {
     key = "overgrown",
     atlas = "WillatroEnhancements",

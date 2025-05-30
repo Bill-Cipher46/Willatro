@@ -5,6 +5,7 @@ SMODS.Atlas {
     py = 95
 }
 
+--#region tarots
 --tree - done!
 SMODS.Consumable {
     key = "tree",
@@ -78,3 +79,7 @@ SMODS.Consumable {
     end
 
 }
+--#endregion
+
+--#region spectrals
+--#endregion
