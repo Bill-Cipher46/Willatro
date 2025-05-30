@@ -157,7 +157,7 @@ return {
             C_willatro_bomb = {
                 name = "Cashbomb",
                 text = {
-                    "Gain {C:money}$20{},",
+                    "Gain {C:money}$#1#{},",
                     "{C:attention}debuff a random joker"
                 }
             }

@@ -82,4 +82,20 @@ SMODS.Consumable {
 --#endregion
 
 --#region spectrals
+--bomb
+SMODS.Consumable
+{
+    key = "bomb",
+    set = 'spectrals',
+    atlas = 'WillatroConsumables',
+
+    pos = { x = 1, y = 0},
+
+    config = { extra = { money = 20 } },
+
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.money } }
+    end
+    
+}
 --#endregion
