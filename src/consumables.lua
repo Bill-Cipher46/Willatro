@@ -1,6 +1,6 @@
 SMODS.Atlas {
     key = "WillatroConsumables",
-    path = "WillowTarots.png",
+    path = "WillowConsumables.png",
     px = 71,
     py = 95
 }
