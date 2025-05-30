@@ -153,6 +153,16 @@ return {
             }
         },
 
+        Spectral = {
+            C_willatro_bomb = {
+                name = "Cashbomb",
+                text = {
+                    "Gain {C:money}$20{},",
+                    "{C:attention}debuff a random joker"
+                }
+            }
+        },
+
         Enhanced = {
             m_willatro_overgrown = {
                 name = "Overgrown",
