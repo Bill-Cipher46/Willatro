@@ -27,14 +27,7 @@ return {
         },
 
         Joker = {
-            j_willatro_thecoolerjoker = {
-                name = "The Cooler Joker",
-                text = 
-                {
-                    "{C:white,X:mult}X#1#{} Mult"
-                }
-            },
-
+            --#region common
             j_willatro_loss = {
                 name = "Loss.jpg",
                 text = 
@@ -43,29 +36,6 @@ return {
                     "contains {C:attention}one Queen{} and {C:attention}one 2{},",
                     "Destroy the {C:attention}2{} and create",
                     "an {C:attention,T:#info_queue}Ethereal Tag"
-                }
-            },
-
-            j_willatro_jokeinthebox = {
-                name = "Joke In the Box",
-                text = 
-                {
-                    "Gains {C:white,X:mult}X#2#{} Mult for each",
-                    "played hand, resets if played",
-                    "hand contains card of {V:1}#3#{} suit",
-                    "{s:0.8,C:inactive}(Currently {s:0.8,C:white,X:mult}X#1#{} {s:0.8,C:inactive}Mult)",
-                    "{s:0.8,C;inactive}suit changes at end of round"
-                }
-            },
-
-            j_willatro_familiarweapon = {
-                name = "Familiar Weapon",
-                text = {
-                    "Destroy all played and scoring",
-                    "cards with a rank of {C:attention}8{} or lower.",
-                    "Gain {C:chips}+#1#{} Chips for each",
-                    "destroyed card",
-                    "{C:inactive,s:0.8}(Currently {C:chips,s:0.8}+#2#{C:inactive,s:0.8} chips)"
                 }
             },
 
@@ -78,12 +48,106 @@ return {
                 }
             },
 
+            j_willatro_cyan = {
+                name = "Cyan",
+                text = {
+                    "{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
+                    "{C:green}#5# in #6#{} chance for",
+                    "{C:chips}+#3#{} Chips {C:white,X:mult}X#4#{} Mult"
+                }
+            },
+
+            j_willatro_silvermirror = {
+                name = "Silver Mirror",
+                text = {
+                    "{C:attention}Glass{} cards are also",
+                    "{C:attention}Steel{} cards {C:green}#1# in #2#",
+                    "Chance for this card to",
+                    "shatter at end of round"
+                }
+            },
+
+            j_willatro_lime = {
+                name = "Lime",
+                text = {
+                    "Earn {C:money}$#1#{} at end of round.",
+                    "{C:green}#2# in #3#{} chance this",
+                    "card is destroyed",
+                    "at end of round"
+                }
+            },
+
+            j_willatro_lemon = {
+                name = "Lemon",
+                text = {
+                    "{C:green}#1# in #2#{} chance for all",
+                    "played and scoring cards",
+                    "to give {C:money}$#3#"
+                }
+            },
+            --#endregion
+
+            --#region uncommon
+            j_willatro_familiarweapon = {
+                name = "Familiar Weapon",
+                text = {
+                    "Destroy all played and scoring",
+                    "cards with a rank of {C:attention}8{} or lower.",
+                    "Gain {C:chips}+#1#{} Chips for each",
+                    "destroyed card",
+                    "{C:inactive,s:0.8}(Currently {C:chips,s:0.8}+#2#{C:inactive,s:0.8} chips)"
+                }
+            },
+
+
             j_willatro_jokerobot = {
                 name = "Jokerobot",
                 text = {
                     "All played {C:attention}face{} cards",
                     "become {C:attention,T:info_queue}Steel{} cards",
                     "when scored"
+                }
+            },
+
+            j_willatro_jokergummy = {
+                name = "Joker Gummy",
+                text = {
+                    "Gains {C:mult}+#1#{} Mult for each",
+                    "{C:attention}Joker{} bought this run",
+                    "{C:inactive,s:0.8}(Currently {s:0.8,C:mult}+#2#{C:inactive,s:0.8} Mult)"
+                }
+            },
+
+            j_willatro_jetfish = {
+                name = "Jetfish",
+                text = {
+                    "{C:mult}+#1#{} Mult for each hand played",
+                    "with all scoring cards.",
+                    "Resets if any played",
+                    "cards do not score",
+                    "{C:inactive,s:0.8}(Currently {C:red,s:0.8}+#2#{C:inactive,s:0.8} Mult)"
+                }
+            },
+            --#endregion
+
+            --#region rare
+            j_willatro_thecoolerjoker = {
+                name = "The Cooler Joker",
+                text = 
+                {
+                    "{C:white,X:mult}X#1#{} Mult"
+                }
+            },
+
+            j_willatro_jokeinthebox = {
+                name = "Joke In the Box",
+                text = 
+                {
+                    "Gains {C:white,X:mult}X#2#{} Mult for each",
+                    "played hand, resets if played",
+                    "hand contains card of {V:1}#3#{} suit",
+                    "{s:0.8,C:inactive}(Currently {s:0.8,C:white,X:mult}X#1#{} {s:0.8,C:inactive}Mult)",
+                    "{s:0.8,C;inactive}suit changes at end of round"
                 }
             },
 
@@ -105,24 +169,6 @@ return {
                 }
             },
 
-            j_willatro_jokergummy = {
-                name = "Joker Gummy",
-                text = {
-                    "Gains {C:mult}+#1#{} Mult for each",
-                    "{C:attention}Joker{} bought this run",
-                    "{C:inactive,s:0.8}(Currently {s:0.8,C:mult}+#2#{C:inactive,s:0.8} Mult)"
-                }
-            },
-
-            j_willatro_cyan = {
-                name = "Cyan",
-                text = {
-                    "{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
-                    "{C:green}#5# in #6#{} chance for",
-                    "{C:chips}+#3#{} Chips {C:white,X:mult}X#4#{} Mult"
-                }
-            },
-
             j_willatro_mitosis = {
                 name = "Mitosis",
                 text = {
@@ -132,6 +178,17 @@ return {
                 }
             },
 
+            j_willatro_brokenmirror = {
+                name = "Broken Mirror",
+                text = {
+                    "{C:attention}Glass{} cards are now guaranteed",
+                    "to break. Played and scoring",
+                    "{C:attention}Glass{} cards are retriggered twice"
+                }
+            },
+            --#endregion
+
+            --#region legendary
             j_willatro_unseenexplosion = {
                 name = "The Unseen Explosion",
                 text = {
@@ -139,7 +196,18 @@ return {
                     "{C:attention}Poker Hand{} has been played",
                     "this run to {C:white,X:mult}xMult"
                 }
+            },
+
+            j_willatro_bill = {
+                name = "Bill Cipher",
+                text = {
+                    "All played and scoring",
+                    "{C:attention}number cards{} are retriggered",
+                    "{C:attention}3{} times. Played and scoring {C:attention}3{}'s",
+                    "give {C:white,X:mult}X#1#{} Mult"
+                }
             }
+            --#endregion
         },
 
         Tarot = {

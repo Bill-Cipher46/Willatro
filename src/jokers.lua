@@ -452,6 +452,7 @@ SMODS.Joker
     pos = {x = 4, y = 1 },
     soul_pos = { x = 5, y = 1 },
     cost = 20,
+
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -460,6 +461,30 @@ SMODS.Joker
         end
     end
 }
+
+--[[ SMODS.Joker
+{
+    key = "bill",
+    rarity = 4,
+    atlas = "WillatroJokers",
+    pos = { x = 4, y = 2 },
+    soul_pos = { x = 5, y = 2 },
+    cost = 20,
+
+    config = {
+        extra = {
+            x_mult = 1.5
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.x_mult
+            }
+        }
+    end
+} ]]
 --#endregion
 
 local SMODS_calculate_context_ref = SMODS.calculate_context
