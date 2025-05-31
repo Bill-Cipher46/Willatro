@@ -57,6 +57,15 @@ return {
                 }
             },
 
+            j_willatro_troll = {
+                name = "Trollface",
+                text = {
+                    "Every played and scoring",
+                    "{C:attention}face card gives {C:mult}+10{} Mult"
+                    --opposite, always free
+                }
+            },
+
             j_willatro_silvermirror = {
                 name = "Silver Mirror",
                 text = {
@@ -118,6 +127,33 @@ return {
                 }
             },
 
+            j_willatro_cobbler = {
+                name = "Cobbler",
+                text = {
+                    "Gains {C:mult}+#1#{} Mult every round.",
+                    "This card is {C:attention}destroyed",
+                    "after reaching {C:mult}+#2#{} Mult",
+                    "{C:inactive,s:0.8}(Currently {C:red,s:0.8}+#3#{C:inactive,s:0.8} Mult)"
+                }
+            },
+
+            j_willatro_clock = {
+                name = "Clock",
+                text = {
+                    "{C:white,X:mult}X#1#{} Mult for each {C:attention}ante",
+                    "above {C:attention}1"
+                }
+            },
+
+            j_willatro_ghostly = {
+                name = "Ghostly Joker",
+                text = {
+                    "Create {C:dark_edition}negative{} copy of",
+                    "used {C:attention}spectral{} cards",
+                    "{C:inactive,s:0.8}(Does not copy negative spectral cards)"
+                }
+            },
+
             j_willatro_jetfish = {
                 name = "Jetfish",
                 text = {
@@ -176,6 +212,16 @@ return {
                     "{C:attention}modifier{}, destroy it, add two permanent",
                     "copies to deck and draw them to {C:attention}hand"
                 }
+            },
+
+            j_willatro_portal = {
+                name = "Portal",
+                text = {
+                    "Alternates between",
+                    "{C:white,X:mult}X#1#{} Mult and {C:white,X:chips}X#2#{} Chips",
+                    "each played hand"
+                }
+
             },
 
             j_willatro_brokenmirror = {
