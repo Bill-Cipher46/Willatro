@@ -296,6 +296,14 @@ return {
                          "{C:red}#1#{} consumable slot,",
                          "{C:red}#2#{} hand size" }
             }
+        },
+
+        voucher = {
+            v_willatro_addict = {
+                "{C:attention}Wheel of Fortune{} can",
+                "now give {C:dark_edition}negative",
+                "edition"
+            }
         }
     }
 }
