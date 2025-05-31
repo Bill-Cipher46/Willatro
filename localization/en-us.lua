@@ -291,18 +291,23 @@ return {
         Back = { 
             b_willatro_unseen = {
                 name = "Unseen Deck",
-                text = { "Start with",
-                         "{C:attention}The Unseen Explosion{} joker.",
-                         "{C:red}#1#{} consumable slot,",
-                         "{C:red}#2#{} hand size" }
+                text = { 
+                    "Start with",
+                    "{C:attention}The Unseen Explosion{} joker.",
+                    "{C:red}#1#{} consumable slot,",
+                    "{C:red}#2#{} hand size" 
+                }
             }
         },
 
-        voucher = {
+        Voucher = {
             v_willatro_addict = {
-                "{C:attention}Wheel of Fortune{} can",
-                "now give {C:dark_edition}negative",
-                "edition"
+                name = "Gambling Addict",
+                text = {
+                    "{C:attention}Wheel of Fortune{} can",
+                    "now give {C:dark_edition,T:#info_queue}negative",
+                    "edition"
+                }
             }
         }
     }
