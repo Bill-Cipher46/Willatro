@@ -423,14 +423,14 @@ SMODS.Joker
                                 return true
                             end
                         }))
+                        return {
+                            message = localize('k_copied_ex'),
+                            colour = G.C.CHIPS
+                        }
                     end
                 end
             end
             SMODS.calculate_context({ playing_card_added = true, cards =  new_cards  })
-            return {
-                message = localize('k_copied_ex'),
-                colour = G.C.CHIPS
-            }
         end
         if context.destroy_card and context.cardarea == G.play and 
         (context.destroy_card.seal or context.destroy_card.edition or next(SMODS.get_enhancements(context.destroy_card))) then
