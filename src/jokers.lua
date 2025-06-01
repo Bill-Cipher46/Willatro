@@ -440,6 +440,50 @@ SMODS.Joker
         end
     end
 }
+
+SMODS.Joker 
+{
+    key = "portal",
+    rarity = 3,
+    atlas = "WillatroJokers",
+    cost = 8,
+    pos = { x = 6, y = 1 },
+    config = { 
+        extra = {
+            xmult = 2,
+            xchips = 2,
+            hand = 0
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.xmult,
+                card.ability.extra.xchips
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+            if context.cardarea == G.play then
+                card.ability.extra.hand = card.ability.extra.hand + 1
+                if card.ability.extra.hand > 1 then
+                    card.ability.extra.hand = 0
+                end
+            end
+            if context.joker_main and card.ability.extra.hand == 0 then
+                return {
+                    x_mult = card.ability.extra.xmult
+                }
+            end
+            if context.joker_main and card.ability.extra.hand == 1 then
+                return {
+                    x_chips = card.ability.extra.xchips
+                }
+            end
+    end
+}
 --#endregion
 
 --#region legendary
