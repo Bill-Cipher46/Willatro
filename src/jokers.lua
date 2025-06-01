@@ -466,22 +466,22 @@ SMODS.Joker
     end,
 
     calculate = function(self, card, context)
-            if context.cardarea == G.play then
-                card.ability.extra.hand = card.ability.extra.hand + 1
-                if card.ability.extra.hand > 1 then
-                    card.ability.extra.hand = 0
-                end
+        if context.cardarea == G.play then
+            card.ability.extra.hand = card.ability.extra.hand + 1
+            if card.ability.extra.hand > 1 then
+                card.ability.extra.hand = 0
             end
-            if context.joker_main and card.ability.extra.hand == 0 then
-                return {
-                    x_mult = card.ability.extra.xmult
-                }
-            end
-            if context.joker_main and card.ability.extra.hand == 1 then
-                return {
-                    x_chips = card.ability.extra.xchips
-                }
-            end
+        end
+        if context.joker_main and card.ability.extra.hand == 0 then
+            return {
+                x_mult = card.ability.extra.xmult
+            }
+        end
+        if context.joker_main and card.ability.extra.hand == 1 then
+            return {
+                x_chips = card.ability.extra.xchips
+            }
+        end
     end
 }
 --#endregion
