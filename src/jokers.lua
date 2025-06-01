@@ -462,7 +462,7 @@ SMODS.Joker
     end
 }
 
---[[ SMODS.Joker
+SMODS.Joker
 {
     key = "bill",
     rarity = 4,
@@ -484,7 +484,7 @@ SMODS.Joker
             }
         }
     end
-} ]]
+}
 --#endregion
 
 local SMODS_calculate_context_ref = SMODS.calculate_context
