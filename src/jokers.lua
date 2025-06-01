@@ -441,6 +441,7 @@ SMODS.Joker
     end
 }
 
+--portal - done!
 SMODS.Joker 
 {
     key = "portal",
