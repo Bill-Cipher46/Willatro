@@ -297,6 +297,15 @@ return {
                     "{C:red}#1#{} consumable slot,",
                     "{C:red}#2#{} hand size" 
                 }
+            },
+
+            b_willatro_cellular = {
+                name = "Cellular Deck",
+                text = {
+                    "Start with {C:attention,T:perishable}perishable{C:attention} DNA",
+                    "and {C:attention}perishable Mitosis{}. Start",
+                    "at ante {C:attention}0{}. {C:red}#1#{} discard"
+                }
             }
         },
 
