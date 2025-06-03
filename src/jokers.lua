@@ -414,19 +414,19 @@ SMODS.Joker
                         G.deck.config.card_limit = G.deck.config.card_limit + 1
                         table.insert(G.playing_cards, copy_card)
                         
+                        G.hand:emplace(copy_card)
                         copy_card.states.visible = nil
                         new_cards[#new_cards + 1] = copy_card
                         G.E_MANAGER:add_event(Event({
                             func = function()
-                                G.hand:emplace(copy_card)
-                            copy_card:start_materialize()
+                                copy_card:start_materialize()
                                 return true
                             end
                         }))
                     end
                 end
             end
-            SMODS.calculate_context({ playing_card_added = true, cards = { new_cards } })
+            SMODS.calculate_context({ playing_card_added = true, cards = new_cards })
             return {
                 message = localize('k_copied_ex'),
                 colour = G.C.CHIPS
@@ -507,6 +507,7 @@ SMODS.Joker
     end
 }
 
+--bill cipher
 SMODS.Joker
 {
     key = "bill",
