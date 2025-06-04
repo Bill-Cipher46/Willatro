@@ -404,10 +404,11 @@ SMODS.Joker
 
     calculate = function(self, card, context)
         if context.before and context.main_eval then
-            local new_cards = {}
+            local new_cards = nil
             for i = 1, 2 do
                 for k, v in ipairs(context.scoring_hand) do
                     if v.seal or v.edition or next(SMODS.get_enhancements(v)) then
+                        new_cards = {}
                         G.playing_card = (G.playing_card and G.playing_card + 1) or 1
                         local copy_card = copy_card(v, nil, nil, G.playing_card)
                         copy_card:add_to_deck()
@@ -426,11 +427,13 @@ SMODS.Joker
                     end
                 end
             end
-            SMODS.calculate_context({ playing_card_added = true, cards = new_cards })
-            return {
-                message = localize('k_copied_ex'),
-                colour = G.C.CHIPS
-            }
+            if new_cards then
+                SMODS.calculate_context({ playing_card_added = true, cards = new_cards })
+                return {
+                    message = localize('k_copied_ex'),
+                    colour = G.C.CHIPS
+                }
+            end
         end
         if context.destroy_card and context.cardarea == G.play and 
         (context.destroy_card.seal or context.destroy_card.edition or next(SMODS.get_enhancements(context.destroy_card))) then
