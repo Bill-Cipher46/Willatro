@@ -319,5 +319,12 @@ return {
                 }
             }
         }
+
+    },
+        
+    misc = {
+        challenge_names = {
+            c_willatro_split = "Split and Split Some More"
+        }
     }
 }
