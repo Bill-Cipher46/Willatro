@@ -35,7 +35,7 @@ SMODS.Back {
     end
 }
 
---cellular deck
+--cellular deck - done!
 SMODS.Back {
     key = "cellular",
     atlas = "WillatroBacks",
