@@ -21,7 +21,8 @@ SMODS.Challenge {
             { id = 'p_standard_jumbo_2' }, 
             { id = 'p_standard_mega_1' }, 
             { id = 'p_standard_mega_2' },
-            { id = 'v_magic_trick' }
+            { id = 'v_magic_trick' },
+            { id = 'v_illusion'}
         },
 
         banned_tags = {
