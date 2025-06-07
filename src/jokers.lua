@@ -362,7 +362,7 @@ SMODS.Joker
 }
 
 --bodyguard - done!
-SMODS.Joker
+--[[ SMODS.Joker
 {
     key = "bodyguard",
     rarity = 3,
@@ -372,24 +372,32 @@ SMODS.Joker
     eternal_compat = false,
 
     calculate = function(self, card, context)
-        if G.jokers and G.jokers.cards then
-            local other_joker = nil
-            local eternal_joker = nil
+        if G.jokers then
+            local other_joker = {}
+            local protected_joker = {}
             for i = 1, #G.jokers.cards do
-                if G.jokers.cards[i].config.center.key == 'j_willatro_bodyguard' then 
-                    eternal_joker = G.jokers.cards[i+1] 
-                    if eternal_joker then
-                        eternal_joker:set_eternal(true)
+                protected_joker[#protected_joker+1] = nil
+                card.ability.flaggedbyeternal = false
+                if G.jokers.cards[i].config.center.key == 'j_willatro_bodyguard' then
+                    protected_joker[#protected_joker+1] = G.jokers.cards[i+1]
+                    for j = 1, #protected_joker do
+                        protected_joker[j]:set_eternal(true)
+                        card.ability.flaggedbyeternal = true
                     end
                 end
-                if G.jokers.cards[i] ~= eternal_joker then
-                    other_joker = G.jokers.cards[i]
-                    other_joker:set_eternal(nil)
+                for j = 1, #protected_joker do
+                    if G.jokers.cards[i] ~= protected_joker[j] or (G.jokers.cards[i]:set_eternal() == true and card.ability.flaggedbyeternal == true)then
+                        other_joker[#other_joker+1] = G.jokers.cards[i]
+                        card.ability.flaggedbyeternal = false
+                        for k = 1, #other_joker do
+                            other_joker[k]:set_eternal(nil)
+                        end
+                    end
                 end
             end
         end
     end
-}
+} ]]
 
 --mitosis - done!
 SMODS.Joker
@@ -511,7 +519,7 @@ SMODS.Joker
     end
 }
 
---bill cipher
+--[[ --bill cipher
 SMODS.Joker
 {
     key = "bill",
@@ -534,7 +542,7 @@ SMODS.Joker
             }
         }
     end
-}
+} ]]
 --#endregion
 
 local SMODS_calculate_context_ref = SMODS.calculate_context
