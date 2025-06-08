@@ -123,7 +123,8 @@ return {
                 text = {
                     "Gives {C:attention}Joker{} to the",
                     "right {C:attention}Eternal{} sticker",
-                    "when this card is {C:attention}sold"
+                    "when this card is {C:attention}sold",
+                    "{C:inactive,s:0.8}(Bodyguard can not be eternal)"
                 }
             },
 
@@ -249,7 +250,7 @@ return {
                 text = {
                     "All played and scoring",
                     "{C:attention}number cards{} are retriggered",
-                    "{C:attention}3{} times. Played and scoring {C:attention}3{}'s",
+                    "{C:attention}#2#{} times. Played and scoring {C:attention}3{}'s",
                     "give {C:white,X:mult}X#1#{} Mult"
                 }
             }
