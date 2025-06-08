@@ -219,6 +219,27 @@ SMODS.Joker
     end
 }
 
+--bodyguard - done!
+SMODS.Joker
+{
+    key = "bodyguard",
+    rarity = 2,
+    atlas = "WillatroJokers",
+    pos = {x = 0, y = 1},
+    cost = 8,
+    eternal_compat = false,
+
+    calculate = function(self, card, context)
+        if G.jokers then
+            for i = 2, #G.jokers.cards do
+                if context.selling_card and G.jokers.cards[i-1].config.center.key == 'j_willatro_bodyguard' then
+                    G.jokers.cards[i]:set_eternal(true)
+                end
+            end
+        end
+    end
+}
+
 --jokergummy - done!
 SMODS.Joker 
 {
@@ -360,44 +381,6 @@ SMODS.Joker
         end
     end
 }
-
---bodyguard - done!
---[[ SMODS.Joker
-{
-    key = "bodyguard",
-    rarity = 3,
-    atlas = "WillatroJokers",
-    pos = {x = 0, y = 1},
-    cost = 8,
-    eternal_compat = false,
-
-    calculate = function(self, card, context)
-        if G.jokers then
-            local other_joker = {}
-            local protected_joker = {}
-            for i = 1, #G.jokers.cards do
-                protected_joker[#protected_joker+1] = nil
-                card.ability.flaggedbyeternal = false
-                if G.jokers.cards[i].config.center.key == 'j_willatro_bodyguard' then
-                    protected_joker[#protected_joker+1] = G.jokers.cards[i+1]
-                    for j = 1, #protected_joker do
-                        protected_joker[j]:set_eternal(true)
-                        card.ability.flaggedbyeternal = true
-                    end
-                end
-                for j = 1, #protected_joker do
-                    if G.jokers.cards[i] ~= protected_joker[j] or (G.jokers.cards[i]:set_eternal() == true and card.ability.flaggedbyeternal == true)then
-                        other_joker[#other_joker+1] = G.jokers.cards[i]
-                        card.ability.flaggedbyeternal = false
-                        for k = 1, #other_joker do
-                            other_joker[k]:set_eternal(nil)
-                        end
-                    end
-                end
-            end
-        end
-    end
-} ]]
 
 --mitosis - done!
 SMODS.Joker

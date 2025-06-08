@@ -118,6 +118,15 @@ return {
                 }
             },
 
+            j_willatro_bodyguard = {
+                name = "Bodyguard",
+                text = {
+                    "Gives {C:attention}Joker{} to the",
+                    "right {C:attention}Eternal{} sticker",
+                    "when this card is {C:attention}sold"
+                }
+            },
+
             j_willatro_jokergummy = {
                 name = "Joker Gummy",
                 text = {
@@ -193,15 +202,6 @@ return {
                     "Creates up to {C:attention}#1#{} random {C:planet}Planet",
                     "cards upon blind selection",
                     "{C:inactive,s:0.8}(Must have room)"
-                }
-            },
-
-            j_willatro_bodyguard = {
-                name = "Bodyguard",
-                text = {
-                    "Gives {C:attention}Joker{} to the",
-                    "right {C:attention}Eternal{} sticker",
-                    "{C:inactive,s:0.8}(Bodyguard cannot be eternal)"
                 }
             },
 
