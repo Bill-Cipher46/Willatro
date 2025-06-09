@@ -142,8 +142,8 @@ return {
                 text = {
                     "Gains {C:mult}+#1#{} Mult every round.",
                     "This card is {C:attention}destroyed",
-                    "after reaching {C:mult}+#2#{} Mult",
-                    "{C:inactive,s:0.8}(Currently {C:red,s:0.8}+#3#{C:inactive,s:0.8} Mult)"
+                    "after reaching {C:mult}+30{} Mult",
+                    "{C:inactive,s:0.8}(Currently {C:red,s:0.8}+#2#{C:inactive,s:0.8} Mult)"
                 }
             },
 
