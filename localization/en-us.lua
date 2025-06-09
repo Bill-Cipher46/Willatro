@@ -44,7 +44,7 @@ return {
                 text = {
                     "Earn {C:money}$#1#{} at the end of the",
                     "round for each owned joker",
-                    "{s:0.8,C:inactive}(Currently {C:money,s:0.8}$#2#{s:0.8,C:inactive})"
+                    "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
                 }
             },
 
@@ -106,7 +106,7 @@ return {
                     "cards with a rank of {C:attention}8{} or lower.",
                     "Gain {C:chips}+#1#{} Chips for each",
                     "destroyed card",
-                    "{C:inactive,s:0.8}(Currently {C:chips,s:0.8}+#2#{C:inactive,s:0.8} chips)"
+                    "{C:inactive}(Currently {C:chips}+#2#{C:inactive} chips)"
                 }
             },
 
@@ -126,7 +126,7 @@ return {
                     "Gives {C:attention}Joker{} to the",
                     "right {C:attention}Eternal{} sticker",
                     "when this card is {C:attention}sold",
-                    "{C:inactive,s:0.8}(Bodyguard can not be eternal)"
+                    "{s:0.8}bodyguard can not be eternal"
                 }
             },
 
@@ -135,7 +135,7 @@ return {
                 text = {
                     "Gains {C:mult}+#1#{} Mult for each",
                     "{C:attention}Joker{} bought this run",
-                    "{C:inactive,s:0.8}(Currently {s:0.8,C:mult}+#2#{C:inactive,s:0.8} Mult)"
+                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
                 }
             },
 
@@ -145,7 +145,7 @@ return {
                     "Gains {C:mult}+#1#{} Mult every round.",
                     "This card is {C:attention}destroyed",
                     "after reaching {C:mult}+30{} Mult",
-                    "{C:inactive,s:0.8}(Currently {C:red,s:0.8}+#2#{C:inactive,s:0.8} Mult)"
+                    "{C:inactive}(Currently {C:red}+#2#{C:inactive} Mult)"
                 }
             },
 
@@ -154,7 +154,7 @@ return {
                 text = {
                     "Additional {C:white,X:mult}X#1#{} Mult",
                     "for each {C:attention}ante{} above {C:attention}1",
-                    "{C:inactive,s:0.8}(Currently {s:0.8,C:white,X:mult}X#2#{C:inactive,s:0.8} Mult)"
+                    "{C:inactive}(Currently {C:white,X:mult}X#2#{C:inactive} Mult)"
                 }
             },
 
@@ -163,7 +163,7 @@ return {
                 text = {
                     "Create {C:dark_edition}negative{} copy of",
                     "used {C:attention}spectral{} cards",
-                    "{C:inactive,s:0.8}(Does not copy negative spectral cards)"
+                    "{s:0.8}does not copy negative spectral cards"
                 }
             },
 
@@ -174,7 +174,7 @@ return {
                     "with all scoring cards.",
                     "Resets if any played",
                     "cards do not score",
-                    "{C:inactive,s:0.8}(Currently {C:red,s:0.8}+#2#{C:inactive,s:0.8} Mult)"
+                    "{C:inactive,}(Currently {C:mult}+#2#{C:inactive} Mult)"
                 }
             },
             --#endregion
@@ -195,8 +195,8 @@ return {
                     "Gains {C:white,X:mult}X#2#{} Mult for each",
                     "played hand, resets if played",
                     "hand contains card of {V:1}#3#{} suit",
-                    "{s:0.8,C:inactive}(Currently {s:0.8,C:white,X:mult}X#1#{} {s:0.8,C:inactive}Mult)",
-                    "{s:0.8,C;inactive}suit changes at end of round"
+                    "{C:inactive}(Currently {C:white,X:mult}X#1#{} {C:inactive}Mult)",
+                    "{s:0.8}suit changes at end of round"
                 }
             },
 
@@ -205,7 +205,7 @@ return {
                 text = {
                     "Creates up to {C:attention}#1#{} random {C:planet}Planet",
                     "cards upon blind selection",
-                    "{C:inactive,s:0.8}(Must have room)"
+                    "{C:inactive}(Must have room)"
                 }
             },
 
