@@ -146,6 +146,83 @@ SMODS.Joker
         end
     end
 }
+
+--silver mirror
+SMODS.Joker
+{
+    key = "silvermirror",
+    rarity = 1,
+    atlas = "WillatroJokers",
+    pos = {x = 6, y = 2 },
+    cost = 4,
+    config = {
+        extra = {
+            odds = 15
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                (G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds
+            }
+        }
+    end
+}
+
+--lime
+SMODS.Joker
+{
+    key = "lime",
+    rarity = 1,
+    atlas = "WillatroJokers",
+    pos = { x = 1, y = 3 },
+    cost = 5,
+    config = {
+        extra = {
+            dollars = 3,
+            odds = 6
+        }
+    },
+
+    loc_vars  = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.dollars,
+                (G.GAME and G.GAME.probabilities.normal or 1),
+                card.ability.extra.odds
+            }
+        }
+    end
+}
+
+--lemon
+SMODS.Joker
+{
+    key = "lemon",
+    rarity = 1,
+    atlas = "WillatroJokers",
+    pos = { x = 2, y = 3 },
+    cost = 4,
+    config = {
+        extra = {
+            odds = 2,
+            dollars = 2,
+            bigodds = 1000
+        }
+    },
+
+    loc_vars  = function(self, info_queue, card)
+        return {
+            vars = {
+                (G.GAME and G.GAME.probabilities.normal or 1),
+                card.ability.extra.odds,
+                card.ability.extra.dollars,
+                card.ability.extra.bigodds
+            }
+        }
+    end
+}
 --#endregion
 
 --#region uncommon
@@ -351,6 +428,64 @@ SMODS.Joker
                 mult = card.ability.extra.mult
             }
         end
+    end
+}
+
+--clock
+SMODS.Joker
+{
+    key = "clock",
+    rarity = 2,
+    atlas = "WillatroJokers",
+    pos = { x = 1, y = 2 },
+    cost = 7,
+    config = {
+        extra = {
+            x_mult = 0.5
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.x_mult
+            }
+        }
+    end
+}
+
+--ghostly
+SMODS.Joker
+{
+    key = "ghostly",
+    rarity = 2,
+    atlas = "WillatroJokers",
+    pos = { x = 3, y = 2 },
+    cost = 6,
+}
+
+--jetfish
+SMODS.Joker
+{
+    key = "jetfish",
+    rarity = 2,
+    atlas = "WillatroJokers",
+    pos = { x = 3, y = 3 },
+    cost = 6,
+    config = {
+        extra = {
+            mult_gain = 3,
+            mult = 0
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.mult_gain,
+                card.ability.extra.mult
+            }
+        }
     end
 }
 --#endregion
@@ -568,6 +703,16 @@ SMODS.Joker
             }
         end
     end
+}
+
+--broken mirror
+SMODS.Joker 
+{
+    key = "brokenmirror",
+    rarity = 3,
+    atlas = "WillatroJokers",
+    cost = 8,
+    pos = { x = 0, y = 3 },
 }
 --#endregion
 

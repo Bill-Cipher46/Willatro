@@ -70,7 +70,7 @@ return {
                 name = "Silver Mirror",
                 text = {
                     "{C:attention}Glass{} cards are also",
-                    "{C:attention}Steel{} cards {C:green}#1# in #2#",
+                    "{C:attention}Steel{} cards. {C:green}#1# in #2#",
                     "Chance for this card to",
                     "shatter at end of round"
                 }
@@ -91,7 +91,9 @@ return {
                 text = {
                     "{C:green}#1# in #2#{} chance for all",
                     "played and scoring cards",
-                    "to give {C:money}$#3#"
+                    "to give {C:money}$#3#",
+                    "{C:green}#1# in #4#{} chance this card is",
+                    "destroyed at end of round"
                 }
             },
             --#endregion
