@@ -152,8 +152,9 @@ return {
             j_willatro_clock = {
                 name = "Clock",
                 text = {
-                    "{C:white,X:mult}X#1#{} Mult for each {C:attention}ante",
-                    "above {C:attention}1"
+                    "Additional {C:white,X:mult}X#1#{} Mult",
+                    "for each {C:attention}ante{} above {C:attention}1",
+                    "{C:inactive,s:0.8}(Currently {s:0.8,C:white,X:mult}X#2#{C:inactive,s:0.8} Mult)"
                 }
             },
 

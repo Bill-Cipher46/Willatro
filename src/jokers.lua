@@ -431,7 +431,7 @@ SMODS.Joker
     end
 }
 
---clock
+--clock - done!
 SMODS.Joker
 {
     key = "clock",
@@ -441,16 +441,29 @@ SMODS.Joker
     cost = 7,
     config = {
         extra = {
-            x_mult = 0.5
+            xmult_gain = 0.5,
+            x_mult = 1
         }
     },
 
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
+                card.ability.extra.xmult_gain,
                 card.ability.extra.x_mult
             }
         }
+    end,
+
+    calculate = function(self, card, context)
+        if not context.blueprint then
+            card.ability.extra.x_mult = 0.5 + card.ability.extra.xmult_gain * G.GAME.round_resets.ante
+        end
+        if context.joker_main then
+            return {
+                x_mult = card.ability.extra.x_mult
+            }
+        end
     end
 }
 
