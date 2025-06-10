@@ -467,7 +467,7 @@ SMODS.Joker
     end
 }
 
---ghostly
+--ghostly - done!
 SMODS.Joker
 {
     key = "ghostly",
