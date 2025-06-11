@@ -231,9 +231,9 @@ return {
             j_willatro_brokenmirror = {
                 name = "Broken Mirror",
                 text = {
-                    "{C:attention}Glass{} cards are now guaranteed",
+                    "{C:attention,T:#info_queue}Glass{} cards are now guaranteed",
                     "to break. Played and scoring",
-                    "{C:attention}Glass{} cards are retriggered twice"
+                    "{C:attention}Glass{} cards are retriggered {C:attention}#1#{} times"
                 }
             },
             --#endregion
