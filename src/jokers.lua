@@ -211,7 +211,7 @@ SMODS.Joker
         end
     end
 }
-
+--[[ 
 --lime
 SMODS.Joker
 {
@@ -264,7 +264,7 @@ SMODS.Joker
             }
         }
     end
-}
+} ]]
 --#endregion
 
 --#region uncommon
@@ -527,7 +527,7 @@ SMODS.Joker
         end
     end
 }
-
+--[[ 
 --jetfish
 SMODS.Joker
 {
@@ -551,7 +551,7 @@ SMODS.Joker
             }
         }
     end
-}
+} ]]
 --#endregion
 
 --#region rare
