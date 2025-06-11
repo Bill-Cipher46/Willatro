@@ -6,6 +6,8 @@ SMODS.Atlas
     py = 95
 }
 
+SMODS.current_mod.optional_features = { quantum_enhancements = true }
+
 --#region common
 --loss - done!
 SMODS.Joker
@@ -147,7 +149,7 @@ SMODS.Joker
     end
 }
 
---silver mirror
+--silver mirror - done!
 SMODS.Joker
 {
     key = "silvermirror",
@@ -162,11 +164,51 @@ SMODS.Joker
     },
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_glass
+        info_queue[#info_queue+1] = G.P_CENTERS.m_steel
         return {
             vars = {
-                (G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds
+                (G.GAME and G.GAME.probabilities.normal or 1), 
+                card.ability.extra.odds,
             }
         }
+    end,
+
+    calculate = function(self, card, context)
+        if context.check_enhancement then
+            if context.other_card.config.center.key == "m_glass" then
+                return {m_steel = true}
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+            if pseudorandom("silvermirror") < (G.GAME and G.GAME.probabilities.normal or 1) / card.ability.extra.odds then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        play_sound('glass1')
+                        card.T.r = -0.2
+                        card:juice_up(0.3, 0.4)
+                        card.states.drag.is = true
+                        card.children.center.pinch.x = true
+                        G.E_MANAGER:add_event(Event({
+                            trigger = 'after',
+                            delay = 0.3,
+                            blockable = false,
+                            func = function()
+                                card:remove()
+                                SMODS.add_card({ key = 'j_willatro_brokenmirror' })
+                                card:juice_up(0.3, 0.5)
+                                return true
+                            end
+                        }))
+                        return true
+                    end
+                }))
+            else
+                return {
+                    message = localize('k_safe_ex')
+                }
+            end
+        end
     end
 }
 

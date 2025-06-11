@@ -69,8 +69,8 @@ return {
             j_willatro_silvermirror = {
                 name = "Silver Mirror",
                 text = {
-                    "{C:attention}Glass{} cards are also",
-                    "{C:attention}Steel{} cards. {C:green}#1# in #2#",
+                    "{C:attention,T:info_queue[1]}Glass{} cards are also",
+                    "{C:attention,T:info_queue[2]}Steel{} cards. {C:green}#1# in #2#",
                     "Chance for this card to",
                     "shatter at end of round"
                 }
