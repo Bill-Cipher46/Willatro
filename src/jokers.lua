@@ -626,7 +626,7 @@ SMODS.Joker
     end
 }
 
---jetfish
+--jetfish - done!
 SMODS.Joker
 {
     key = "jetfish",
@@ -648,6 +648,32 @@ SMODS.Joker
                 card.ability.extra.mult
             }
         }
+    end,
+
+    calculate = function(self, card, context)
+        local unscoring = false
+        if context.before and context.main_eval and not context.blueprint then
+            if #context.full_hand ~= #context.scoring_hand then
+                unscoring = true
+            end
+
+            if unscoring then
+                local last_mult = card.ability.extra.mult
+                card.ability.extra.mult = 0
+                if last_mult > 0 then
+                    return {
+                        message = localize('k_reset')
+                    }
+                end
+            else
+                card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
+            end
+        end
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
     end
 }
 --#endregion
