@@ -223,9 +223,19 @@ return {
                 text = {
                     "Alternates between",
                     "{C:white,X:mult}X#1#{} Mult and {C:white,X:chips}X#2#{} Chips",
-                    "each played hand"
+                    "each round",
+                    "{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult)"
                 }
+            },
 
+            j_willatro_portal_alt = {
+                name = "Portal",
+                text = {
+                    "Alternates between",
+                    "{C:white,X:mult}X#1#{} Mult and {C:white,X:chips}X#2#{} Chips",
+                    "each round",
+                    "{C:inactive}(Currently {C:white,X:chips}X#2#{C:inactive} Chips)"
+                }
             },
 
             j_willatro_brokenmirror = {

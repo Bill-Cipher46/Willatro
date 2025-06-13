@@ -604,6 +604,14 @@ SMODS.Joker
                 x_mult = card.ability.extra.x_mult
             }
         end
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+            if G.GAME.blind.boss then
+                return {
+                    message = localize('k_upgrade_ex'),
+                    colour = G.C.ATTENTION
+                }
+            end
+        end
     end
 }
 
@@ -860,32 +868,43 @@ SMODS.Joker
         extra = {
             xmult = 2,
             xchips = 2,
-            hand = 0
+            round = 0
         }
     },
 
     loc_vars = function(self, info_queue, card)
-        return {
-            vars = {
-                card.ability.extra.xmult,
-                card.ability.extra.xchips
+        if card.ability.extra.round == 0 then
+            return {
+                vars = {
+                    card.ability.extra.xmult,
+                    card.ability.extra.xchips
+                },
+                key = "j_willatro_portal"
             }
-        }
+        else
+            return {
+                vars = {
+                    card.ability.extra.xmult,
+                    card.ability.extra.xchips
+                },
+                key = self.key.."_alt"
+            }
+        end
     end,
 
     calculate = function(self, card, context)
-        if context.cardarea == G.play then
-            card.ability.extra.hand = card.ability.extra.hand + 1
-            if card.ability.extra.hand > 1 then
-                card.ability.extra.hand = 0
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+            card.ability.extra.round = card.ability.extra.round + 1
+            if card.ability.extra.round > 1 then
+                card.ability.extra.round = 0
             end
         end
-        if context.joker_main and card.ability.extra.hand == 0 then
+        if context.joker_main and card.ability.extra.round == 0 then
             return {
                 x_mult = card.ability.extra.xmult
             }
         end
-        if context.joker_main and card.ability.extra.hand == 1 then
+        if context.joker_main and card.ability.extra.round == 1 then
             return {
                 x_chips = card.ability.extra.xchips
             }
@@ -1027,6 +1046,27 @@ local function reset_Willatro_jokeinthebox()
     end
     local jokeinthebox_card = pseudorandom_element(joke_suits, pseudoseed('willatro_jokeinthebox' .. G.GAME.round_resets.ante))
     G.GAME.current_round.willatro_jokeinthebox.suit = jokeinthebox_card
+end
+
+function Card:set_cost()
+    self.extra_cost = 0 + G.GAME.inflation
+    if self.edition then
+        self.extra_cost = self.extra_cost + (self.edition.holo and 3 or 0) + (self.edition.foil and 2 or 0) + 
+        (self.edition.polychrome and 5 or 0) + (self.edition.negative and 5 or 0)
+    end
+    self.cost = math.max(1, math.floor((self.base_cost + self.extra_cost + 0.5)*(100-G.GAME.discount_percent)/100))
+    if self.ability.set == 'Booster' and G.GAME.modifiers.booster_ante_scaling then self.cost = self.cost + G.GAME.round_resets.ante - 1 end
+    if self.ability.set == 'Booster' and (not G.SETTINGS.tutorial_complete) and G.SETTINGS.tutorial_progress and (not G.SETTINGS.tutorial_progress.completed_parts['shop_1']) then
+        self.cost = self.cost + 3
+    end
+    if (self.ability.set == 'Planet' or (self.ability.set == 'Booster' and self.ability.name:find('Celestial'))) and #find_joker('Astronomer') > 0 then self.cost = 0 end
+    if self.ability.rental then self.cost = 1 end
+    self.sell_cost = math.max(1, math.floor(self.cost/2)) + (self.ability.extra_value or 0)
+    if self.area and self.ability.couponed and (self.area == G.shop_jokers or self.area == G.shop_booster) then self.cost = 0 end
+    self.sell_cost_label = self.facing == 'back' and '?' or self.sell_cost
+    if self.config.center.key == 'j_willatro_troll' then
+        self.cost = 0
+    end
 end
 
 function SMODS.current_mod.reset_game_globals(run_start)
