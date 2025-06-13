@@ -313,7 +313,7 @@ SMODS.Joker
     
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and
-            pseudorandom('lemon') < G.GAME.probabilities.normal / card.ability.extra.bigodds then
+            pseudorandom('lemon') < G.GAME.probabilities.normal / card.ability.extra.odds then
             G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.dollars
             return {
                 dollars = card.ability.extra.dollars,
