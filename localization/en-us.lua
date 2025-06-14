@@ -177,6 +177,24 @@ return {
                     "{C:inactive,}(Currently {C:mult}+#2#{C:inactive} Mult)"
                 }
             },
+
+            j_willatro_empty = {
+                name = "Empty Joker",
+                text = {
+                    "Stone cards can be",
+                    "played {C:attention}always, ignoring",
+                    "{C:attention}card selection limit"
+                }
+            },
+
+            j_willatro_wisetree = {
+                name = "Wise Mystical Tree",
+                text = {
+                    "Retrigger all played and",
+                    "scoring {C:attentionT:#info_queue}Overgrown{} cards",
+                    "{C:attention}#1#{} additional time"
+                }
+            },
             --#endregion
 
             --#region rare
@@ -244,6 +262,24 @@ return {
                     "{C:attention,T:#info_queue}Glass{} cards are now guaranteed",
                     "to break. Played and scoring",
                     "{C:attention}Glass{} cards are retriggered {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_tagtree = {
+                name = "Tagtree",
+                text = {
+                    "Upon selecting a blind, create",
+                    "{C:attention}2{} Tags. Tags are created",
+                    "using the order from the collection.",
+                    "Self destructs upon creating final tag."
+                }
+            },
+
+            j_willatro_goose = {
+                name = "Untitled Goose",
+                text = {
+                    "Create a {C:dark_edition}Negative{},{C:attention} Perishable",
+                    "{C:attention}Egg{} Joker every {Cattention}4{} rounds played"
                 }
             },
             --#endregion
