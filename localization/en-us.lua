@@ -181,8 +181,8 @@ return {
             j_willatro_empty = {
                 name = "Empty Joker",
                 text = {
-                    "Stone cards can be",
-                    "played {C:attention}always, ignoring",
+                    "{C:attention,T:#info_queue}Stone{} cards can be",
+                    "played {C:attention}always{}, ignoring",
                     "{C:attention}card selection limit"
                 }
             },
@@ -191,7 +191,7 @@ return {
                 name = "Wise Mystical Tree",
                 text = {
                     "Retrigger all played and",
-                    "scoring {C:attentionT:#info_queue}Overgrown{} cards",
+                    "scoring {C:attention,T:#info_queue}Overgrown{} cards",
                     "{C:attention}#1#{} additional time"
                 }
             },
@@ -270,7 +270,7 @@ return {
                 text = {
                     "Upon selecting a blind, create",
                     "{C:attention}2{} Tags. Tags are created",
-                    "using the order from the collection.",
+                    "using the order from the {C:attention}Collection.",
                     "Self destructs upon creating final tag."
                 }
             },
@@ -279,7 +279,8 @@ return {
                 name = "Untitled Goose",
                 text = {
                     "Create a {C:dark_edition}Negative{},{C:attention} Perishable",
-                    "{C:attention}Egg{} Joker every {Cattention}4{} rounds played"
+                    "{C:attention}Egg{} Joker after every {Cattention}#1#{} rounds",
+                    "{C:inactive}(Currently {C:attention}#2#{C:inactive}/4)"
                 }
             },
             --#endregion

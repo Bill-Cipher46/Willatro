@@ -684,6 +684,44 @@ SMODS.Joker
         end
     end
 }
+
+--empty
+SMODS.Joker
+{
+    key = "empty",
+    rarity = 2,
+    atlas = "WillatroJokers",
+    pos = { x = 4, y = 3 },
+    cost = 6,
+    
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_stone
+    end
+}
+
+--wise tree
+SMODS.Joker
+{
+    key = "wisetree",
+    rarity = 2,
+    atlas = "WillatroJokers",
+    pos = { x = 6, y = 3 },
+    cost = 6,
+    config = {
+        extra = {
+            retriggers = 1
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_willatro_overgrown
+        return {
+            vars = {
+                card.ability.extra.retriggers
+            }
+        }
+    end
+}
 --#endregion
 
 --#region rare
@@ -953,6 +991,41 @@ SMODS.Joker
 
     in_pool = function(self, args)
         return false
+    end
+}
+
+--tagtree
+SMODS.Joker
+{
+    key = "tagtree",
+    rarity = 3,
+    atlas = "WillatroJokers",
+    pos = { x = 5, y = 3 },
+    cost = 8,
+}
+
+--goose
+SMODS.Joker
+{
+    key = "goose",
+    rarity = 3,
+    atlas = "WillatroJokers",
+    pos = { x = 0, y = 4 },
+    cost = 9,
+    config = {
+        extra = {
+            rounds = 4,
+            current_rounds = 0
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.rounds,
+                card.ability.extra.current_rounds
+            }
+        }
     end
 }
 --#endregion
