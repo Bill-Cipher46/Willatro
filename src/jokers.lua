@@ -685,7 +685,7 @@ SMODS.Joker
     end
 }
 
---empty
+--empty - done!
 SMODS.Joker
 {
     key = "empty",
@@ -696,7 +696,30 @@ SMODS.Joker
     
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.m_stone
-    end
+    end,
+
+    calculate = function(self, card, context)
+        if G.hand and G.jokers then
+            local stone = 0
+            for i = 1, #G.jokers.cards do
+                if context.selling_card and G.jokers.cards[1].config.center.key == 'j_willatro_empty' then
+                    for k, v in ipairs(G.hand.highlighted) do
+                        if SMODS.has_enhancement(v, "m_stone") then
+                            stone = stone + 1
+                        end
+                    end
+                end
+            end
+            SMODS.change_play_limit(-stone)
+            SMODS.change_discard_limit(-stone)
+        end
+    end,
+
+    remove_from_deck = function(self, card, from_debuff)
+        if not G.GAME.before_play_buffer then
+			G.hand:unhighlight_all()
+		end
+	end
 }
 
 --wise tree
@@ -1140,6 +1163,29 @@ function Card:set_cost()
     if self.config.center.key == 'j_willatro_troll' then
         self.cost = 0
     end
+end
+
+local oldhighlight = Card.highlight
+function Card:highlight(highlighted)
+    local g = oldhighlight(self, highlighted)
+    if SMODS.has_enhancement(self, "m_stone") then
+        if not highlighted and self.config.negative_enabled and next(SMODS.find_card("j_willatro_empty")) then
+            self.config.negative_enabled = false
+            SMODS.change_play_limit(-1)
+            SMODS.change_discard_limit(-1)
+        end
+    end
+    return g
+end
+
+local oldaddhighlighted = CardArea.add_to_highlighted
+function CardArea:add_to_highlighted(card, silent)
+    if SMODS.has_enhancement(card, "m_stone") and not card.config.negative_enabled and next(SMODS.find_card("j_willatro_empty"))  then
+        card.config.negative_enabled = true
+        SMODS.change_play_limit(1)
+        SMODS.change_discard_limit(1)
+    end
+    return oldaddhighlighted(self, card, silent)
 end
 
 function SMODS.current_mod.reset_game_globals(run_start)
