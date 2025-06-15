@@ -722,7 +722,7 @@ SMODS.Joker
 	end
 }
 
---wise tree
+--wise tree - done!
 SMODS.Joker
 {
     key = "wisetree",
@@ -743,6 +743,18 @@ SMODS.Joker
                 card.ability.extra.retriggers
             }
         }
+    end,
+
+    calculate = function(self, card, context)
+        if context.repetition and context.cardarea == G.play then
+            for k, v in ipairs(context.scoring_hand) do
+                if SMODS.has_enhancement(v, 'm_willatro_overgrown') then
+                    return {
+                        repetitions = card.ability.extra.retriggers
+                    }
+                end
+            end
+        end
     end
 }
 --#endregion
