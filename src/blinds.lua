@@ -19,6 +19,7 @@ SMODS.Blind
         max = 0
     },
     boss_colour = HEX('d09552'),
+
     calculate = function(self, card, context)
         if context.discard then
             for k, v in ipairs(G.hand.cards) do
@@ -63,17 +64,29 @@ SMODS.Blind
         max = 0
     },
     boss_colour = HEX('279378'),
-    config = { extra = { odds = 3 } },
+    config = { 
+        extra = { 
+            odds = 3 
+        } 
+    },
+
     loc_vars = function(self)
         return {
-            vars = { G.GAME.probabilities.normal, self.config.extra.odds }
+            vars = { 
+                G.GAME.probabilities.normal, 
+                self.config.extra.odds 
+            }
         }
     end,
     collection_loc_vars = function(self)
         return {
-            vars = { G.GAME.probabilities.normal, self.config.extra.odds }
+            vars = { 
+                G.GAME.probabilities.normal, 
+                self.config.extra.odds 
+            }
         }
     end,
+
     calculate = function(self, card, context)
         if pseudorandom('arrow') < G.GAME.probabilities.normal / self.config.extra.odds then
             if context.destroy_card and context.cardarea == G.play then
