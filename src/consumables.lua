@@ -13,12 +13,21 @@ SMODS.Consumable {
     atlas = 'WillatroConsumables',
     pos = { x = 0, y = 0 },
     cost = 3,
-    
-    config = { extra = { max_highlighted = 3, enh_key = 'm_willatro_overgrown' } },
+    config = { 
+        extra = { 
+            max_highlighted = 3, 
+            enh_key = 'm_willatro_overgrown' 
+        } 
+    },
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.extra.enh_key]
-        return { vars = { card.ability.extra.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.extra.enh_key } } }
+        return { 
+            vars = { 
+                card.ability.extra.max_highlighted, 
+                localize { type = 'name_text', set = 'Enhanced', key = card.ability.extra.enh_key } 
+            } 
+        }
     end,
 
     use = function(self, card, area, copier)
@@ -88,13 +97,19 @@ SMODS.Consumable
     key = "bomb",
     set = 'Spectral',
     atlas = 'WillatroConsumables',
-
     pos = { x = 1, y = 0},
-
-    config = { extra = { money = 20 } },
+    config = { 
+        extra = { 
+            money = 20 
+        } 
+    },
 
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.money } }
+        return { 
+            vars = { 
+                card.ability.extra.money 
+            } 
+        }
     end,
 
     use = function(self, card, area, copier)
