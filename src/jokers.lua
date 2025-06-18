@@ -1110,7 +1110,7 @@ SMODS.Joker
     end
 }
 
---tagtree
+--tagtree - done!
 SMODS.Joker
 {
     key = "tagtree",
@@ -1126,18 +1126,18 @@ SMODS.Joker
         }
     },
 
-    loc_vars = function(self, info_queue, center)
+    loc_vars = function(self, info_queue, card)
         local tag_generated = "???"
-        if G.GAME.treekey and G.GAME.treekey > 1 then
+        if card.ability.extra.tagnumber > 2 then
 			tag_generated = localize({
 				type = "name_text",
 				set = "Tag",
-				key = G.P_CENTER_POOLS["Tag"][0].key,
+				key = G.P_CENTER_POOLS["Tag"][card.ability.extra.tagnumber - 1].key,
 			})
-		end
+        end
 		return { 
             vars = { 
-                center.ability.extra.tags,
+                card.ability.extra.tags,
                 tag_generated
             } 
         }
