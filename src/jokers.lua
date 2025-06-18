@@ -187,7 +187,7 @@ SMODS.Joker
     end
 }
 
---silver mirror 
+--silver mirror - done!
 SMODS.Joker
 {
     key = "silvermirror",
@@ -1074,7 +1074,7 @@ SMODS.Joker
     end
 }
 
---broken mirror 
+--broken mirror - done!
 SMODS.Joker 
 {
     key = "brokenmirror",
@@ -1104,7 +1104,7 @@ SMODS.Joker
                 repetitions = card.ability.extra.repetitions
             }
         end
-        if context.scoring_hand then
+        if context.scoring_hand and context.cardarea == G.play then
             if context.destroy_card and SMODS.has_enhancement(context.destroy_card, 'm_glass') then
                 return {
                     remove = true
