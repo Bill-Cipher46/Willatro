@@ -191,8 +191,9 @@ return {
                 name = "Wise Mystical Tree",
                 text = {
                     "Retrigger all played and",
-                    "scoring {C:attention,T:#info_queue}Overgrown{} cards",
-                    "{C:attention}#1#{} additional time"
+                    "scoring cards {C:attention}#1#{} additional time",
+                    "for each scoring {C:attention,T:#info_queue}Overgrown{}",
+                    "card in played hand"
                 }
             },
             --#endregion

@@ -6,7 +6,9 @@ SMODS.Atlas
     py = 95
 }
 
-SMODS.current_mod.optional_features = { quantum_enhancements = true }
+SMODS.current_mod.optional_features = { 
+    quantum_enhancements = true 
+}
 
 --#region common
 --loss - done!
@@ -185,7 +187,7 @@ SMODS.Joker
     end
 }
 
---silver mirror - done!
+--silver mirror 
 SMODS.Joker
 {
     key = "silvermirror",
@@ -204,7 +206,7 @@ SMODS.Joker
         info_queue[#info_queue+1] = G.P_CENTERS.m_steel
         return {
             vars = {
-                (G.GAME and G.GAME.probabilities.normal or 1), 
+                (G.GAME and G.GAME.probabilities.normal or 1),
                 card.ability.extra.odds,
             }
         }
@@ -213,7 +215,9 @@ SMODS.Joker
     calculate = function(self, card, context)
         if context.check_enhancement then
             if context.other_card.config.center.key == "m_glass" then
-                return {m_steel = true}
+                return { 
+                    m_steel = true 
+                }
             end
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
@@ -492,7 +496,7 @@ SMODS.Joker
             for _, scored_card in ipairs(context.scoring_hand) do
                 if scored_card:is_face() then
                     faces = faces + 1
-                    scored_card:set_ability('m_steel', nil, true)
+                    scored_card:set_ability("m_steel", nil, true)
                     G.E_MANAGER:add_event(Event({
                         func = function()
                             scored_card:juice_up()
@@ -765,7 +769,7 @@ SMODS.Joker
         if G.hand and G.jokers then
             local stone = 0
             for i = 1, #G.jokers.cards do
-                if context.selling_card and G.jokers.cards[1].config.center.key == 'j_willatro_empty' then
+                if context.selling_card and G.jokers.cards[i].config.center.key == 'j_willatro_empty' then
                     for k, v in ipairs(G.hand.highlighted) do
                         if SMODS.has_enhancement(v, "m_stone") then
                             stone = stone + 1
@@ -795,7 +799,7 @@ SMODS.Joker
     cost = 6,
     config = {
         extra = {
-            retriggers = 1
+            repetitions = 1
         }
     },
 
@@ -803,19 +807,23 @@ SMODS.Joker
         info_queue[#info_queue+1] = G.P_CENTERS.m_willatro_overgrown
         return {
             vars = {
-                card.ability.extra.retriggers
+                card.ability.extra.repetitions
             }
         }
     end,
 
     calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.play then
+            local overgrown = 0
             for k, v in ipairs(context.scoring_hand) do
-                if SMODS.has_enhancement(v, 'm_willatro_overgrown') then
-                    return {
-                        repetitions = card.ability.extra.retriggers
-                    }
+                if SMODS.has_enhancement(v, "m_willatro_overgrown") then
+                    overgrown = overgrown + 1
                 end
+            end
+            if context.repetition and context.cardarea == G.play then
+                return {
+                    repetitions = card.ability.extra.repetitions * overgrown
+                }
             end
         end
     end
@@ -1066,7 +1074,7 @@ SMODS.Joker
     end
 }
 
---broken mirror - done!
+--broken mirror 
 SMODS.Joker 
 {
     key = "brokenmirror",
