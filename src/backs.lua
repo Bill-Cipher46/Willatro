@@ -11,9 +11,20 @@ SMODS.Back {
     key = "unseen",
     atlas = "WillatroBacks",
     pos = { x = 0, y = 0 },
-    config = { extra = { consumable_slots = -1, hand_size = -1 } },
+    config = { 
+        extra = { 
+            consumable_slots = -1, 
+            hand_size = -1 
+        } 
+    },
+
     loc_vars = function(self, info_queue, back)
-        return { vars = { self.config.extra.consumable_slots, self.config.extra.hand_size } }
+        return { 
+            vars = { 
+                self.config.extra.consumable_slots, 
+                self.config.extra.hand_size 
+            } 
+        }
     end,
 
     apply = function(self, back)
@@ -40,10 +51,18 @@ SMODS.Back {
     key = "cellular",
     atlas = "WillatroBacks",
     pos = { x = 1, y = 0 },
-    config = { extra = { discards = -1 } },
+    config = { 
+        extra = { 
+            discards = -1 
+        } 
+    },
 
     loc_vars = function(self,info_queue,back)
-        return { vars = { self.config.extra.discards } }
+        return { 
+            vars = { 
+                self.config.extra.discards 
+            } 
+        }
     end,
 
     apply = function(self, back)
