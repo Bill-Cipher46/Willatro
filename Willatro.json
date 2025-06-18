@@ -5,5 +5,8 @@
     "description": "Joker ideas and art from Willow, coded by me.",
     "prefix": "willatro",
     "main_file": "Willatro.lua",
-    "badge_colour": "F5A9B8"
+    "badge_colour": "F5A9B8",
+    "dependencies": [
+		"Steamodded (>=1.0.0~BETA-0530b)"
+	]
 }
