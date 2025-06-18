@@ -18,11 +18,20 @@ SMODS.Joker
     pos = {x = 1, y = 0},
     cost = 4,
 
-    config = { extra = { created_tag = false } },
+    config = { 
+        extra = { 
+            created_tag = false 
+        } 
+    },
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_TAGS.tag_ethereal
-        return { vars = { localize { type = "name_text", set = "Tag", key = "tag_ethereal" }, card.ability.extra.created_tag } }
+        return { 
+            vars = { 
+                localize { type = "name_text", set = "Tag", key = "tag_ethereal" }, 
+                card.ability.extra.created_tag 
+            } 
+        }
     end,
 
    calculate = function(self, card, context)
@@ -78,9 +87,20 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 4, y = 0},
     cost = 4,
-    config = { extra = { money_gain = 2, money = 0 } },
+    config = { 
+        extra = { 
+            money_gain = 2, 
+            money = 0 
+        } 
+    },
+
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.money_gain, card.ability.extra.money } }
+        return { 
+            vars = { 
+                card.ability.extra.money_gain, 
+                card.ability.extra.money_gain
+            } 
+        }
     end,
     
     calculate = function(self, card, context)
@@ -101,11 +121,27 @@ SMODS.Joker
     pos = {x = 2, y = 1 },
     cost = 4,
 
-    config = { extra = { chips = 1, mult = 1, mega_chips = 500, mega_mult = 7, odds = 70 } },
+    config = { 
+        extra = { 
+            chips = 1, 
+            mult = 1, 
+            mega_chips = 500, 
+            mega_mult = 7, 
+            odds = 70 
+        } 
+    },
 
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.mega_chips, card.ability.extra.mega_mult,
-                (G.GAME.probabilities.normal or 1), card.ability.extra.odds } }
+        return { 
+            vars = { 
+                card.ability.extra.chips, 
+                card.ability.extra.mult, 
+                card.ability.extra.mega_chips, 
+                card.ability.extra.mega_mult,
+                (G.GAME.probabilities.normal or 1), 
+                card.ability.extra.odds 
+            } 
+        }
     end,
 
     calculate = function(self, card, context)
@@ -377,10 +413,23 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 3, y = 0},
     cost = 6,
-    config = { extra = { chip_gain = 20, chips = 0, message = false, play = false} },
+    config = { 
+        extra = { 
+            chip_gain = 20, 
+            chips = 0, 
+            message = false, 
+            play = false
+        } 
+    },
 
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chip_gain, card.ability.extra.chips, card.ability.extra.addchips } }
+        return { 
+            vars = { 
+                card.ability.extra.chip_gain, 
+                card.ability.extra.chips, 
+                card.ability.extra.addchips 
+            } 
+        }
     end,
 
     calculate = function(self, card, context)
@@ -491,9 +540,20 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 1, y = 1 },
     cost = 7,
-    config = { extra = { mult_gain = 5, mult = 0 } },
+    config = { 
+        extra = { 
+            mult_gain = 5, 
+            mult = 0 
+        } 
+    },
+
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult_gain, card.ability.extra.mult } }
+        return { 
+            vars = { 
+                card.ability.extra.mult_gain, 
+                card.ability.extra.mult_gain 
+            } 
+        }
     end,
 
     calculate = function(self, card, context)
@@ -773,13 +833,16 @@ SMODS.Joker
     pos = {x = 0, y = 0},
     cost = 8,
 
-    config = { x_mult = 4},
+    config = { 
+        x_mult = 4
+    },
     
     loc_vars = function(self, info_queue, card)
         return 
         { 
-            vars = 
-            { card.ability.x_mult} 
+            vars = { 
+                card.ability.x_mult
+            } 
         }
     end,
 
@@ -803,7 +866,12 @@ SMODS.Joker
     pos = {x = 2, y = 0},
     cost = 9,
 
-    config = { extra = { x_mult = 1, Xmult_gain = 0.5} },
+    config = { 
+        extra = { 
+            x_mult = 1, 
+            Xmult_gain = 0.5
+        } 
+    },
 
     loc_vars = function(self, info_queue, card)
         local suit = (G.GAME.current_round.willatro_jokeinthebox or {}).suit or 'Spades'
@@ -852,10 +920,18 @@ SMODS.Joker
     pos = {x = 6, y = 0},
     cost = 8,
 
-    config = { extra = { planets = 2 } },
+    config = { 
+        extra = { 
+            planets = 2 
+        } 
+    },
 
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.planets } }
+        return { 
+            vars = { 
+                card.ability.extra.planets 
+            } 
+        }
     end,
 
     calculate = function(self, card, context)
@@ -887,7 +963,9 @@ SMODS.Joker
     pos = {x = 3, y = 1 },
     cost = 8,
 
-    config = { trigger = true},
+    config = { 
+        trigger = true
+    },
 
     calculate = function(self, card, context)
         if context.before and context.main_eval then
