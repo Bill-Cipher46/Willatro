@@ -203,6 +203,9 @@ SMODS.Joker
                         return true
                     end
                 }))
+                return {
+                    message = "Shattered!"
+                }
             else
                 return {
                     message = localize('k_safe_ex')
@@ -1037,9 +1040,72 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = { x = 5, y = 3 },
     cost = 8,
+
+    config = {
+        extra = {
+            tagnumber = 1,
+            tags = 2
+        }
+    },
+
+    loc_vars = function(self, info_queue, center)
+        local tag_generated = "???"
+        if G.GAME.treekey and G.GAME.treekey > 1 then
+			tag_generated = localize({
+				type = "name_text",
+				set = "Tag",
+				key = G.P_CENTER_POOLS["Tag"][0].key,
+			})
+		end
+		return { 
+            vars = { 
+                center.ability.extra.tags,
+                tag_generated
+            } 
+        }
+    end,
+
+    calculate = function(self, card, context)
+		if context.setting_blind and not context.brainstorm then
+            local tags = {}
+            for k, v in pairs(G.P_TAGS) do
+                table.insert(tags, v.key)
+            end
+            table.sort(tags, function(a, b) return G.P_TAGS[a].order < G.P_TAGS[b].order end)
+			for i = 1, card.ability.extra.tags do
+                add_tag(Tag(tags[card.ability.extra.tagnumber]))
+                card.ability.extra.tagnumber = card.ability.extra.tagnumber + 1
+                if card.ability.extra.tagnumber >= 25 then
+                    card.ability.extra.tagnumber = 1
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            play_sound('tarot1')
+                            card.T.r = -0.2
+                            card:juice_up(0.3, 0.4)
+                            card.states.drag.is = true
+                            card.children.center.pinch.x = true
+                            G.E_MANAGER:add_event(Event({
+                                trigger = 'after',
+                                delay = 0.3,
+                                blockable = false,
+                                func = function()
+                                    card:remove()
+                                    return true
+                                end
+                            }))
+                            return true
+                        end
+                    }))
+                    return {
+                        message = "Finished!"
+                    }
+                end
+			end
+		end
+	end
 }
 
---goose
+--goose - done!
 SMODS.Joker
 {
     key = "goose",
@@ -1061,6 +1127,27 @@ SMODS.Joker
                 card.ability.extra.current_rounds
             }
         }
+    end,
+
+    calculate = function(self, card, context)
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+            card.ability.extra.current_rounds = card.ability.extra.current_rounds + 1
+            if card.ability.extra.current_rounds >= card.ability.extra.rounds and not context.blueprint then
+                if #G.jokers.cards <= G.jokers.config.card_limit then
+                    SMODS.add_card( { key = "j_egg", stickers = { "perishable" }, edition = "e_negative" } )
+                    card.ability.extra.current_rounds = 0
+                    return { 
+                        message = "Egg!" 
+                    }
+                end
+            end
+            return {
+                message = (card.ability.extra.current_rounds < card.ability.extra.rounds) and
+                    (card.ability.extra.current_rounds .. '/' .. card.ability.extra.rounds) or
+                    localize('k_active_ex'),
+                colour = G.C.FILTER
+            }
+        end
     end
 }
 --#endregion

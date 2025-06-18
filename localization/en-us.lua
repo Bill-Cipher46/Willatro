@@ -269,9 +269,10 @@ return {
                 name = "Tagtree",
                 text = {
                     "Upon selecting a blind, create",
-                    "{C:attention}2{} Tags. Tags are created",
+                    "{C:attention}#1#{} Tags. Tags are created",
                     "using the order from the {C:attention}Collection.",
-                    "Self destructs upon creating final tag."
+                    "Self destructs upon creating final tag.",
+                    "{s:0.8}Last Tag Generated: {s:0.8,C:attention}#2#"
                 }
             },
 
