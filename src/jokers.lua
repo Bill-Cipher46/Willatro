@@ -220,6 +220,44 @@ SMODS.Joker
                 }
             end
         end
+
+        --debuff vampire if next to mirror
+        if G.jokers and G.jokers.cards then
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i].config.center.key == 'j_vampire' then
+                    --if not far left or right
+                    if i > 1 and 1 < #G.jokers.cards then
+                        if G.jokers.cards[i-1].config.center.key == 'j_willatro_silvermirror' or 
+                        G.jokers.cards[i+1].config.center.key == 'j_willatro_silvermirror' then
+                            SMODS.debuff_card(G.jokers.cards[i], true, "j_willatro_silvermirror")
+                        end
+                        if G.jokers.cards[i-1].config.center.key ~= 'j_willatro_silvermirror' and 
+                        G.jokers.cards[i+1].config.center.key ~= 'j_willatro_silvermirror' then
+                            SMODS.debuff_card(G.jokers.cards[i], false, "j_willatro_silvermirror")
+                        end
+                    end
+                    --if far left
+                    if i == 1 then
+                        if G.jokers.cards[i+1].config.center.key == 'j_willatro_silvermirror' then
+                            SMODS.debuff_card(G.jokers.cards[i], true, "j_willatro_silvermirror")
+                        end
+                        if G.jokers.cards[i+1].config.center.key ~= 'j_willatro_silvermirror' then
+                            SMODS.debuff_card(G.jokers.cards[i], false, "j_willatro_silvermirror")
+                        end
+                    end
+                    --if far right
+                    if i == #G.jokers.cards then
+                        if G.jokers.cards[i-1].config.center.key == 'j_willatro_silvermirror' then
+                            SMODS.debuff_card(G.jokers.cards[i], true, "j_willatro_silvermirror")
+                        end
+                        if G.jokers.cards[i-1].config.center.key ~= 'j_willatro_silvermirror' then
+                            SMODS.debuff_card(G.jokers.cards[i], false, "j_willatro_silvermirror")
+                        end
+                    end
+                end
+            end
+        end
+
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
             if pseudorandom("silvermirror") < (G.GAME and G.GAME.probabilities.normal or 1) / card.ability.extra.odds then
                 G.E_MANAGER:add_event(Event({
