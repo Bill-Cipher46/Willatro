@@ -15,9 +15,20 @@ SMODS.Voucher
     
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
-    end,
+    end
 
-    redeem = function(self, card)
+}
+
+--casino regular
+SMODS.Voucher
+{
+    key = "regular",
+    pos = { x = 1, y = 0 },
+    atlas = "WillatroVouchers",
+    
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
+        info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
     end
 
 }
