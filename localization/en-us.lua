@@ -366,8 +366,8 @@ return {
             v_willatro_addict = {
                 name = "Gambling Addict",
                 text = {
-                    "{C:attention}Wheel of Fortune{} can",
-                    "now give {C:dark_edition,T:#info_queue}negative",
+                    "{C:attention,T:info_queue[2]}Wheel of Fortune{} can",
+                    "now give {C:dark_edition,T:info_queue[1]}negative",
                     "edition"
                 }
             },
