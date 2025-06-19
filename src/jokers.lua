@@ -100,7 +100,7 @@ SMODS.Joker
         return { 
             vars = { 
                 card.ability.extra.money_gain, 
-                card.ability.extra.money_gain
+                card.ability.extra.money
             } 
         }
     end,
