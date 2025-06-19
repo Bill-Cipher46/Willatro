@@ -370,6 +370,15 @@ return {
                     "now give {C:dark_edition,T:#info_queue}negative",
                     "edition"
                 }
+            },
+
+            v_willatro_regular = {
+                name = "Casino Regular",
+                text = {
+                    "When a boss blind is",
+                    "defeated, gain {C:attention}2{C:dark_edition,T:info_queue[1]} negative",
+                    "{C:attention,T:info_queue[2]}Wheel of Fortunes"
+                }
             }
         }
 
