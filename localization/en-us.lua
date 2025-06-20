@@ -305,7 +305,52 @@ return {
                     "{C:attention}#2#{} times. Played and scoring {C:attention}3{}'s",
                     "give {C:white,X:mult}X#1#{} Mult"
                 }
-            }
+            },
+            --#endregion
+
+            --#region organs
+            j_willatro_heart = {
+                name = "Heart",
+                text = {
+
+                }
+            },
+            
+            j_willatro_brain = {
+                name = "Brain",
+                text = {
+
+                }
+            },
+            
+            j_willatro_eye = {
+                name = "Eye",
+                text = {
+
+                }
+            },
+            
+            j_willatro_liver = {
+                name = "Liver",
+                text = {
+
+                }
+            },
+            
+            j_willatro_lung = {
+                name = "Lungs",
+                text = {
+
+                }
+            },
+            
+            j_willatro_stomach = {
+                name = "Stomach",
+                text = {
+
+                }
+            },
+
             --#endregion
         },
 
