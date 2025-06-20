@@ -5,7 +5,7 @@ SMODS.Atlas {
     py = 95
 }
 
-SMODS.rarity {
+SMODS.Rarity {
     key = "organ",
     loc_txt = {},
     badge_colour = HEX("6f222c")
@@ -20,6 +20,7 @@ SMODS.Joker {
     pos = { x = 0, y = 0 },
     soul_pos = { x = 1, y = 0 },
     cost = 6,
+
 }
 
 SMODS.Joker {
@@ -37,6 +38,23 @@ SMODS.Joker {
     atlas = "WillatroOrgans",
     pos = { x = 4, y = 0 },
     cost = 6,
+    config = {
+        extra = {
+            mult = 2
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        local suit = (G.GAME.current_round.willatro_jokeinthebox or {}).suit or 'Spades'
+        return
+        {
+            vars = {
+                card.ability.extra.mult,
+                localize(suit, 'suits_singular'), 
+                colours = { G.C.SUITS[suit] }
+            }
+        }
+    end,
 }
 
 SMODS.Joker {

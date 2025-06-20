@@ -312,42 +312,56 @@ return {
             j_willatro_heart = {
                 name = "Heart",
                 text = {
-
+                    "All cards with {C:hearts}Heart{} suit",
+                    "held in hand have a {C:green}#1# in #2#{}",
+                    "chance to give {C:white,X:mult}X#3#{} Mult"
                 }
             },
             
             j_willatro_brain = {
                 name = "Brain",
                 text = {
-
+                    "Retrigger all {C:attention}Jokers #1#{} time on",
+                    "{C:attention}first{} and {C:attention}last{} hand of round.",
+                    "Retriggers {C:attention}2{} times instead",
+                    "if no {C:red}discards{} remaining"
                 }
             },
             
             j_willatro_eye = {
                 name = "Eye",
                 text = {
-
+                    "Gains {C:mult}+#1#{} Mult for every",
+                    "card of {V:1}#2#{} suit played",
+                    "{s:0.8}suit changes every played hand"
                 }
             },
             
             j_willatro_liver = {
                 name = "Liver",
                 text = {
-
+                    "{C:green}#1# in #2#{} chance to gain a",
+                    "{C:red}discard{} when {C:red}discard{} is used"
                 }
             },
             
-            j_willatro_lung = {
+            j_willatro_lungs = {
                 name = "Lungs",
                 text = {
-
+                    "Gains {C:chips}+#1#{} chips if played hand",
+                    "contains a {C:attention}pair{}. Resets after {C:attention}5{} rounds.",
+                    "Countdown is reset if played hand",
+                    "does not contain a {C:attention}pair",
+                    "{C:inactive}(Currently {C:attention}#2#{C:inactive} rounds remain)"
                 }
             },
             
             j_willatro_stomach = {
                 name = "Stomach",
                 text = {
-
+                    "Destroy a random scored",
+                    "card, gain {C:white,X:mult}X#1#{} Mult",
+                    "{C:inactive}(Currently {C:white,X:red}X#2#{C:inactive} Mult)"
                 }
             },
 
@@ -432,6 +446,10 @@ return {
     misc = {
         challenge_names = {
             c_willatro_split = "Split and Split Some More"
+        },
+
+        dictionary = {
+            k_willatro_organ = "Organ"
         }
     }
 }
