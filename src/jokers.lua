@@ -1357,7 +1357,7 @@ function SMODS.calculate_context(context, return_table)
     return SMODS_calculate_context_ref(context, return_table)
 end
 
-local function reset_Willatro_jokeinthebox()
+local function reset_willatro_jokeinthebox()
     G.GAME.current_round.willatro_jokeinthebox = G.GAME.current_round.willatro_jokeinthebox or { suit = 'Spades' }
     local joke_suits = {}
     for k, v in ipairs({ 'Spades', 'Hearts', 'Clubs', 'Diamonds' }) do
@@ -1367,25 +1367,12 @@ local function reset_Willatro_jokeinthebox()
     G.GAME.current_round.willatro_jokeinthebox.suit = jokeinthebox_card
 end
 
+local oldsetcost = Card.set_cost
 function Card:set_cost()
-    self.extra_cost = 0 + G.GAME.inflation
-    if self.edition then
-        self.extra_cost = self.extra_cost + (self.edition.holo and 3 or 0) + (self.edition.foil and 2 or 0) + 
-        (self.edition.polychrome and 5 or 0) + (self.edition.negative and 5 or 0)
-    end
-    self.cost = math.max(1, math.floor((self.base_cost + self.extra_cost + 0.5)*(100-G.GAME.discount_percent)/100))
-    if self.ability.set == 'Booster' and G.GAME.modifiers.booster_ante_scaling then self.cost = self.cost + G.GAME.round_resets.ante - 1 end
-    if self.ability.set == 'Booster' and (not G.SETTINGS.tutorial_complete) and G.SETTINGS.tutorial_progress and (not G.SETTINGS.tutorial_progress.completed_parts['shop_1']) then
-        self.cost = self.cost + 3
-    end
-    if (self.ability.set == 'Planet' or (self.ability.set == 'Booster' and self.ability.name:find('Celestial'))) and #find_joker('Astronomer') > 0 then self.cost = 0 end
-    if self.ability.rental then self.cost = 1 end
-    self.sell_cost = math.max(1, math.floor(self.cost/2)) + (self.ability.extra_value or 0)
-    if self.area and self.ability.couponed and (self.area == G.shop_jokers or self.area == G.shop_booster) then self.cost = 0 end
-    self.sell_cost_label = self.facing == 'back' and '?' or self.sell_cost
     if self.config.center.key == 'j_willatro_troll' then
         self.cost = 0
     end
+    return oldsetcost()
 end
 
 local oldhighlight = Card.highlight
@@ -1412,5 +1399,5 @@ function CardArea:add_to_highlighted(card, silent)
 end
 
 function SMODS.current_mod.reset_game_globals(run_start)
-    reset_Willatro_jokeinthebox()
+    reset_willatro_jokeinthebox()
 end
