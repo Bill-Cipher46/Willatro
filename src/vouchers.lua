@@ -26,6 +26,7 @@ SMODS.Voucher
     key = "regular",
     pos = { x = 1, y = 0 },
     atlas = "WillatroVouchers",
+    requires = { 'v_willatro_addict' },
     config = {
         extra = {
             wheels = 2
