@@ -331,9 +331,10 @@ return {
             j_willatro_eye = {
                 name = "Eye",
                 text = {
-                    "Gains {C:mult}+#1#{} Mult for every",
-                    "card of {V:1}#2#{} suit played",
-                    "{s:0.8}suit changes every played hand"
+                    "Gains {C:mult}+#1#{} Mult for every scoring",
+                    "card of {V:1}#3#{} suit played",
+                    "{s:0.8}suit changes every played hand",
+                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
                 }
             },
             
