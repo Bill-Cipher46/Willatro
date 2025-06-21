@@ -1372,7 +1372,7 @@ function Card:set_cost()
     if self.config.center.key == 'j_willatro_troll' then
         self.cost = 0
     end
-    return oldsetcost()
+    return oldsetcost(self)
 end
 
 local oldhighlight = Card.highlight
