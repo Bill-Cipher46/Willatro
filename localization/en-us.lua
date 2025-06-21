@@ -350,10 +350,10 @@ return {
                 name = "Lungs",
                 text = {
                     "Gains {C:chips}+#1#{} chips if played hand",
-                    "contains a {C:attention}pair{}. Resets after {C:attention}5{} rounds.",
+                    "contains a {C:attention}pair{}. Resets after {C:attention}#2#{} rounds.",
                     "Countdown is reset if played hand",
                     "does not contain a {C:attention}pair",
-                    "{C:inactive}(Currently {C:attention}#2#{C:inactive} rounds remain)"
+                    "{C:inactive}(Currently {C:attention}#3#{C:inactive} rounds remain and {C:chips}+#4#{} Chips)"
                 }
             },
             
