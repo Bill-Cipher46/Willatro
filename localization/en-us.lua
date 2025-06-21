@@ -324,7 +324,7 @@ return {
                     "Retrigger all {C:attention}Jokers #1#{} time on",
                     "{C:attention}first{} and {C:attention}last{} hand of round.",
                     "Retriggers {C:attention}#2#{} times instead",
-                    "if no {C:red}Discards{} remaining"
+                    "when {C:attention}0{} discards remaining"
                 }
             },
             
