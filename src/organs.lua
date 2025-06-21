@@ -46,7 +46,7 @@ SMODS.Joker {
                     message = localize('k_debuffed'),
                     colour = G.C.RED
                 }
-            elseif pseudorandom('heart') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            elseif pseudorandom('heart') < (G.GAME.probabilities.normal or 1) / card.ability.extra.odds then
                 return {
                     x_mult = card.ability.extra.x_mult
                 }
@@ -172,13 +172,37 @@ SMODS.Joker {
     end
 }
 
---liver
+--liver - done!
 SMODS.Joker {
     key = "liver",
     rarity = "willatro_organ",
     atlas = "WillatroOrgans",
     pos = { x = 5, y = 0 },
     cost = 6,
+    config = {
+        extra = {
+            odds = 6
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                (G.GAME.probabilities.normal or 1),
+                card.ability.extra.odds
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.pre_discard then
+            if pseudorandom('liver') < (G.GAME.probabilities.normal or 1) / card.ability.extra.odds then
+                return {
+                    ease_discard(1)
+                }
+            end
+        end
+    end
 }
 
 --lungs
