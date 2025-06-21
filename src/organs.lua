@@ -56,7 +56,7 @@ SMODS.Joker {
 
 }
 
---brain
+--brain - done!
 SMODS.Joker {
     key = "brain",
     rarity = "willatro_organ",
@@ -64,6 +64,44 @@ SMODS.Joker {
     pos = { x = 2, y = 0 },
     soul_pos = { x = 3, y = 0 },
     cost = 6,
+    config = {
+        extra = {
+            repetitions = 1,
+            big_repetitions = 2,
+            d_remaining = 0
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.repetitions,
+                card.ability.extra.big_repetitions,
+                card.ability.extra.d_remaining
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.first_hand_drawn and not context.blueprint then
+            local eval = function() 
+                return {
+                    G.GAME.current_round.hands_played == 0
+                }
+            end
+        end
+        if context.retrigger_joker_check  then
+            if G.GAME.current_round.discards_left == card.ability.extra.d_remaining then
+                return {
+                    repetitions = card.ability.extra.big_repetitions
+                }
+            elseif G.GAME.current_round.hands_played == 0 or G.GAME.current_round.hands_left == 0 then
+                return {
+                    repetitions = card.ability.extra.repetitions
+                }
+            end
+        end
+    end
 }
 
 --eye - done!
