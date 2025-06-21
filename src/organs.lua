@@ -14,7 +14,7 @@ SMODS.Rarity {
 
 --#region organs
 
---heart
+--heart - done!
 SMODS.Joker {
     key = "heart",
     rarity = "willatro_organ",
@@ -22,6 +22,37 @@ SMODS.Joker {
     pos = { x = 0, y = 0 },
     soul_pos = { x = 1, y = 0 },
     cost = 6,
+    config = {
+        extra = {
+            odds = 2,
+            x_mult = 2
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                (G.GAME.probabilities.normal or 1),
+                card.ability.extra.odds,
+                card.ability.extra.x_mult
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round and context.other_card:is_suit('Hearts') then
+            if context.other_card.debuff then
+                return {
+                    message = localize('k_debuffed'),
+                    colour = G.C.RED
+                }
+            elseif pseudorandom('heart') < G.GAME.probabilities.normal / card.ability.extra.odds then
+                return {
+                    x_mult = card.ability.extra.x_mult
+                }
+            end
+        end
+    end
 
 }
 
