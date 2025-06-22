@@ -458,15 +458,7 @@ return {
         },
 
         dictionary = {
-            k_willatro_organ = "Organ",
-            k_willatro_organ_pack = {
-                name = "Organ Pack",
-                group_name = "Organ Pack",
-                text = {
-                    "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2# {V:1}Organ{} Jokers"
-                }
-            }
+            k_willatro_organ = "Organ"
         }
     }
 }
