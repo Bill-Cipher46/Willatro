@@ -101,7 +101,7 @@ return {
                 name = "Cadaver",
                 text = {
                     "When sold, create a",
-                    "random {V:1}#2# {C:attention}Joker"
+                    "random {V:1}Organ {C:attention}Joker"
                 }
             },
             --#endregion
