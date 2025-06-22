@@ -22,6 +22,7 @@ SMODS.Joker {
     pos = { x = 0, y = 0 },
     soul_pos = { x = 1, y = 0 },
     cost = 6,
+    pools = { ["Organ"] = true },
     config = {
         extra = {
             odds = 2,
@@ -64,6 +65,7 @@ SMODS.Joker {
     pos = { x = 2, y = 0 },
     soul_pos = { x = 3, y = 0 },
     cost = 6,
+    pools = { ["Organ"] = true },
     config = {
         extra = {
             repetitions = 1,
@@ -111,8 +113,11 @@ SMODS.Joker {
     atlas = "WillatroOrgans",
     pos = { x = 4, y = 0 },
     cost = 6,
+    pools = { ["Organ"] = true },
     config = {
-        chosen_card = nil,
+        chosen_card = {
+            suit = 'Spades'
+        },
         extra = {
             mult_gain = 2,
             mult = 0
@@ -120,7 +125,7 @@ SMODS.Joker {
     },
 
     loc_vars = function(self, info_queue, card)
-        local suit = (card.chosen_card or {}).suit or 'Spades'
+        local suit = (card.ability.chosen_card or {}).suit or 'Spades'
         return
         {
             vars = {
@@ -135,7 +140,6 @@ SMODS.Joker {
     calculate = function(self, card, context)
         local message = false
         if context.after and context.main_eval then
-            card.chosen_card = { suit = 'Spades' }
             local valid_eye_cards = {}
             for _, playing_card in ipairs(G.playing_cards) do
                 if not SMODS.has_no_suit(playing_card) then
@@ -144,13 +148,13 @@ SMODS.Joker {
             end
             local eye_card = pseudorandom_element(valid_eye_cards, 'willatro_eye' .. G.GAME.round_resets.ante)
             if eye_card then
-                card.chosen_card.suit = eye_card.base.suit
+                card.ability.chosen_card.suit = eye_card.base.suit
             end
         end
 
-        if context.before and context.main_eval and not context.blueprint and card.chosen_card then
+        if context.before and context.main_eval and not context.blueprint and card.ability.chosen_card then
             for k, v in ipairs(context.scoring_hand) do
-                if v:is_suit(card.chosen_card.suit) then
+                if v:is_suit(card.ability.chosen_card.suit) then
                     card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
                     message = true
                 end
@@ -179,6 +183,7 @@ SMODS.Joker {
     atlas = "WillatroOrgans",
     pos = { x = 5, y = 0 },
     cost = 6,
+    pools = { ["Organ"] = true },
     config = {
         extra = {
             odds = 6
@@ -212,6 +217,7 @@ SMODS.Joker {
     atlas = "WillatroOrgans",
     pos = { x = 6, y = 0 },
     cost = 6,
+    pools = { ["Organ"] = true },
     config = { 
         extra = { 
             chip_gain = 20, 
@@ -291,6 +297,7 @@ SMODS.Joker {
     atlas = "WillatroOrgans",
     pos = { x = 7, y = 0 },
     cost = 6,
+    pools = { ["Organ"] = true },
     config = {
         extra = {
             xmult_gain = 0.2,
@@ -339,3 +346,48 @@ SMODS.Joker {
 }
 
 --#endregion
+
+SMODS.Booster
+{
+    key = "organ_pack",
+    loc_txt = {
+        name = "Organ Pack",
+        group_name = "Organ Pack",
+        text = {
+            "Choose {C:attention}#1#{} of up to",
+            "{C:attention}#2# {V:1}Organ{} Jokers"
+        }
+            
+    },
+    atlas = "WillatroOrgans",
+    cost = 4,
+    weight = 0.9,
+    pos = {x = 8, y = 0},
+    kind = "Organ",
+    draw_hand = false,
+    config = {
+        extra = 3,
+        choose = 1
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                colours = { 
+                    G.C.RARITY["willatro_organ"] 
+                },
+                card.ability.choose,
+                card.ability.extra
+            }
+        }
+    end,
+
+    create_card = function(self, card, i)
+        return { set = "Joker", rarity = "willatro_organ" }
+    end,
+
+    ease_background_colour = function(self)
+        ease_colour(G.C.DYN_UI.MAIN, G.C.RARITY["willatro_organ"])
+        ease_background_colour({ new_colour = HEX('59778c'), special_colour = G.C.RARITY["willatro_organ"], contrast = 2 })
+    end
+}
