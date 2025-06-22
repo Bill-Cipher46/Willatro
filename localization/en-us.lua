@@ -341,8 +341,8 @@ return {
                 text = {
                     "Gains {C:mult}+#1#{} Mult for every scoring",
                     "card of {V:1}#3#{} suit played",
-                    "{s:0.8}suit changes every played hand",
-                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
+                    "{s:0.8}suit changes every played hand"
                 }
             },
             
