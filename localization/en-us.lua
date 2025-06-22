@@ -351,8 +351,8 @@ return {
                 text = {
                     "Gains {C:chips}+#1#{} chips if played hand",
                     "contains a {C:attention}Pair{}. Resets after {C:attention}#2#{} rounds.",
-                    "Countdown is reset if played hand",
-                    "does not contain a {C:attention}Pair",
+                    "Countdown is reset at end of round if",
+                    "no {C:attention}Pairs{} were played this round",
                     "{C:inactive}(Currently {C:attention}#3#{C:inactive} rounds remain and {C:chips}+#4#{C:inactive} Chips)"
                 }
             },
