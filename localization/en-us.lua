@@ -96,6 +96,14 @@ return {
                     "destroyed at end of round"
                 }
             },
+
+            j_willatro_cadaver = {
+                name = "Cadaver",
+                text = {
+                    "When sold, create a",
+                    "random {V:1}#2# {C:attention}Joker"
+                }
+            },
             --#endregion
 
             --#region uncommon
