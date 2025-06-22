@@ -13,14 +13,6 @@ function SMODS.calculate_context(context, return_table)
     return SMODS_calculate_context_ref(context, return_table)
 end
 
-local SMODS_calculate_context_ref = SMODS.calculate_context
-function SMODS.calculate_context(context, return_table)
-    if context.before and context.main_eval then
-        G.GAME.willatro_played_hands[#G.GAME.willatro_played_hands + 1] = G.GAME.hands[context.scoring_name].played
-    end
-    return SMODS_calculate_context_ref(context, return_table)
-end
-
 local function reset_willatro_jokeinthebox()
     G.GAME.current_round.willatro_jokeinthebox = G.GAME.current_round.willatro_jokeinthebox or { suit = 'Spades' }
     local joke_suits = {}
