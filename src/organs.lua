@@ -20,9 +20,8 @@ SMODS.Joker {
     rarity = "willatro_organ",
     atlas = "WillatroOrgans",
     pos = { x = 0, y = 0 },
-    soul_pos = { x = 1, y = 0 },
+    spul_pos = { x = 1, y = 0 },
     cost = 6,
-    pools = { ["Organ"] = true },
     config = {
         extra = {
             odds = 2,
@@ -53,6 +52,22 @@ SMODS.Joker {
                 }
             end
         end
+    end,
+
+    draw = function(self, card, layer)
+        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
+            local scale_mod = 0.05 + 0.05 * math.sin(1.8 * G.TIMERS.REAL) +
+                0.07 * math.sin((G.TIMERS.REAL - math.floor(G.TIMERS.REAL)) * math.pi * 14) *
+                (1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL))) ^ 3
+            local rotate_mod = 0.1 * math.sin(1.219 * G.TIMERS.REAL) +
+                0.07 * math.sin((G.TIMERS.REAL) * math.pi * 5) * (1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL))) ^ 2
+
+            local image = Sprite(0, 0, 71, 95, G.ASSET_ATLAS["willatro_WillatroOrgans"], {x = 1, y = 0})
+            image.role.draw_major = card
+            image:draw_shader('dissolve', 0, nil, nil, card.children.center, scale_mod, rotate_mod, nil,
+                0.1 + 0.03 * math.sin(1.8 * G.TIMERS.REAL), nil, 0.6)
+            image:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod)
+        end
     end
 
 }
@@ -65,7 +80,6 @@ SMODS.Joker {
     pos = { x = 2, y = 0 },
     soul_pos = { x = 3, y = 0 },
     cost = 6,
-    pools = { ["Organ"] = true },
     config = {
         extra = {
             repetitions = 1,
@@ -113,7 +127,6 @@ SMODS.Joker {
     atlas = "WillatroOrgans",
     pos = { x = 4, y = 0 },
     cost = 6,
-    pools = { ["Organ"] = true },
     config = {
         chosen_card = {
             suit = 'Spades'
@@ -183,7 +196,6 @@ SMODS.Joker {
     atlas = "WillatroOrgans",
     pos = { x = 5, y = 0 },
     cost = 6,
-    pools = { ["Organ"] = true },
     config = {
         extra = {
             odds = 6
@@ -217,7 +229,6 @@ SMODS.Joker {
     atlas = "WillatroOrgans",
     pos = { x = 6, y = 0 },
     cost = 6,
-    pools = { ["Organ"] = true },
     config = { 
         extra = { 
             chip_gain = 20, 
@@ -297,7 +308,6 @@ SMODS.Joker {
     atlas = "WillatroOrgans",
     pos = { x = 7, y = 0 },
     cost = 6,
-    pools = { ["Organ"] = true },
     config = {
         extra = {
             xmult_gain = 0.2,
