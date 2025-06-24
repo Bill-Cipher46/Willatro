@@ -293,6 +293,15 @@ return {
                     "{C:inactive}(Currently {C:attention}#2#{C:inactive}/4)"
                 }
             },
+
+            j_willatro_pear = {
+                name = "Kasane Pearto",
+                text = {
+                    "If played hand is a {C:attention}Pair",
+                    "or {C:attention}Two Pair{}, upgrade",
+                    "both hands by {C:attention}#1#{} level"
+                }
+            },
             --#endregion
 
             --#region legendary
@@ -312,6 +321,17 @@ return {
                     "{C:attention}number cards{} are retriggered",
                     "{C:attention}#2#{} times. Played and scoring {C:attention}3{}'s",
                     "give {C:white,X:mult}X#1#{} Mult"
+                }
+            },
+
+            j_willatro_willow = {
+                name = "Willow",
+                text = {
+                    "All played and scoring cards without",
+                    "an enhancement become {C:attention,T:info_queue[1]}Overgrown{} cards.",
+                    "{C:attention}Overgrown{} cards have a {C:green}#1# in #2#{}",
+                    "chance to give {C:money}$#3#{} when scored",
+                    "{s:0.8}character depicted is Megumin"
                 }
             },
             --#endregion

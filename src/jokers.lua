@@ -1307,6 +1307,29 @@ SMODS.Joker
         end
     end
 }
+
+--pear
+SMODS.Joker
+{
+    key = "pear",
+    rarity = 3,
+    atlas = "WillatroJokers",
+    pos = { x = 2, y = 4 },
+    cost = 8,
+    config = {
+        extra = {
+            levels = 1
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.levels
+            }
+        }
+    end
+}
 --#endregion
 
 --#region legendary
@@ -1371,6 +1394,34 @@ SMODS.Joker
                 end
             end
         end
+    end
+}
+
+--willow 
+SMODS.Joker
+{
+    key = "willow",
+    rarity = 4,
+    atlas = "WillatroJokers",
+    pos = {x = 3, y = 4 },
+    soul_pos = { x = 4, y = 4 },
+    cost = 20,
+    config = {
+        extra = {
+            odds = 6,
+            dollars = 5
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_willatro_overgrown
+        return {
+            vars = {
+                G.GAME.probabilities.normal,
+                card.ability.extra.odds,
+                card.ability.extra.dollars
+            }
+        }
     end
 }
 --#endregion
