@@ -355,6 +355,33 @@ SMODS.Joker {
     end
 }
 
+--kidney
+SMODS.Joker{
+    key = "kidney",
+    rarity = "willatro_organ",
+    atlas = "WillatroOrgans",
+    pos = { x = 3, y = 1 },
+    cost = 6,
+}
+
+--kidney
+SMODS.Joker{
+    key = "intestine_small",
+    rarity = "willatro_organ",
+    atlas = "WillatroOrgans",
+    pos = { x = 4, y = 1 },
+    cost = 6,
+}
+
+--kidney
+SMODS.Joker{
+    key = "intestine_large",
+    rarity = "willatro_organ",
+    atlas = "WillatroOrgans",
+    pos = { x = 5, y = 1 },
+    cost = 6,
+}
+
 --#endregion
 
 SMODS.Booster
