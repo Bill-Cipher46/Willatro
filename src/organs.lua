@@ -227,7 +227,7 @@ SMODS.Joker {
     key = "lungs",
     rarity = "willatro_organ",
     atlas = "WillatroOrgans",
-    pos = { x = 6, y = 0 },
+    pos = { x = 0, y = 1 },
     cost = 6,
     config = { 
         extra = { 
@@ -306,7 +306,7 @@ SMODS.Joker {
     key = "stomach",
     rarity = "willatro_organ",
     atlas = "WillatroOrgans",
-    pos = { x = 7, y = 0 },
+    pos = { x = 1, y = 1 },
     cost = 6,
     config = {
         extra = {
