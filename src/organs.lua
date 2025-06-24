@@ -362,24 +362,71 @@ SMODS.Joker{
     atlas = "WillatroOrgans",
     pos = { x = 3, y = 1 },
     cost = 6,
+    config = {
+        extra = {
+            odds = 10,
+            mult = 15
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_stone
+        return {
+            vars = {
+                G.GAME.probabilities.normal,
+                card.ability.extra.odds,
+                card.ability.extra.mult
+            }
+        }
+    end
 }
 
---kidney
+--small intestine
 SMODS.Joker{
     key = "intestine_small",
     rarity = "willatro_organ",
     atlas = "WillatroOrgans",
     pos = { x = 4, y = 1 },
     cost = 6,
+    config = {
+        extra = {
+            xmult_gain = 0.1,
+            x_mult = 1
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.xmult_gain,
+                card.ability.extra.x_mult
+            }
+        }
+    end
 }
 
---kidney
+--large intestine
 SMODS.Joker{
     key = "intestine_large",
     rarity = "willatro_organ",
     atlas = "WillatroOrgans",
     pos = { x = 5, y = 1 },
     cost = 6,
+    config = {
+        extra = {
+            xmult_gain = 0.2,
+            x_mult = 1
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.xmult_gain,
+                card.ability.extra.x_mult
+            }
+        }
+    end
 }
 
 --#endregion
@@ -399,7 +446,7 @@ SMODS.Booster
     atlas = "WillatroOrgans",
     cost = 4,
     weight = 0.9,
-    pos = {x = 8, y = 0},
+    pos = { x = 2, y = 1 },
     kind = "Organ",
     draw_hand = false,
     config = {
@@ -425,6 +472,6 @@ SMODS.Booster
 
     ease_background_colour = function(self)
         ease_colour(G.C.DYN_UI.MAIN, G.C.RARITY["willatro_organ"])
-        ease_background_colour({ new_colour = HEX('59778c'), special_colour = G.C.RARITY["willatro_organ"], contrast = 2 })
+        ease_background_colour({ new_colour = HEX('be4152'), special_colour = G.C.RARITY["willatro_organ"], contrast = 2 })
     end
 }
