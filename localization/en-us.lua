@@ -394,6 +394,35 @@ return {
                 }
             },
 
+            j_willatro_kidney = {
+                name = "Kidney",
+                text = {
+                    "{C:green}#1# in #2#{} chance to create a",
+                    "{C:attention,T:#info_queue}Stone{} card when blind is",
+                    "selected. Played and scoring ",
+                    "{C:attention,T:#info_queue}Stone{} cards give {C:mult}+#3#{} Mult"
+                }
+            },
+
+            j_willatro_intestine_small = {
+                name = "Small Intestine",
+                text = {
+                    "Gains {C:white,X:mult}X#1#{} Mult for every",
+                    "played and scoring card, resets",
+                    "after {C:attention}Boss Blind{} is defeated",
+                    "{C:inactive}(Currently {C:white,X:mult}X#2#{C:inactive} Mult)"
+                }
+            },
+
+            j_willatro_intestine_large = {
+                name = "Large Intestine",
+                text = {
+                    "Gains {C:white,X:mult}X#1#{} Mult for every",
+                    "played and unscoring card, resets",
+                    "after {C:attention}Boss Blind{} is defeated",
+                    "{C:inactive}(Currently {C:white,X:mult}X#2#{C:inactive} Mult)"
+                }
+            }
             --#endregion
         },
 
