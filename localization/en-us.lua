@@ -204,6 +204,34 @@ return {
                     "card in played hand"
                 }
             },
+            
+            j_willatro_application = {
+                name = "Job Application",
+                text = {
+                    "Gives {C:money}$#1#{} at end of round. {C:green}#2# in #3#{}",
+                    "chance to increase payout by {C:money}$#4#{} at end",
+                    "of round. {C:green}#2# in #5#{} chance to get",
+                    "{C:attention}Fired{} at end of round"
+                }
+            },
+
+            j_willatro_testosterone = {
+                name = "Testosterone",
+                text = {
+                    "All played and scoring {C:attention}Queens{} or {C:attention}Jacks",
+                    "are converted into {C:attention}Kings{}. Played",
+                    "and scoring {C:attention}Kings{} give {C:white,X:mult}X#1#{} Mult"
+                }
+            },
+
+            j_willatro_estrogen = {
+                name = "Estrogen",
+                text = {
+                    "All played and scoring {C:attention}Kings{} or {C:attention}Jacks",
+                    "are converted into {C:attention}Queens{}. Played",
+                    "and scoring {C:attention}Queens{} give {C:white,X:mult}X#1#{} Mult"
+                }
+            },
             --#endregion
 
             --#region rare
@@ -300,6 +328,15 @@ return {
                     "If played hand is a {C:attention}Pair",
                     "or {C:attention}Two Pair{}, upgrade",
                     "both hands by {C:attention}#1#{} level"
+                }
+            },
+            
+            j_willatro_rage = {
+                name = "Gamer Rage",
+                text = {
+                    "{C:attention}Sell{} this card to create a",
+                    "{C:dark_edition,T:#info_queue}Negative {C:attention}Legendary{} Joker,",
+                    "set money to {C:money}$#1#"
                 }
             },
             --#endregion
