@@ -355,7 +355,7 @@ SMODS.Joker {
     end
 }
 
---kidney
+--kidney - done!
 SMODS.Joker{
     key = "kidney",
     rarity = "willatro_organ",
@@ -378,6 +378,39 @@ SMODS.Joker{
                 card.ability.extra.mult
             }
         }
+    end,
+
+    calculate = function(self, card, context)
+        if context.setting_blind and pseudorandom('kidney') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            local stone_card = SMODS.create_card { set = "Base", enhancement = "m_stone", area = G.discard }
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    stone_card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
+                    G.play:emplace(stone_card)
+                    return true
+                end
+            }))
+            return {
+                message = localize('k_plus_stone'),
+                colour = G.C.SECONDARY_SET.Enhanced,
+                func = function()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            G.deck.config.card_limit = G.deck.config.card_limit + 1
+                            return true
+                        end
+                    }))
+                    draw_card(G.play, G.deck, 90, 'up')
+                    SMODS.calculate_context({ playing_card_added = true, cards = { stone_card } })
+                end
+            }
+        end
+
+        if context.individual and context.cardarea == G.play and SMODS.has_enhancement(context.other_card, 'm_stone') then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
     end
 }
 
