@@ -434,8 +434,8 @@ return {
             j_willatro_kidney = {
                 name = "Kidney",
                 text = {
-                    "{C:green}#1# in #2#{} chance to create a",
-                    "{C:attention,T:#info_queue}Stone{} card when blind is",
+                    "{C:green}#1# in #2#{} chance to add a {C:attention,T:#info_queue}Stone{}",
+                    "card to deck when blind is",
                     "selected. Played and scoring ",
                     "{C:attention,T:#info_queue}Stone{} cards give {C:mult}+#3#{} Mult"
                 }
