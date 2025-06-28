@@ -106,15 +106,17 @@ SMODS.Joker {
                 }
             end
         end
-        if context.retrigger_joker_check  then
-            if G.GAME.current_round.discards_left == card.ability.extra.d_remaining then
-                return {
-                    repetitions = card.ability.extra.big_repetitions
-                }
-            elseif G.GAME.current_round.hands_played == 0 or G.GAME.current_round.hands_left == 0 then
-                return {
-                    repetitions = card.ability.extra.repetitions
-                }
+        if context.retrigger_joker_check and not context.retrigger_joker then
+            if G.GAME.current_round.hands_played == 0 or G.GAME.current_round.hands_left == 0 then
+                if G.GAME.current_round.discards_left == card.ability.extra.d_remaining then
+                    return {
+                        repetitions = card.ability.extra.big_repetitions
+                    }
+                else
+                    return {
+                        repetitions = card.ability.extra.repetitions
+                    }
+                end
             end
         end
     end
