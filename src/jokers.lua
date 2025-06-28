@@ -899,6 +899,121 @@ SMODS.Joker
         end
     end
 }
+
+--Job application - done!
+SMODS.Joker {
+    key = "application",
+    rarity = 2,
+    atlas = "WillatroJokers",
+    pos = { x = 5, y = 4 },
+    cost = 5,
+    config = {
+        extra = {
+            dollars = 7,
+            smallodds = 15,
+            dollars_increase = 1,
+            bigodds = 100,
+            money = true
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.dollars,
+                G.GAME.probabilities.normal,
+                card.ability.extra.smallodds,
+                card.ability.extra.dollars_increase,
+                card.ability.extra.bigodds
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+            if pseudorandom('willatro_application') < (G.GAME.probabilities.normal or 1) / card.ability.extra.bigodds then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        play_sound('tarot1')
+                        card.T.r = -0.2
+                        card:juice_up(0.3, 0.4)
+                        card.states.drag.is = true
+                        card.children.center.pinch.x = true
+                        G.E_MANAGER:add_event(Event({
+                            trigger = 'after',
+                            delay = 0.3,
+                            blockable = false,
+                            func = function()
+                                card:remove()
+                                return true
+                            end
+                        }))
+                        return true
+                    end
+                }))
+                card.ability.extra.money = false
+                return {
+                    message = "Fired!"
+                }
+            elseif pseudorandom('willatro_application') < (G.GAME.probabilities.normal or 1) / card.ability.extra.smallodds then
+                card.ability.extra.dollars = card.ability.extra.dollars + card.ability.extra.dollars_increase
+                return {
+                    message = "Raise"
+                }
+            end
+        end
+    end,
+
+    calc_dollar_bonus = function(self, card)
+        if card.ability.extra.money == true then
+            return card.ability.extra.dollars
+        end
+    end
+}
+
+--Testosterone
+SMODS.Joker {
+    key = "testosterone",
+    rarity = 2,
+    atlas = "WillatroJokers",
+    pos = { x = 6, y = 4 },
+    cost = 7,
+    config = {
+        extra = {
+            x_mult = 1.5
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.x_mult
+            }
+        }
+    end
+}
+
+--estrogen
+SMODS.Joker {
+    key = "estrogen",
+    rarity = 2,
+    atlas = "WillatroJokers",
+    pos = { x = 0, y = 5 },
+    cost = 7,
+    config = {
+        extra = {
+            x_mult = 1.5
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.x_mult
+            }
+        }
+    end
+}
 --#endregion
 
 --#region rare
@@ -1326,6 +1441,29 @@ SMODS.Joker
         return {
             vars = {
                 card.ability.extra.levels
+            }
+        }
+    end
+}
+
+--gamer rage
+SMODS.Joker {
+    key = "rage",
+    rarity = 3,
+    atlas = "WillatroJokers",
+    pos = { x = 1, y = 5 },
+    cost = 8,
+    config = {
+        extra = {
+            money = -40
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_negative
+        return {
+            vars = {
+                card.ability.extra.money
             }
         }
     end
