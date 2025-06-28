@@ -15,7 +15,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 1, y = 0},
     cost = 4,
-
+    blueprint_compat = false,
     config = { 
         extra = { 
             created_tag = false 
@@ -44,7 +44,7 @@ SMODS.Joker
         if twos > 0 and twos < 2 and queens > 0 and queens < 2 then
             tag = true
         end
-        if tag then
+        if tag and not context.blueprint then
             card.ability.extra.created_tag = true
             return
             {
@@ -63,16 +63,13 @@ SMODS.Joker
     end
 
     if context.destroy_card and context.cardarea == G.play and not context.blueprint and card.ability.extra.created_tag == true then
+        card.ability.extra.created_tag = false
         if context.destroy_card:get_id() == 2 then
             return
             {
                 remove = true
             }
         end
-    end
-
-    if context.after then
-      card.ability.extra.created_tag = false
     end
 end
 }
@@ -85,6 +82,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 4, y = 0},
     cost = 4,
+    blueprint_compat = false,
     config = { 
         extra = { 
             money_gain = 2, 
@@ -102,7 +100,9 @@ SMODS.Joker
     end,
     
     calculate = function(self, card, context)
-        card.ability.extra.money = #G.jokers.cards * card.ability.extra.money_gain
+        if not context.blueprint then
+            card.ability.extra.money = #G.jokers.cards * card.ability.extra.money_gain
+        end
     end,
 
     calc_dollar_bonus = function(self, card)
@@ -118,7 +118,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 2, y = 1 },
     cost = 4,
-
+    blueprint_compat = true,
     config = { 
         extra = { 
             chips = 1, 
@@ -168,6 +168,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 2, y = 2 },
     cost = 0,
+    blueprint_compat = true,
     config = {
         extra = {
             mult = -10
@@ -191,6 +192,8 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 6, y = 2 },
     cost = 4,
+    blueprint_compat = false,
+    eternal_compat = false,
     config = {
         extra = {
             odds = 15
@@ -297,6 +300,8 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = { x = 1, y = 3 },
     cost = 5,
+    blueprint_compat = false,
+    eternal_compat = false,
     config = {
         extra = {
             dollars = 3,
@@ -369,6 +374,8 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = { x = 2, y = 3 },
     cost = 4,
+    blueprint_compat = true,
+    eternal_compat = false,
     config = {
         extra = {
             odds = 2,
@@ -449,6 +456,8 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = { x = 1, y = 4 },
     cost = 6,
+    blueprint_compat = true,
+    eternal_compat = false,
 
     loc_vars = function(self, info_queue, card)
         return {
@@ -488,6 +497,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 3, y = 0},
     cost = 6,
+    blueprint_compat = true,
     config = { 
         extra = { 
             chip_gain = 20, 
@@ -540,7 +550,7 @@ SMODS.Joker
                         card:juice_up(0.8, 0.8)
                         if card.ability.extra.play == true then
                             play_sound('slice1', 0.96 + math.random() * 0.08)
-                            card.ability.play = false
+                            card.ability.extra.play = false
                         end
                         return true
                     end
@@ -558,9 +568,12 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 5, y = 0},
     cost = 7,
+    blueprint_compat = false,
+
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.m_steel
     end,
+
     calculate = function(self, card, context)
         if context.before and context.main_eval and not context.blueprint then
             local faces = 0
@@ -595,9 +608,10 @@ SMODS.Joker
     pos = {x = 0, y = 1},
     cost = 8,
     eternal_compat = false,
+    blueprint_compat = false,
 
     calculate = function(self, card, context)
-        if G.jokers then
+        if G.jokers and not context.blueprint then
             for i = 2, #G.jokers.cards do
                 if context.selling_card and G.jokers.cards[i-1].config.center.key == 'j_willatro_bodyguard' then
                     G.jokers.cards[i]:set_eternal(true)
@@ -615,6 +629,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 1, y = 1 },
     cost = 7,
+    blueprint_compat = true,
     config = { 
         extra = { 
             mult_gain = 5, 
@@ -626,13 +641,13 @@ SMODS.Joker
         return { 
             vars = { 
                 card.ability.extra.mult_gain, 
-                card.ability.extra.mult_gain 
+                card.ability.extra.mult
             } 
         }
     end,
 
     calculate = function(self, card, context)
-        if context.buying_card and context.card.ability.set == "Joker" and not context.blueprint then
+        if G.GAME.willatro_jokers_bought and not context.blueprint then
             card.ability.extra.mult = G.GAME.willatro_jokers_bought * card.ability.extra.mult_gain
         end
         if context.joker_main then
@@ -651,6 +666,8 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = { x = 0, y = 2 },
     cost = 6,
+    blueprint_compat = true,
+    eternal_compat = false,
     config = {
         extra = {
             mult_gain = 5,
@@ -717,6 +734,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = { x = 1, y = 2 },
     cost = 7,
+    blueprint_compat = true,
     config = {
         extra = {
             xmult_gain = 0.5,
@@ -753,7 +771,7 @@ SMODS.Joker
     end
 }
 
---ghostly - done!
+--ghostly - compat?
 SMODS.Joker
 {
     key = "ghostly",
@@ -780,6 +798,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = { x = 3, y = 3 },
     cost = 6,
+    blueprint_compat = true,
     config = {
         extra = {
             mult_gain = 3,
@@ -831,6 +850,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = { x = 4, y = 3 },
     cost = 6,
+    blueprint_compat = false,
     
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.m_stone
@@ -868,6 +888,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = { x = 6, y = 3 },
     cost = 6,
+    blueprint_compat = true,
     config = {
         extra = {
             repetitions = 1
@@ -907,6 +928,7 @@ SMODS.Joker {
     atlas = "WillatroJokers",
     pos = { x = 5, y = 4 },
     cost = 5,
+    blueprint_compat = false,
     config = {
         extra = {
             dollars = 7,
@@ -978,6 +1000,7 @@ SMODS.Joker {
     atlas = "WillatroJokers",
     pos = { x = 6, y = 4 },
     cost = 7,
+    blueprint_compat = true,
     config = {
         extra = {
             x_mult = 1.5
@@ -1030,6 +1053,7 @@ SMODS.Joker {
     atlas = "WillatroJokers",
     pos = { x = 0, y = 5 },
     cost = 7,
+    blueprint_compat = true,
     config = {
         extra = {
             x_mult = 1.5
@@ -1086,14 +1110,13 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 0, y = 0},
     cost = 8,
-
+    blueprint_compat = true,
     config = { 
         x_mult = 4
     },
     
     loc_vars = function(self, info_queue, card)
-        return 
-        { 
+        return { 
             vars = { 
                 card.ability.x_mult
             } 
@@ -1101,10 +1124,9 @@ SMODS.Joker
     end,
 
     calculate = function(self, card, context)
-        if context.cardarea == G.Jokers and context.individual then
-            return
-            {
-                xmult = card.ability.x_mult
+        if context.joker_main then
+            return {
+                x_mult = card.ability.x_mult
             }
         end
     end
@@ -1119,7 +1141,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 2, y = 0},
     cost = 9,
-
+    blueprint_compat = true,
     config = { 
         extra = { 
             x_mult = 1, 
@@ -1165,7 +1187,7 @@ SMODS.Joker
 
 }
 
---rift - done!
+--rift - compat?
 SMODS.Joker
 {
     key = "rift",
@@ -1216,7 +1238,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 3, y = 1 },
     cost = 8,
-
+    blueprint_compat = false,
     config = { 
         trigger = true
     },
@@ -1272,6 +1294,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     cost = 8,
     pos = { x = 6, y = 1 },
+    blueprint_compat = true,
     config = { 
         extra = {
             xmult = 2,
@@ -1328,7 +1351,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     cost = 8,
     pos = { x = 0, y = 3 },
-
+    blueprint_compat = true,
     config = {
         extra = {
             repetitions = 2
@@ -1350,7 +1373,7 @@ SMODS.Joker
                 repetitions = card.ability.extra.repetitions
             }
         end
-        if context.scoring_hand and context.cardarea == G.play then
+        if context.scoring_hand and context.cardarea == G.play and not context.blueprint then
             if context.destroy_card and SMODS.has_enhancement(context.destroy_card, 'm_glass') then
                 return {
                     remove = true
@@ -1372,7 +1395,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = { x = 5, y = 3 },
     cost = 8,
-
+    blueprint_compat = false,
     config = {
         extra = {
             tagnumber = 1,
@@ -1398,7 +1421,7 @@ SMODS.Joker
     end,
 
     calculate = function(self, card, context)
-		if context.setting_blind and not context.brainstorm then
+		if context.setting_blind and not context.blueprint then
             local tags = {}
             for k, v in pairs(G.P_TAGS) do
                 table.insert(tags, v.key)
@@ -1445,6 +1468,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = { x = 0, y = 4 },
     cost = 9,
+    blueprint_compat = false,
     config = {
         extra = {
             rounds = 4,
@@ -1464,7 +1488,7 @@ SMODS.Joker
     calculate = function(self, card, context)
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
             card.ability.extra.current_rounds = card.ability.extra.current_rounds + 1
-            if card.ability.extra.current_rounds >= card.ability.extra.rounds and not context.blueprint then
+            if card.ability.extra.current_rounds >= card.ability.extra.rounds then
                 if #G.jokers.cards <= G.jokers.config.card_limit then
                     SMODS.add_card( { key = "j_egg", stickers = { "perishable" }, edition = "e_negative" } )
                     card.ability.extra.current_rounds = 0
@@ -1491,6 +1515,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = { x = 2, y = 4 },
     cost = 8,
+    blueprint_compat = true,
     config = {
         extra = {
             levels = 1
@@ -1523,6 +1548,8 @@ SMODS.Joker {
     atlas = "WillatroJokers",
     pos = { x = 1, y = 5 },
     cost = 8,
+    blueprint_compat = true,
+    eternal_compat = false,
     config = {
         extra = {
             money = -40
@@ -1549,7 +1576,7 @@ SMODS.Joker {
                 SMODS.add_card({ set = 'Joker', rarity = 'Legendary', edition = "e_negative" })
                 card:juice_up(0.3, 0.5)
                 if G.GAME.dollars ~= -40 then
-                    ease_dollars(-(G.GAME.dollars+40), true)
+                    ease_dollars(-(G.GAME.dollars + 40), true)
                 end
                 return true
             end
@@ -1570,6 +1597,7 @@ SMODS.Joker
     pos = {x = 4, y = 1 },
     soul_pos = { x = 5, y = 1 },
     cost = 20,
+    blueprint_compat = true,
 
     calculate = function(self, card, context)
         if context.joker_main then
@@ -1589,7 +1617,7 @@ SMODS.Joker
     pos = { x = 4, y = 2 },
     soul_pos = { x = 5, y = 2 },
     cost = 20,
-
+    blueprint_compat = true,
     config = {
         extra = {
             x_mult = 1.5,
@@ -1633,6 +1661,7 @@ SMODS.Joker
     pos = {x = 3, y = 4 },
     soul_pos = { x = 4, y = 4 },
     cost = 20,
+    blueprint_compat = true,
     config = {
         extra = {
             odds = 6,
