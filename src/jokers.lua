@@ -1504,7 +1504,7 @@ SMODS.Joker
     end
 }
 
---gamer rage
+--gamer rage - done!
 SMODS.Joker {
     key = "rage",
     rarity = 3,
@@ -1524,7 +1524,26 @@ SMODS.Joker {
                 card.ability.extra.money
             }
         }
-    end
+    end,
+
+    calculate = function(self, card, context)
+        if context.selling_self then
+            G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.4,
+            func = function()
+                play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
+                play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
+                SMODS.add_card({ set = 'Joker', rarity = 'Legendary', edition = "e_negative" })
+                card:juice_up(0.3, 0.5)
+                if G.GAME.dollars ~= -40 then
+                    ease_dollars(-(G.GAME.dollars+40), true)
+                end
+                return true
+            end
+        }))
+        end
+    end,
 }
 --#endregion
 
