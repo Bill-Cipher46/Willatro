@@ -1,7 +1,7 @@
 {
     "id": "Willatro",
     "name": "Willatro",
-    "author": ["Bill Cipher, Willow"],
+    "author": ["Bill Cipher and Willow"],
     "description": "Joker ideas and art from Willow, coded by me.",
     "prefix": "willatro",
     "main_file": "Willatro.lua",
