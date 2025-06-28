@@ -498,6 +498,7 @@ SMODS.Joker
     pos = {x = 3, y = 0},
     cost = 6,
     blueprint_compat = true,
+    perishable_compat = false,
     config = { 
         extra = { 
             chip_gain = 20, 
@@ -799,6 +800,7 @@ SMODS.Joker
     pos = { x = 3, y = 3 },
     cost = 6,
     blueprint_compat = true,
+    perishable_compat = false,
     config = {
         extra = {
             mult_gain = 3,
@@ -1142,6 +1144,7 @@ SMODS.Joker
     pos = {x = 2, y = 0},
     cost = 9,
     blueprint_compat = true,
+    perishable_compat = false,
     config = { 
         extra = { 
             x_mult = 1, 
@@ -1396,6 +1399,7 @@ SMODS.Joker
     pos = { x = 5, y = 3 },
     cost = 8,
     blueprint_compat = false,
+    perishable_compat = false,
     config = {
         extra = {
             tagnumber = 1,
@@ -1598,6 +1602,7 @@ SMODS.Joker
     soul_pos = { x = 5, y = 1 },
     cost = 20,
     blueprint_compat = true,
+    perishable_compat = false,
 
     calculate = function(self, card, context)
         if context.joker_main then
