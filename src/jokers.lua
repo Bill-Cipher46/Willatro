@@ -1009,7 +1009,8 @@ SMODS.Joker {
             end
             if faces > 0 then
                 return {
-                    message = "Transition!"
+                    message = "Transition!",
+                    colour = HEX("7ed2bf")
                 }
             end
         end
@@ -1060,7 +1061,8 @@ SMODS.Joker {
             end
             if faces > 0 then
                 return {
-                    message = "Transition!"
+                    message = "Transition!",
+                    colour = HEX("e6c5b2")
                 }
             end
         end
@@ -1622,7 +1624,7 @@ SMODS.Joker
     end
 }
 
---willow 
+--willow - done!
 SMODS.Joker
 {
     key = "willow",
@@ -1647,6 +1649,46 @@ SMODS.Joker
                 card.ability.extra.dollars
             }
         }
+    end,
+
+    calculate = function(self, card, context)
+        if context.before and context.main_eval and not context.blueprint then
+            local unenhanced = 0
+            for _, scored_card in ipairs(context.scoring_hand) do
+                if not next(SMODS.get_enhancements(scored_card)) then
+                    unenhanced = unenhanced + 1
+                    scored_card:set_ability('m_willatro_overgrown', nil, true)
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            scored_card:juice_up()
+                            return true
+                        end
+                    }))
+                end
+            end
+            if unenhanced > 0 then
+                return {
+                    message = "Overgrown",
+                    colour = HEX("4e8e53")
+                }
+            end
+        end
+
+        if context.individual and context.cardarea == G.play and
+            pseudorandom('willatro_willow') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.dollars
+            return {
+                dollars = card.ability.extra.dollars,
+                func = function()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            G.GAME.dollar_buffer = 0
+                            return true
+                        end
+                    }))
+                end
+            }
+        end
     end
 }
 --#endregion
