@@ -1481,7 +1481,7 @@ SMODS.Joker
     end
 }
 
---pear
+--pear - done!
 SMODS.Joker
 {
     key = "pear",
@@ -1501,6 +1501,16 @@ SMODS.Joker
                 card.ability.extra.levels
             }
         }
+    end,
+
+    calculate = function(self, card, context)
+        if context.before and context.main_eval and (context.scoring_name == "Pair" or context.scoring_name == "Two Pair") then
+            SMODS.smart_level_up_hand(card, "Pair")
+            SMODS.smart_level_up_hand(card, "Two Pair")
+            return {
+                message = localize('k_level_up_ex')
+            }
+        end
     end
 }
 
