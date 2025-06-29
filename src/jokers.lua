@@ -772,7 +772,7 @@ SMODS.Joker
     end
 }
 
---ghostly - compat?
+--ghostly - done!
 SMODS.Joker
 {
     key = "ghostly",
@@ -780,6 +780,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = { x = 3, y = 2 },
     cost = 6,
+    blueprint_compat = false,
 
     calculate = function(self, card, context)
         if context.using_consumeable and context.consumeable and context.consumeable.ability.set == 'Spectral' and not (context.consumeable.edition or {}).negative then
@@ -1190,7 +1191,7 @@ SMODS.Joker
 
 }
 
---rift - compat?
+--rift - done!
 SMODS.Joker
 {
     key = "rift",
@@ -1198,7 +1199,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 6, y = 0},
     cost = 8,
-
+    blueprint_compat = true,
     config = { 
         extra = { 
             planets = 2 
