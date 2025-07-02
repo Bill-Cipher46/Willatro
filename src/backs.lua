@@ -30,6 +30,7 @@ SMODS.Back {
     apply = function(self, back)
         G.GAME.starting_params.consumable_slots = G.GAME.starting_params.consumable_slots + self.config.extra.consumable_slots
         G.GAME.starting_params.hand_size = G.GAME.starting_params.hand_size + self.config.extra.hand_size
+        
         G.E_MANAGER:add_event(Event({
             func = function()
             local card = SMODS.create_card({
