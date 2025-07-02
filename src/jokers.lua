@@ -983,7 +983,7 @@ SMODS.Joker {
             elseif pseudorandom('willatro_application') < (G.GAME.probabilities.normal or 1) / card.ability.extra.smallodds then
                 card.ability.extra.dollars = card.ability.extra.dollars + card.ability.extra.dollars_increase
                 return {
-                    message = "Raise"
+                    message = "Raise!"
                 }
             end
         end
