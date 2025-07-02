@@ -73,7 +73,6 @@ SMODS.Joker {
     end
 
 }
-
 SMODS.DrawStep {
     key = 'willatro_heart',
     order = 50,
