@@ -84,29 +84,22 @@ SMODS.Joker
     cost = 4,
     blueprint_compat = false,
     config = { 
-        extra = { 
-            money_gain = 2, 
-            money = 0 
+        extra = {
+            money = 2
         } 
     },
 
     loc_vars = function(self, info_queue, card)
         return { 
             vars = { 
-                card.ability.extra.money_gain, 
-                card.ability.extra.money
+                card.ability.extra.money,
+                card.ability.extra.money * (#G.jokers.cards or 0)
             } 
         }
     end,
-    
-    calculate = function(self, card, context)
-        if not context.blueprint then
-            card.ability.extra.money = #G.jokers.cards * card.ability.extra.money_gain
-        end
-    end,
 
     calc_dollar_bonus = function(self, card)
-        return card.ability.extra.money
+        return card.ability.extra.money * (#G.jokers.cards or 0)
     end
 }
 
@@ -633,27 +626,23 @@ SMODS.Joker
     blueprint_compat = true,
     config = { 
         extra = { 
-            mult_gain = 5, 
-            mult = 0 
+            mult = 5, 
         } 
     },
 
     loc_vars = function(self, info_queue, card)
         return { 
             vars = { 
-                card.ability.extra.mult_gain, 
-                card.ability.extra.mult
+                card.ability.extra.mult, 
+                card.ability.extra.mult * (G.GAME.willatro_jokers_bought or 0)
             } 
         }
     end,
 
     calculate = function(self, card, context)
-        if G.GAME.willatro_jokers_bought and not context.blueprint then
-            card.ability.extra.mult = G.GAME.willatro_jokers_bought * card.ability.extra.mult_gain
-        end
         if context.joker_main then
             return {
-                mult = card.ability.extra.mult
+                mult = card.ability.extra.mult * (G.GAME.willatro_jokers_bought or 0)
             }
         end
     end
@@ -747,18 +736,15 @@ SMODS.Joker
         return {
             vars = {
                 card.ability.extra.xmult_gain,
-                card.ability.extra.x_mult
+                card.ability.extra.x_mult + (card.ability.extra.xmult_gain * G.GAME.round_resets.ante)
             }
         }
     end,
 
     calculate = function(self, card, context)
-        if not context.blueprint then
-            card.ability.extra.x_mult = 0.5 + card.ability.extra.xmult_gain * G.GAME.round_resets.ante
-        end
         if context.joker_main then
             return {
-                x_mult = card.ability.extra.x_mult
+                x_mult = card.ability.extra.x_mult + (card.ability.extra.xmult_gain * G.GAME.round_resets.ante)
             }
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
