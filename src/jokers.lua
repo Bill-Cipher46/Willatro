@@ -452,7 +452,7 @@ SMODS.Joker
 SMODS.Joker
 {
     key = "cadaver",
-    rarity = 2,
+    rarity = 1,
     atlas = "WillatroJokers",
     pos = { x = 1, y = 4 },
     cost = 6,
