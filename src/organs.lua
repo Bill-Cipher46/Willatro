@@ -22,6 +22,7 @@ SMODS.Joker {
     pos = { x = 0, y = 0 },
     spul_pos = { x = 1, y = 0 },
     cost = 6,
+    blueprint_compat = true,
     config = {
         extra = {
             odds = 2,
@@ -103,6 +104,7 @@ SMODS.Joker {
     pos = { x = 2, y = 0 },
     soul_pos = { x = 3, y = 0 },
     cost = 6,
+    blueprint_compat = true,
     config = {
         extra = {
             repetitions = 1,
@@ -152,6 +154,7 @@ SMODS.Joker {
     atlas = "WillatroOrgans",
     pos = { x = 4, y = 0 },
     cost = 6,
+    blueprint_compat = true,
     config = {
         chosen_card = {
             suit = 'Spades'
@@ -221,6 +224,7 @@ SMODS.Joker {
     atlas = "WillatroOrgans",
     pos = { x = 5, y = 0 },
     cost = 6,
+    blueprint_compat = true,
     config = {
         extra = {
             odds = 6
@@ -254,6 +258,7 @@ SMODS.Joker {
     atlas = "WillatroOrgans",
     pos = { x = 0, y = 1 },
     cost = 6,
+    blueprint_compat = true,
     config = { 
         extra = { 
             chip_gain = 20, 
@@ -333,6 +338,7 @@ SMODS.Joker {
     atlas = "WillatroOrgans",
     pos = { x = 1, y = 1 },
     cost = 6,
+    blueprint_compat = true,
     config = {
         extra = {
             xmult_gain = 0.2,
@@ -387,6 +393,7 @@ SMODS.Joker{
     atlas = "WillatroOrgans",
     pos = { x = 3, y = 1 },
     cost = 6,
+    blueprint_compat = true,
     config = {
         extra = {
             odds = 10,
@@ -446,6 +453,7 @@ SMODS.Joker{
     atlas = "WillatroOrgans",
     pos = { x = 4, y = 1 },
     cost = 6,
+    blueprint_compat = true,
     config = {
         extra = {
             xmult_gain = 0.1,
@@ -471,6 +479,7 @@ SMODS.Joker{
         if message == true then
             message = false
             return {
+                message_card = card,
                 message = localize('k_upgrade_ex'),
                 colour = G.C.MULT
             }
@@ -502,6 +511,7 @@ SMODS.Joker{
     atlas = "WillatroOrgans",
     pos = { x = 5, y = 1 },
     cost = 6,
+    blueprint_compat = true,
     config = {
         extra = {
             xmult_gain = 0.2,
