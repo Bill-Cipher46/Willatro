@@ -33,7 +33,7 @@ SMODS.Joker
     end,
 
    calculate = function(self, card, context)
-    if context.joker_main then
+    if context.destroy_card and not context.blueprint then
         local queens = 0
         local twos = 0
         local tag = false
@@ -44,8 +44,16 @@ SMODS.Joker
         if twos > 0 and twos < 2 and queens > 0 and queens < 2 then
             tag = true
         end
-        if tag and not context.blueprint then
-            card.ability.extra.created_tag = true
+        if tag then
+            tag = false
+
+            if context.destroy_card:get_id() == 2 then
+                return
+                {
+                    remove = true
+                }
+            end
+
             return
             {
                 func = function()
@@ -58,16 +66,6 @@ SMODS.Joker
                         end)
                     }))
                 end
-            }
-        end
-    end
-
-    if context.destroy_card and context.cardarea == G.play and not context.blueprint and card.ability.extra.created_tag == true then
-        card.ability.extra.created_tag = false
-        if context.destroy_card:get_id() == 2 then
-            return
-            {
-                remove = true
             }
         end
     end
@@ -606,9 +604,9 @@ SMODS.Joker
 
     calculate = function(self, card, context)
         if G.jokers and not context.blueprint then
-            for i = 2, #G.jokers.cards do
-                if context.selling_card and G.jokers.cards[i-1].config.center.key == 'j_willatro_bodyguard' then
-                    G.jokers.cards[i]:set_eternal(true)
+            for i = 1, #G.jokers.cards do
+                if context.selling_self and G.jokers.cards[i] == card then
+                    G.jokers.cards[i+1]:set_eternal(true)
                 end
             end
         end
