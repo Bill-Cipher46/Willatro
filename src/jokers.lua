@@ -960,7 +960,7 @@ SMODS.Joker {
                 }))
                 card.ability.extra.money = false
                 return {
-                    message = "Fired!"
+                    message = "Fired!",
                 }
             elseif pseudorandom('willatro_application') < (G.GAME.probabilities.normal or 1) / card.ability.extra.smallodds then
                 card.ability.extra.dollars = card.ability.extra.dollars + card.ability.extra.dollars_increase
