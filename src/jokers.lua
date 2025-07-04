@@ -732,7 +732,7 @@ SMODS.Joker
         return {
             vars = {
                 card.ability.extra.xmult_gain,
-                card.ability.extra.x_mult + (card.ability.extra.xmult_gain * G.GAME.round_resets.ante)
+                card.ability.extra.x_mult + (card.ability.extra.xmult_gain * (G.GAME.round_resets.ante - 1))
             }
         }
     end,
@@ -740,7 +740,7 @@ SMODS.Joker
     calculate = function(self, card, context)
         if context.joker_main then
             return {
-                x_mult = card.ability.extra.x_mult + (card.ability.extra.xmult_gain * G.GAME.round_resets.ante)
+                x_mult = card.ability.extra.x_mult + (card.ability.extra.xmult_gain * (G.GAME.round_resets.ante - 1))
             }
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
