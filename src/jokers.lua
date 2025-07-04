@@ -1316,15 +1316,21 @@ SMODS.Joker
                 card.ability.extra.round = 0
             end
         end
-        if context.joker_main and card.ability.extra.round == 0 then
-            return {
-                x_mult = card.ability.extra.xmult
-            }
+        if card.ability.extra.round == 0 then
+            card.children.center:set_sprite_pos({x = 6, y = 1})
+            if context.joker_main then
+                return {
+                    x_mult = card.ability.extra.xmult
+                }
+            end
         end
-        if context.joker_main and card.ability.extra.round == 1 then
-            return {
-                x_chips = card.ability.extra.xchips
-            }
+        if card.ability.extra.round == 1 then
+            card.children.center:set_sprite_pos({x = 2, y = 5})
+            if context.joker_main then
+                return {
+                    x_chips = card.ability.extra.xchips
+                }
+            end
         end
     end
 }
