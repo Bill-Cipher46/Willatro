@@ -89,7 +89,7 @@ SMODS.Joker
         return { 
             vars = { 
                 card.ability.extra.money,
-                card.ability.extra.money * (#G.jokers.cards or 0)
+                card.ability.extra.money * (G.jokers and #G.jokers.cards or 0)
             } 
         }
     end,
