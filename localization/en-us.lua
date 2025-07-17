@@ -27,6 +27,7 @@ return {
         },
 
         Joker = {
+
             --#region common
             j_willatro_loss = {
                 name = "Loss.jpg",
@@ -467,9 +468,17 @@ return {
             c_willatro_tree = {
                 name = "The Tree",
                 text = {
-                    "Enhances {C:attention}3{}",
+                    "Enhances {C:attention}#1#{}",
                     "selected cards to",
                     "{C:attention,T:#info_queue}Overgrown Cards"
+                }
+            },
+
+            c_willatro_boost = {
+                name = "Boost",
+                text = {
+                    "Boost {C:attention}#1#{} compatible selected",
+                    "card to its superior form"
                 }
             }
         },
