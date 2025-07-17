@@ -88,6 +88,28 @@ SMODS.Consumable {
     end
 
 }
+
+--boost
+SMODS.Consumable {
+    key = "boost",
+    set = 'Tarot',
+    atlas = 'WillatroConsumables',
+    pos = { x = 2, y = 0 },
+    cost = 3,
+    config = { 
+        extra = { 
+            max_highlighted = 1
+        } 
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return { 
+            vars = { 
+                card.ability.extra.max_highlighted
+            } 
+        }
+    end,
+}
 --#endregion
 
 --#region spectrals
