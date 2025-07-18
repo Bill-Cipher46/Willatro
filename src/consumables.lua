@@ -6,7 +6,8 @@ SMODS.Atlas {
 }
 
 local upgrades = {
-    ["j_hanging_chad"] = "j_willatro_box"
+    ["j_hanging_chad"] = "j_willatro_box",
+    ["j_joker"] = "j_willatro_thecoolerjoker"
 }
 
 --#region tarots
