@@ -472,16 +472,232 @@ return {
                     "Retrigger all played and",
                     "scoring cards {C:attention}#1#{} times"
                 }
-            }
+            },
+
+            j_willatro_familyphoto = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_graduate = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_composite_carl = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_prime_patrick = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_hypernova = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_caviar = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_tsunami = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_crowd = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_clueless = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
             --#endregion
 
 
             --#region uncommon
 
+            j_willatro_hellforged = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_sfx = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_ruby = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_topaz = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_obsidian = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_lapis = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_catacombs = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_canyon = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_cap_collection = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_messy = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_precognition = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_string_theory = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_twelves = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
             --#endregion
 
 
             --#region rare
+
+            j_willatro_baka = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_ashes = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_million_dollar_idea = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_atomic = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
+
+            j_willatro_millionaire = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger all played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
+            },
 
             --#endregion
 
