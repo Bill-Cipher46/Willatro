@@ -460,7 +460,31 @@ return {
                     "after {C:attention}Boss Blind{} is defeated",
                     "{C:inactive}(Currently {C:white,X:mult}X#2#{C:inactive} Mult)"
                 }
+            },
+            --#endregion
+
+            --#region evolved
+
+            --#region common
+            j_willatro_box = {
+                name = "Ballot Box",
+                text = {
+                    "Retrigger played and",
+                    "scoring cards {C:attention}#1#{} times"
+                }
             }
+            --#endregion
+
+
+            --#region uncommon
+
+            --#endregion
+
+
+            --#region rare
+
+            --#endregion
+
             --#endregion
         },
 
