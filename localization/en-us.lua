@@ -469,7 +469,7 @@ return {
             j_willatro_box = {
                 name = "Ballot Box",
                 text = {
-                    "Retrigger played and",
+                    "Retrigger all played and",
                     "scoring cards {C:attention}#1#{} times"
                 }
             }
