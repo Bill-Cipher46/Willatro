@@ -5,6 +5,10 @@ SMODS.Atlas {
     py = 95
 }
 
+local upgrades = {
+    ["j_hanging_chad"] = "j_willatro_box"
+}
+
 --#region tarots
 --tree - done!
 SMODS.Consumable {
@@ -89,7 +93,7 @@ SMODS.Consumable {
 
 }
 
---boost
+--boost - done?
 SMODS.Consumable {
     key = "boost",
     set = 'Tarot',
@@ -109,6 +113,43 @@ SMODS.Consumable {
             } 
         }
     end,
+
+    use = function(self, card, area, copier)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.4,
+            func = function()
+                play_sound('tarot1')
+                card:juice_up(0.3, 0.5)
+                return true
+            end
+        }))
+        delay(0.2)
+        for i = 1, #G.jokers.highlighted do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.3,
+                blockable = false,
+                func = function()
+                    G.jokers.highlighted[i]:juice_up(0.3, 0.5)
+                    G.jokers.highlighted[i]:set_ability(upgrades[G.jokers.highlighted[i].config.center.key])
+                    return true
+                end
+            }))
+        end
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                G.jokers:unhighlight_all()
+                return true
+            end
+        }))
+        delay(0.5)
+    end,
+    can_use = function(self, card)
+        return G.jokers and #G.jokers.highlighted > 0 and #G.jokers.highlighted <= card.ability.extra.max_highlighted
+    end
 }
 --#endregion
 
