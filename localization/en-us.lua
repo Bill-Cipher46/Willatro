@@ -570,104 +570,125 @@ return {
             j_willatro_hellforged = {
                 name = "Hellforged Weapon",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "Destroy all played and scoring",
+                    "cards with a rank of {C:attention}9{} or lower.",
+                    "Gain {C:mult}+#1#{} Mult for each",
+                    "destroyed card",
+                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
                 }
             },
 
             j_willatro_sfx_tech = {
                 name = "Special Effects Technician",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "{C:green}#1# in #2#{} chance to make",
+                    "a {C:dark_edition}negative{} copy of any",
+                    "purchased {C:attention}Joker{} or",
+                    "{C:attention}Consumable{} cards"
                 }
             },
 
             j_willatro_ruby = {
                 name = "Ruby",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "Played cards with{C:hearts}Heart",
+                    "suit give {C:white,X:mult}X#1#{} Mult",
+                    "when scored.",
+                    "Debuff every other suit"
                 }
             },
 
             j_willatro_topaz = {
                 name = "Topaz",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "Played cards with{C:diamonds}Diamond",
+                    "suit give {C:money}$#1#{}",
+                    "when scored.",
+                    "Debuff every other suit"
                 }
             },
 
             j_willatro_obsidian = {
                 name = "Obsidian",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "Played cards with{C:spades}Spade",
+                    "suit give {C:white,X:chips}X#1#{} Chips",
+                    "when scored.",
+                    "Debuff every other suit"
                 }
             },
 
             j_willatro_lapis = {
                 name = "Lapis",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "Played cards with{C:clubs}Club",
+                    "suit give {C:mult}+#1#{} Mult",
+                    "when scored.",
+                    "Debuff every other suit"
                 }
             },
 
             j_willatro_catacombs = {
                 name = "Catacombs",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "Prevents death {C:attention}#1#{} more",
+                    "time for each {V:1}Organ{} Joker sold",
+                    "{C:inactive}(Currently prevents death {C:attention}#2#{C:inactive} time(s))"
+                    
                 }
             },
 
             j_willatro_canyon = {
                 name = "Canyon",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "{C:white,X:mult}X#1#{} Mult if",
+                    "less than {C:attention}26{} cards",
+                    "remain in your full deck"
                 }
             },
 
             j_willatro_cap_collection = {
                 name = "Cap Collection",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "Create a free {C:attention,T:#info_queque}Double Tag{}",
+                    "when blind is selected.",
+                    "Destroyed when blind",
+                    "is skipped"
                 }
             },
 
             j_willatro_messy = {
                 name = "Messy Joker",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "Each suit counts as",
+                    "every other suit"
                 }
             },
 
             j_willatro_precognition = {
                 name = "Precognition",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "Destroy all played and",
+                    "scoring {C:attention}6{}s. Create",
+                    "a {C:spectral}Spectral{} card for",
+                    "each destroyed {C:attention}6{}"
                 }
             },
 
             j_willatro_string_theory = {
                 name = "String Theory",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "{C:attention}Aces{} count as",
+                    "every other rank"
                 }
             },
 
             j_willatro_twelves = {
                 name = "What!? All Twelves",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "Quadruples all {C:attention}listed",
+                    "{C:green,E:1,S:1.1}probabilities",
+                    "{C:inactive}(ex: {C:green}1 in 4{C:inactive} -> {C:green}4 in 4{C:inactive})",
                 }
             },
 
@@ -679,40 +700,49 @@ return {
             j_willatro_baka = {
                 name = "Triple Baka",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "If played hand is a {C:attention}High Card{},",
+                    "{C:attention}Pair{}, or {C:attention}Three of a kind{}: level",
+                    "up the played hand by {C:attention}2{} levels,",
+                    "and the other {C:attention}2{} hands by {C:attention}1{}"
                 }
             },
 
             j_willatro_ashes = {
                 name = "Ashes",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "At end of round, upgrade",
+                    "the level of all {C:attention}unplayed{}",
+                    "hands this round"
                 }
             },
 
             j_willatro_million_dollar_idea = {
                 name = "Million Dollar Idea",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "Retrigger all {C:attention}Jokers{}",
+                    "{C:attention}#1#{} additional time.",
+                    "Lose {C:money}$#2#{} when hand is scored"
                 }
             },
 
             j_willatro_atomic = {
                 name = "Atomic Joker",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "This Joker gains {C:chips}+#1#{} when",
+                    "each played {C:attention}2{} is scored.",
+                    "Chip gain doubles at end",
+                    "of round, capped at {C:attention}+#3#{}",
+                    "{C:inactive}(Currently {C:chips}+#2#{inactive} Chips)"
                 }
             },
 
             j_willatro_millionaire = {
                 name = "Millionaire",
                 text = {
-                    "Retrigger all played and",
-                    "scoring cards {C:attention}#1#{} times"
+                    "Create a {C:tarot}Tarot{} card if hand",
+                    "is played with {C:money}$#1#{} or more.",
+                    "Gain {C:money}$#1#{} if hand",
+                    "is played with {C:money}$#2#{} or less"
                 }
             },
 
