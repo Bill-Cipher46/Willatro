@@ -387,6 +387,16 @@ return {
             j_willatro_brain = {
                 name = "Brain",
                 text = {
+                    "Retrigger all {C:attention}Jokers #1#{} time",
+                    "on {C:attention}last{} hand of round.",
+                    "{s:0.8}maybe a few more organs", 
+                    "{s:0.8}could improve brain function..."
+                }
+            },
+
+            j_willatro_brain_improved = {
+                name = "Brain",
+                text = {
                     "Retrigger all {C:attention}Jokers #1#{} time on",
                     "{C:attention}first{} and {C:attention}last{} hand of round.",
                     "Retriggers {C:attention}#2#{} times instead",
