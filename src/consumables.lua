@@ -158,7 +158,7 @@ SMODS.Consumable {
     can_use = function(self, card)
         if #G.jokers and G.jokers.highlighted then
             for i = 1, #G.jokers.highlighted do
-                return G.jokers and #G.jokers.highlighted > 0 and #G.jokers.highlighted <= card.ability.extra.max_highlighted and upgrades[G.jokers.highlighted[i].config.center.key].upgradeable == true
+                return G.jokers and #G.jokers.highlighted > 0 and #G.jokers.highlighted <= card.ability.extra.max_highlighted and upgrades[G.jokers.highlighted[i].config.center.key]
             end
         end
     end
