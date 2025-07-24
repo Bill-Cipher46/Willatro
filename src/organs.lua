@@ -260,7 +260,7 @@ SMODS.Joker {
     blueprint_compat = true,
     config = {
         extra = {
-            odds = 6
+            odds = 4
         }
     },
 
