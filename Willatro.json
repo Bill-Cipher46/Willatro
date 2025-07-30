@@ -7,6 +7,6 @@
     "main_file": "Willatro.lua",
     "badge_colour": "F5A9B8",
     "dependencies": [
-		"Steamodded (>=1.0.0~BETA-0530b)"
+		"Steamodded (>=1.0.0~BETA-0711a)"
 	]
 }
