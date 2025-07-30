@@ -31,10 +31,11 @@ SMODS.Joker {
     },
 
     loc_vars = function(self, info_queue, card)
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
         return {
             vars = {
-                (G.GAME.probabilities.normal or 1),
-                card.ability.extra.odds,
+                numerator, 
+                denominator,
                 card.ability.extra.x_mult
             }
         }
@@ -47,7 +48,7 @@ SMODS.Joker {
                     message = localize('k_debuffed'),
                     colour = G.C.RED
                 }
-            elseif pseudorandom('heart') < (G.GAME.probabilities.normal or 1) / card.ability.extra.odds then
+            elseif SMODS.pseudorandom_probability(card, 'willatro_heart', 1, card.ability.extra.odds) then
                 return {
                     x_mult = card.ability.extra.x_mult
                 }
@@ -265,17 +266,15 @@ SMODS.Joker {
     },
 
     loc_vars = function(self, info_queue, card)
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
         return {
-            vars = {
-                (G.GAME.probabilities.normal or 1),
-                card.ability.extra.odds
-            }
+            vars = {numerator, denominator}
         }
     end,
 
     calculate = function(self, card, context)
         if context.pre_discard then
-            if pseudorandom('liver') < (G.GAME.probabilities.normal or 1) / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, 'willatro_liver', 1, card.ability.extra.odds) then
                 return {
                     ease_discard(1)
                 }
@@ -436,17 +435,18 @@ SMODS.Joker{
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.m_stone
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
         return {
             vars = {
-                G.GAME.probabilities.normal,
-                card.ability.extra.odds,
+                numerator,
+                denominator,
                 card.ability.extra.mult
             }
         }
     end,
 
     calculate = function(self, card, context)
-        if context.setting_blind and pseudorandom('kidney') < G.GAME.probabilities.normal / card.ability.extra.odds then
+        if context.setting_blind and SMODS.pseudorandom_probability(card, 'willatro_kidney', 1, card.ability.extra.odds) then
             local stone_card = SMODS.create_card { set = "Base", enhancement = "m_stone", area = G.discard }
             G.E_MANAGER:add_event(Event({
                 func = function()
