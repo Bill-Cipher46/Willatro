@@ -119,14 +119,15 @@ SMODS.Joker
     },
 
     loc_vars = function(self, info_queue, card)
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
         return { 
             vars = { 
                 card.ability.extra.chips, 
                 card.ability.extra.mult, 
                 card.ability.extra.mega_chips, 
                 card.ability.extra.mega_mult,
-                (G.GAME.probabilities.normal or 1), 
-                card.ability.extra.odds 
+                numerator, 
+                denominator 
             } 
         }
     end,
@@ -134,7 +135,7 @@ SMODS.Joker
     calculate = function(self, card, context)
         if context.joker_main then
             local chance_hit = false
-            if pseudorandom('cyan') < (G.GAME.probabilities.normal or 1) / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, 'willatro_cyan', 1, card.ability.extra.odds) then
                 chance_hit = true
             end
             return {
@@ -192,10 +193,11 @@ SMODS.Joker
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.m_glass
         info_queue[#info_queue+1] = G.P_CENTERS.m_steel
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
         return {
             vars = {
-                (G.GAME and G.GAME.probabilities.normal or 1),
-                card.ability.extra.odds,
+                numerator,
+                denominator,
             }
         }
     end,
@@ -247,7 +249,7 @@ SMODS.Joker
         end
 
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
-            if pseudorandom("silvermirror") < (G.GAME and G.GAME.probabilities.normal or 1) / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, 'willatro_silvermirror', 1, card.ability.extra.odds) then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         play_sound('glass1')
@@ -300,18 +302,19 @@ SMODS.Joker
     },
 
     loc_vars  = function(self, info_queue, card)
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
         return {
             vars = {
                 card.ability.extra.dollars,
-                (G.GAME and G.GAME.probabilities.normal or 1),
-                card.ability.extra.odds
+                numerator,
+                denominator
             }
         }
     end,
 
     calculate = function(self, card, context)
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
-            if pseudorandom('lime') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if SMODS.pseudorandom_element(card, 'willatro_lime', 1, card.ability.extra.odds) then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         play_sound('tarot1')
@@ -374,19 +377,21 @@ SMODS.Joker
     },
 
     loc_vars  = function(self, info_queue, card)
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+        local numerator, denominator2 = SMODS.get_probability_vars(card, 1, card.ability.extra.bigodds)
         return {
             vars = {
-                (G.GAME and G.GAME.probabilities.normal or 1),
-                card.ability.extra.odds,
+                numerator,
+                denominator,
                 card.ability.extra.dollars,
-                card.ability.extra.bigodds
+                denominator2
             }
         }
     end,
     
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and
-            pseudorandom('lemon') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            SMODS.pseudorandom_probability(card, 'willatro_lemon', 1, card.ability.extra.odds) then
             G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.dollars
             return {
                 dollars = card.ability.extra.dollars,
@@ -401,7 +406,7 @@ SMODS.Joker
             }
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
-            if pseudorandom('lemon') < G.GAME.probabilities.normal / card.ability.extra.bigodds then
+            if SMODS.pseudorandom_probability(card, 'willatro_lemon', 1, card.ability.extra.bigodds) then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         play_sound('tarot1')
@@ -925,20 +930,22 @@ SMODS.Joker {
     },
 
     loc_vars = function(self, info_queue, card)
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.smallodds)
+        local numerator, denominator2 = SMODS.get_probability_vars(card, 1, card.ability.extra.bigodds)
         return {
             vars = {
                 card.ability.extra.dollars,
-                G.GAME.probabilities.normal,
-                card.ability.extra.smallodds,
+                numerator,
+                denominator,
                 card.ability.extra.dollars_increase,
-                card.ability.extra.bigodds
+                denominator2
             }
         }
     end,
 
     calculate = function(self, card, context)
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
-            if pseudorandom('willatro_application') < (G.GAME.probabilities.normal or 1) / card.ability.extra.bigodds then
+            if SMODS.pseudorandom_probability(card, 'willatro_application', 1, card.ability.extra.bigodds) then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         play_sound('tarot1')
@@ -962,7 +969,7 @@ SMODS.Joker {
                 return {
                     message = "Fired!",
                 }
-            elseif pseudorandom('willatro_application') < (G.GAME.probabilities.normal or 1) / card.ability.extra.smallodds then
+            elseif SMODS.pseudorandom_probability(card, 'willatro_application', 1, card.ability.extra.smallodds) then
                 card.ability.extra.dollars = card.ability.extra.dollars + card.ability.extra.dollars_increase
                 return {
                     message = "Raise!"
@@ -1665,10 +1672,11 @@ SMODS.Joker
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.m_willatro_overgrown
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
         return {
             vars = {
-                G.GAME.probabilities.normal,
-                card.ability.extra.odds,
+                numerator,
+                denominator,
                 card.ability.extra.dollars
             }
         }
@@ -1698,7 +1706,7 @@ SMODS.Joker
         end
 
         if context.individual and context.cardarea == G.play and
-            pseudorandom('willatro_willow') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            SMODS.pseudorandom_probability(card, 'willatro_willow', 1, card.ability.extra.odds) then
             G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.dollars
             return {
                 dollars = card.ability.extra.dollars,
