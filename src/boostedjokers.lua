@@ -6,6 +6,17 @@ SMODS.Atlas
     py = 95
 }
 
+G.willatro_upgrades = {
+    ["j_hanging_chad"] = {
+        key = "j_willatro_box",
+        upgradeable = true
+    },
+    ["j_joker"] = {
+        key = "j_willatro_thecoolerjoker",
+        upgradeable = true
+    },
+}
+
 --#region common
 
 --ballot box - done!
