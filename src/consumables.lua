@@ -5,17 +5,6 @@ SMODS.Atlas {
     py = 95
 }
 
-local upgrades = {
-    ["j_hanging_chad"] = {
-        key = "j_willatro_box",
-        upgradeable = true
-    },
-    ["j_joker"] = {
-        key = "j_willatro_thecoolerjoker",
-        upgradeable = true
-    },
-}
-
 --#region tarots
 --tree - done!
 SMODS.Consumable {
@@ -140,7 +129,7 @@ SMODS.Consumable {
                     blockable = false,
                     func = function()
                         G.jokers.highlighted[i]:juice_up(0.3, 0.5)
-                        G.jokers.highlighted[i]:set_ability(upgrades[G.jokers.highlighted[i].config.center.key].key)
+                        G.jokers.highlighted[i]:set_ability(G.willatro_upgrades[G.jokers.highlighted[i].config.center.key].key)
                         return true
                     end
                 }))
@@ -158,7 +147,19 @@ SMODS.Consumable {
     can_use = function(self, card)
         if #G.jokers and G.jokers.highlighted then
             for i = 1, #G.jokers.highlighted do
-                return G.jokers and #G.jokers.highlighted > 0 and #G.jokers.highlighted <= card.ability.extra.max_highlighted and upgrades[G.jokers.highlighted[i].config.center.key]
+                return G.jokers and #G.jokers.highlighted > 0 and #G.jokers.highlighted <= card.ability.extra.max_highlighted and G.willatro_upgrades[G.jokers.highlighted[i].config.center.key]
+            end
+        end
+    end,
+
+    add_to_deck = function(self, card, from_debuff)
+        for i = 1, #G.jokers.cards do
+            if G.willatro_upgrades[G.jokers.cards[i].config.center.key] then
+                local eval = function(card2)
+                    return not card.REMOVED
+                end
+                juice_card_until(G.jokers.cards[i], eval, true)
+                juice_card_until(card, eval, true)
             end
         end
     end
