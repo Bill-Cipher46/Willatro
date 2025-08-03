@@ -87,6 +87,7 @@ SMODS.Tag {
     key = "boost_tag",
     atlas = "WillatroTags",
     pos = { x = 0, y = 0 },
+    min_ante = 2,
 
     loc_vars = function(self, info_queue, tag)
         info_queue[#info_queue + 1] = G.P_CENTERS.p_willatro_boostable_pack
