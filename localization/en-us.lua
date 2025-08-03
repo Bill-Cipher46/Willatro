@@ -476,7 +476,7 @@ return {
             --#region evolved
 
             --#region common
-            j_willatro_box = {
+            j_willatro_ballot_box = {
                 name = "Ballot Box",
                 text = {
                     "Retrigger all played and",
@@ -484,7 +484,7 @@ return {
                 }
             },
 
-            j_willatro_familyphoto = {
+            j_willatro_family_photo = {
                 name = "Family Photo",
                 text = {
                     "All played {C:attention}face{} cards",
@@ -493,7 +493,7 @@ return {
                 }
             },
 
-            j_willatro_graduate = {
+            j_willatro_ive_league_graduate = {
                 name = "Ivy League Graduate",
                 text = {
                     "Played {C:attention}Aces",
@@ -574,10 +574,9 @@ return {
             },
             --#endregion
 
-
             --#region uncommon
 
-            j_willatro_hellforged = {
+            j_willatro_hellforged_weapon = {
                 name = "Hellforged Weapon",
                 text = {
                     "Destroy all played and scoring",
@@ -588,7 +587,7 @@ return {
                 }
             },
 
-            j_willatro_sfx_tech = {
+            j_willatro_special_effects_technician = {
                 name = "Special Effects Technician",
                 text = {
                     "{C:green}#1# in #2#{} chance to make",
@@ -667,7 +666,7 @@ return {
                 }
             },
 
-            j_willatro_messy = {
+            j_willatro_messy_joker = {
                 name = "Messy Joker",
                 text = {
                     "Each suit counts as",
@@ -693,7 +692,7 @@ return {
                 }
             },
 
-            j_willatro_twelves = {
+            j_willatro_what_all_twelves = {
                 name = "What!? All Twelves",
                 text = {
                     "Quadruples all {C:attention}listed",
@@ -704,10 +703,9 @@ return {
 
             --#endregion
 
-
             --#region rare
 
-            j_willatro_baka = {
+            j_willatro_triple_baka = {
                 name = "Triple Baka",
                 text = {
                     "If played hand is a {C:attention}High Card{},",
@@ -735,7 +733,7 @@ return {
                 }
             },
 
-            j_willatro_atomic = {
+            j_willatro_atomic_joker = {
                 name = "Atomic Joker",
                 text = {
                     "This Joker gains {C:chips}+#1#{} when",
