@@ -819,6 +819,15 @@ return {
                     "and {C:attention}perishable Mitosis{}. Start",
                     "at ante {C:attention}0{}. {C:red}#1#{} discard"
                 }
+            },
+
+            b_willatro_boosted = {
+                name = "Boosted Deck",
+                text = {
+                    "Start run with",
+                    "{C:tarot,T:info_queue[1]}Boost{} tarot card",
+                    "and a {C:attention,T:info_queue[2]}Boost Tag{}"
+                }
             }
         },
 
