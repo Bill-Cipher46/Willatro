@@ -840,6 +840,16 @@ return {
                     "{C:attention,T:info_queue[2]}Wheel of Fortunes"
                 }
             }
+        },
+
+        Tag = {
+            tag_boost_tag = {
+                name = "Boost Tag",
+                text = {
+                    "Gives a free",
+                    "{C:attention}Boostable Booster Pack"
+                }
+            }
         }
 
     },
