@@ -825,8 +825,8 @@ return {
                 name = "Boosted Deck",
                 text = {
                     "Start run with",
-                    "{C:tarot,T:info_queue[1]}Boost{} tarot card",
-                    "and a {C:attention,T:info_queue[2]}Boost Tag{}"
+                    "{C:tarot,T:c_willatro_boost}Boost{} tarot card",
+                    "and a {C:attention,T:tag_willatro_boost_tag}Boost Tag{}"
                 }
             }
         },
