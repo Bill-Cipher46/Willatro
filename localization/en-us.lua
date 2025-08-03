@@ -843,7 +843,7 @@ return {
         },
 
         Tag = {
-            tag_boost_tag = {
+            tag_willatro_boost_tag = {
                 name = "Boost Tag",
                 text = {
                     "Gives a free",
