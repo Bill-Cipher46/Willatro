@@ -23,7 +23,8 @@ SMODS.ObjectType {
         ["j_photograph"] = true,
         ["j_oops"] = true,
         ["j_wee"] = true,
-        ["j_willatro_troll"] = true
+        ["j_willatro_troll"] = true,
+        ["j_egg"] = true
     }
 }
 
@@ -50,6 +51,10 @@ G.willatro_upgrades = {
     },
     ["j_willatro_troll"] = {
         key = "j_willatro_clueless",
+        upgradeable = true
+    },
+    ["j_egg"] = {
+        key = "j_willatro_caviar",
         upgradeable = true
     },
 }
@@ -146,6 +151,51 @@ SMODS.Joker {
                     break
                 end
             end
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+--caviar - done!
+SMODS.Joker {
+    key = "caviar",
+    rarity = 1,
+    atlas = "WillatroEvolved",
+    pos = {x = 5, y = 0},
+    cost = 0,
+    blueprint_compat = true,
+    config  = {
+        extra = {
+            sell_value = 3
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.sell_value
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+            for _, area in ipairs({ G.jokers, G.consumeables }) do
+                for _, other_card in ipairs(area.cards) do
+                    if other_card.set_cost then
+                        other_card.ability.extra_value = (other_card.ability.extra_value or 0) +
+                            card.ability.extra.sell_value
+                        other_card:set_cost()
+                    end
+                end
+            end
+            return {
+                message = localize('k_val_up'),
+                colour = G.C.MONEY
+            }
         end
     end,
 
