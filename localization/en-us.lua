@@ -566,8 +566,8 @@ return {
                 text = {
                     "All played and scoring",
                     "{C:attention}face{} cards give",
-                    "{C:white,X:chips}X#1#{} Chips and",
-                    "{C:white,X:mult}X#1#{} Mult"
+                    "{C:white,X:chips}X4{} Chips and",
+                    "{C:white,X:mult}X4{} Mult"
 
                     --actually commits suicide and sets ante to 32 when played face card
                 }
