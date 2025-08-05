@@ -20,7 +20,9 @@ SMODS.ObjectType {
     cards = {
         ["j_hanging_chad"] = true,
         ["j_joker"] = true,
-        ["j_photograph"] = true
+        ["j_photograph"] = true,
+        ["j_oops"] = true,
+        ["j_wee"] = true
     }
 }
 
@@ -35,6 +37,14 @@ G.willatro_upgrades = {
     },
     ["j_photograph"] = {
         key = "j_willatro_family_photo",
+        upgradeable = true
+    },
+    ["j_oops"] = {
+        key = "j_willatro_what_all_twelves",
+        upgradeable = true
+    },
+    ["j_wee"] = {
+        key = "j_willatro_atomic_joker",
         upgradeable = true
     },
 }
@@ -116,10 +126,90 @@ SMODS.Joker {
 
 --#region uncommon
 
+--what!? all twelves - done!
+SMODS.Joker {
+    key = "what_all_twelves",
+    rarity = 2,
+    atlas = "WillatroEvolved",
+    pos = {x = 2, y = 0},
+    cost = 4,
+    blueprint_compat = false,
+
+    calculate = function(self, card, context)
+        if context.mod_probability and not context.blueprint then
+            return {
+                numerator = context.numerator * 4
+            }
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
 --#endregion
 
 
 --#region rare
+
+--atomic joker - done!
+SMODS.Joker {
+    key = "atomic_joker",
+    rarity = 3,
+    atlas = "WillatroEvolved",
+    pos = {x = 3, y = 0},
+    cost = 8,
+    blueprint_compat = true,
+    config = {
+        extra = {
+            chip_gain = 0.25,
+            chips = 0,
+            cap = 256
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.chip_gain,
+                card.ability.extra.chips,
+                card.ability.extra.cap
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 2 and not context.blueprint then
+            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_gain
+            return {
+                message = localize('k_upgrade_ex'),
+                colour = G.C.CHIPS,
+                message_card = card
+            }
+        end
+
+        if context.joker_main then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and card.ability.extra.chip_gain < card.ability.extra.cap then
+            card.ability.extra.chip_gain = card.ability.extra.chip_gain * 2
+            return {
+                message = localize('k_upgrade_ex'),
+                colour = G.C.CHIPS,
+                message_card = card
+            }
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
 
 --#endregion
 
