@@ -739,8 +739,8 @@ return {
                     "This Joker gains {C:chips}+#1#{} when",
                     "each played {C:attention}2{} is scored.",
                     "Chip gain doubles at end",
-                    "of round, capped at {C:attention}+#3#{}",
-                    "{C:inactive}(Currently {C:chips}+#2#{inactive} Chips)"
+                    "of round, capped at {C:chips}+#3#{}",
+                    "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
                 }
             },
 
