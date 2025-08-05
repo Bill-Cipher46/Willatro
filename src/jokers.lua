@@ -314,7 +314,7 @@ SMODS.Joker
 
     calculate = function(self, card, context)
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
-            if SMODS.pseudorandom_element(card, 'willatro_lime', 1, card.ability.extra.odds) then
+            if SMODS.pseudorandom_probability(card, 'willatro_lime', 1, card.ability.extra.odds) then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         play_sound('tarot1')
