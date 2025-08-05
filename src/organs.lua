@@ -599,6 +599,7 @@ SMODS.Joker{
 SMODS.Booster
 {
     key = "organ_pack",
+    group_key = "k_willatro_organ_pack",
     atlas = "WillatroOrgans",
     cost = 4,
     weight = 0.9,

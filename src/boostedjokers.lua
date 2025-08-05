@@ -24,7 +24,8 @@ SMODS.ObjectType {
         ["j_oops"] = true,
         ["j_wee"] = true,
         ["j_willatro_troll"] = true,
-        ["j_egg"] = true
+        ["j_egg"] = true,
+        ["j_burnt"] = true
     }
 }
 
@@ -55,6 +56,10 @@ G.willatro_upgrades = {
     },
     ["j_egg"] = {
         key = "j_willatro_caviar",
+        upgradeable = true
+    },
+    ["j_burnt"] = {
+        key = "j_willatro_ashes",
         upgradeable = true
     },
 }
@@ -166,7 +171,7 @@ SMODS.Joker {
     atlas = "WillatroEvolved",
     pos = {x = 5, y = 0},
     cost = 0,
-    blueprint_compat = true,
+    blueprint_compat = false,
     config  = {
         extra = {
             sell_value = 3
@@ -293,17 +298,37 @@ SMODS.Joker {
     end
 }
 
---atomic joker - done!
+--ashes - done!
 SMODS.Joker {
-    key = "atomic_joker",
+    key = "ashes",
     rarity = 3,
     atlas = "WillatroEvolved",
     pos = {x = 6, y = 0},
     cost = 8,
-    blueprint_compat = true,
+    blueprint_compat = false,
+    config = {
+        extra = {
+            scored_hands = {}
+        }
+    },
 
     calculate = function(self, card, context)
+        if context.before and context.main_eval and not context.blueprint then
+            card.ability.extra.scored_hands[#card.ability.extra.scored_hands+1] = context.scoring_hand
+        end
 
+        if context.end_of_round and context.game_over == false and context.main_eval and card.ability.extra.scored_hands and not context.blueprint then
+            for i = 1, #SMODS.PokerHands do
+                for j = 1, #card.ability.extra.scored_hands do
+                    if i ~= card.ability.extra.scored_hands[j] then
+                        return {
+                            level_up = true,
+                            level_up_hand = card.ability.extra.scored_hands[j]
+                        }
+                    end
+                end
+            end
+        end
     end,
 
     in_pool = function(self, args)
@@ -349,6 +374,7 @@ SMODS.Tag {
 
 SMODS.Booster {
     key = "boostable_pack",
+    group_key = "k_willatro_boostable_pack",
     atlas = "WillatroEvolved",
     pos = { x = 5, y = 1 },
     kind = "Boostable",
