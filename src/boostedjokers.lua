@@ -158,15 +158,6 @@ SMODS.Tag {
 
 SMODS.Booster {
     key = "boostable_pack",
-    loc_txt = {
-        name = "Boostable Booster Pack",
-        group_name = "Boostable Booster Pack",
-        text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{} Jokers that can be boosted"
-        }
-            
-    },
     atlas = "WillatroEvolved",
     pos = { x = 5, y = 1 },
     kind = "Boostable",
