@@ -25,10 +25,10 @@ end
 
 local oldsetcost = Card.set_cost
 function Card:set_cost()
-    if self.config.center.key == 'j_willatro_troll' then
+    oldsetcost(self)
+    if next(SMODS.find_card('j_willatro_troll')) and self.config.center.key == 'j_willatro_troll' then
         self.cost = 0
     end
-    return oldsetcost(self)
 end
 
 local oldhighlight = Card.highlight

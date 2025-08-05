@@ -293,6 +293,24 @@ SMODS.Joker {
     end
 }
 
+--atomic joker - done!
+SMODS.Joker {
+    key = "atomic_joker",
+    rarity = 3,
+    atlas = "WillatroEvolved",
+    pos = {x = 6, y = 0},
+    cost = 8,
+    blueprint_compat = true,
+
+    calculate = function(self, card, context)
+
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
 
 --#endregion
 
