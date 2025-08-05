@@ -62,7 +62,7 @@ return {
                 name = "Trollface",
                 text = {
                     "Every played and scoring",
-                    "{C:attention}face card gives {C:mult}+10{} Mult"
+                    "{C:attention}face{} card gives {C:mult}+10{} Mult"
                     --opposite, always free
                 }
             },
