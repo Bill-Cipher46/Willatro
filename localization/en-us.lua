@@ -736,7 +736,7 @@ return {
             j_willatro_atomic_joker = {
                 name = "Atomic Joker",
                 text = {
-                    "This Joker gains {C:chips}+#1#{} when",
+                    "This Joker gains {C:chips}+#1#{} Chips when",
                     "each played {C:attention}2{} is scored.",
                     "Chip gain doubles at end",
                     "of round, capped at {C:chips}+#3#{}",
