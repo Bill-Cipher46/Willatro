@@ -28,7 +28,8 @@ SMODS.ObjectType {
         ["j_burnt"] = true,
         ["j_even_steven"] = true,
         ["j_odd_todd"] = true,
-        ["j_supernova"] = true
+        ["j_supernova"] = true,
+        ["j_smeared"] = true
     }
 }
 
@@ -75,6 +76,10 @@ G.willatro_upgrades = {
     },
     ["j_supernova"] = {
         key = "j_willatro_hypernova",
+        upgradeable = true
+    },
+    ["j_smeared"] = {
+        key = "j_willatro_messy_joker",
         upgradeable = true
     },
 }
@@ -348,6 +353,20 @@ SMODS.Joker {
             }
         end
     end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+--messy - done!
+SMODS.Joker {
+    key = "messy_joker",
+    rarity = 2,
+    atlas = "WillatroEvolved",
+    pos = {x = 3, y = 1},
+    cost = 7,
+    blueprint_compat = false,
 
     in_pool = function(self, args)
         return false
