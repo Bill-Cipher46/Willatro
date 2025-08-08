@@ -890,6 +890,17 @@ return {
             k_willatro_organ = "Organ",
             k_willatro_organ_pack = "Organ Pack",
             k_willatro_boostable_pack = "Boostable Pack"
+        },
+
+        poker_hand_descriptions = {
+            ["willatro_Split House"] = {
+                "A Three of a Kind of one suit",
+                "and a Pair of a different suit"
+            }
+        },
+
+        poker_hands = {
+            ["willatro_Split House"] = "Split House"
         }
     }
 }
