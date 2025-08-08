@@ -506,8 +506,8 @@ return {
                 name = "Composite Carl",
                 text = {
                     "Played cards with",
-                    "{C:attention}composite{} rank",
-                    "give {C:white,X:mult}X#1#{} Mult when scored",
+                    "{C:attention}composite{} rank give",
+                    "{C:white,X:mult}X#1#{} Mult when scored",
                     "{C:inactive}(10, 9, 8, 6, 4)"
                 }
             },
@@ -516,8 +516,8 @@ return {
                 name = "Prime Patrick",
                 text = {
                     "Played cards with",
-                    "{C:attention}prime{} rank",
-                    "give {C:white,X:chips}X#1#{} Chips when scored",
+                    "{C:attention}prime{} rank give",
+                    "{C:white,X:chips}X#1#{} Chips when scored",
                     "{C:inactive}(5, 7, 3, 2)"
                 }
             },
