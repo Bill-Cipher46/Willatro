@@ -727,9 +727,9 @@ return {
             j_willatro_million_dollar_idea = {
                 name = "Million Dollar Idea",
                 text = {
-                    "Retrigger all {C:attention}Jokers{}",
-                    "{C:attention}#1#{} additional time.",
-                    "Lose {C:money}$#2#{} when hand is scored"
+                    "Copies ability of leftmost",
+                    "{C:attention}Joker{}. Earn {C:money}$#1#{} when",
+                    "leftmost {C:attention}Joker{} is triggered",
                 }
             },
 
