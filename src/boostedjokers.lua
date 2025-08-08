@@ -27,7 +27,8 @@ SMODS.ObjectType {
         ["j_egg"] = true,
         ["j_burnt"] = true,
         ["j_even_steven"] = true,
-        ["j_odd_todd"] = true
+        ["j_odd_todd"] = true,
+        ["j_supernova"] = true
     }
 }
 
@@ -70,6 +71,10 @@ G.willatro_upgrades = {
     },
     ["j_odd_todd"] = {
         key = "j_willatro_prime_patrick",
+        upgradeable = true
+    },
+    ["j_supernova"] = {
+        key = "j_willatro_hypernova",
         upgradeable = true
     },
 }
@@ -280,6 +285,39 @@ SMODS.Joker {
         if context.individual and context.cardarea == G.play and context.other_card:get_id() <= 10 and Prime(context.other_card:get_id()) == true then
             return {
                 x_chips = card.ability.extra.x_chips
+            }
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+--hypernova - done!
+SMODS.Joker {
+    key = "hypernova",
+    rarity = 1,
+    atlas = "WillatroEvolved",
+    pos = {x = 2, y = 1},
+    cost = 5,
+    blueprint_compat = true,
+    config = {
+        extra = {
+            mult = 0
+        }
+    },
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            card.ability.extra.mult = 0
+            for k, v in pairs(G.GAME.hands) do
+                if k ~= context.scoring_name then
+                    card.ability.extra.mult = card.ability.extra.mult + v.played
+                end
+            end
+            return {
+                mult = card.ability.extra.mult
             }
         end
     end,
