@@ -63,6 +63,15 @@ function CardArea:add_to_highlighted(card, silent)
     return oldaddhighlighted(self, card, silent)
 end
 
+local oldcardissuit = Card.is_suit
+function Card:is_suit(suit, bypass_debuff, flush_calc)
+    local g = oldcardissuit(self, suit, bypass_debuff, flush_calc)
+    if not SMODS.has_no_suit(self) and next(SMODS.find_card("j_willatro_messy_joker")) then
+        return true
+    end
+    return g
+end
+
 function SMODS.current_mod.reset_game_globals(run_start)
     reset_willatro_jokeinthebox()
 end
