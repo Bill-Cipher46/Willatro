@@ -25,7 +25,9 @@ SMODS.ObjectType {
         ["j_wee"] = true,
         ["j_willatro_troll"] = true,
         ["j_egg"] = true,
-        ["j_burnt"] = true
+        ["j_burnt"] = true,
+        ["j_even_steven"] = true,
+        ["j_odd_todd"] = true
     }
 }
 
@@ -60,6 +62,14 @@ G.willatro_upgrades = {
     },
     ["j_burnt"] = {
         key = "j_willatro_ashes",
+        upgradeable = true
+    },
+    ["j_even_steven"] = {
+        key = "j_willatro_composite_carl",
+        upgradeable = true
+    },
+    ["j_odd_todd"] = {
+        key = "j_willatro_prime_patrick",
         upgradeable = true
     },
 }
@@ -170,7 +180,7 @@ SMODS.Joker {
     rarity = 1,
     atlas = "WillatroEvolved",
     pos = {x = 5, y = 0},
-    cost = 0,
+    cost = 4,
     blueprint_compat = false,
     config  = {
         extra = {
@@ -200,6 +210,76 @@ SMODS.Joker {
             return {
                 message = localize('k_val_up'),
                 colour = G.C.MONEY
+            }
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+--composite carl - done!
+SMODS.Joker {
+    key = "composite_carl",
+    rarity = 1,
+    atlas = "WillatroEvolved",
+    pos = {x = 0, y = 1},
+    cost = 0,
+    blueprint_compat = true,
+    config  = {
+        extra = {
+            x_mult = 1.6
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.x_mult
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card:get_id() <= 10 and Prime(context.other_card:get_id()) == false then
+            return {
+                x_mult = card.ability.extra.x_mult
+            }
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+--prime patrick - done!
+SMODS.Joker {
+    key = "prime_patrick",
+    rarity = 1,
+    atlas = "WillatroEvolved",
+    pos = {x = 1, y = 1},
+    cost = 4,
+    blueprint_compat = true,
+    config  = {
+        extra = {
+            x_chips = 2
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.x_chips
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card:get_id() <= 10 and Prime(context.other_card:get_id()) == true then
+            return {
+                x_chips = card.ability.extra.x_chips
             }
         end
     end,
