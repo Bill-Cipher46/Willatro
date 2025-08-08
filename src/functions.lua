@@ -5,6 +5,15 @@ SMODS.current_mod.optional_features = function()
     }
 end
 
+function Prime(n)
+    for i = 2, n^(1/2) do
+        if (n % i) == 0 then
+            return false
+        end
+    end
+    return true
+end
+
 local SMODS_calculate_context_ref = SMODS.calculate_context
 function SMODS.calculate_context(context, return_table)
     if context.buying_card and context.card.ability.set == "Joker" then
