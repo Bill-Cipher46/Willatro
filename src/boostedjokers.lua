@@ -524,6 +524,11 @@ SMODS.Joker {
                 }
             }
         end
+        return {
+            vars = {
+                card.ability.extra.money
+            }
+        }
     end,
 
     calculate = function(self, card, context)
