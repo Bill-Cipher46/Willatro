@@ -24,9 +24,7 @@ SMODS.Blind
         if not blind.disabled then
             if context.discard then
                 for k, v in ipairs(G.hand.cards) do
-                    if v.facing == "front" then
-                        v:flip()
-                    end
+                    v:flip()
                 end
             end
         end
