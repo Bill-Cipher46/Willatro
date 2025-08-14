@@ -608,5 +608,10 @@ SMODS.Booster {
 
     in_pool = function(self, args)
         return false
+    end,
+
+    ease_background_colour = function(self)
+        ease_colour(G.C.DYN_UI.MAIN, HEX('c2b7b7'))
+        ease_background_colour({ new_colour = HEX('6a5050'), special_colour = HEX('c2b7b7'), contrast = 2 })
     end
 }
