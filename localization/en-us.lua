@@ -23,6 +23,15 @@ return {
                     "#1# in #2# chance to",
                     "destroy scored cards"
                 }
+            },
+
+            bl_willatro_golden_gun = {
+                name = "Golden Gun",
+                text = {
+                    "Destroy a random scored",
+                    "card before scoring and lose",
+                    "money proportional to it's rank"
+                }
             }
         },
 
