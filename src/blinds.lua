@@ -73,7 +73,7 @@ SMODS.Blind
     },
 
     loc_vars = function(self)
-        local numerator, denominator = SMODS.get_probability_vars(self, 1, self.ability.extra.odds)
+        local numerator, denominator = SMODS.get_probability_vars(self, 1, self.config.extra.odds)
         return {
             vars = { 
                 numerator, 
@@ -82,7 +82,7 @@ SMODS.Blind
         }
     end,
     collection_loc_vars = function(self)
-        local numerator, denominator = SMODS.get_probability_vars(self, 1, self.ability.extra.odds)
+        local numerator, denominator = SMODS.get_probability_vars(self, 1, self.config.extra.odds)
         return {
             vars = { 
                 numerator,
@@ -93,7 +93,7 @@ SMODS.Blind
 
     calculate = function(self, blind, context)
         if not blind.disabled then
-            if SMODS.pseudorandom_probability(self, 'willatro_arrow', 1, self.ability.extra.odds) then
+            if SMODS.pseudorandom_probability(self, 'willatro_arrow', 1, self.config.extra.odds) then
                 if context.destroy_card and context.cardarea == G.play then
                     return
                     { 
