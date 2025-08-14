@@ -349,6 +349,15 @@ return {
                     "set money to {C:money}$#1#"
                 }
             },
+
+            j_willatro_static = {
+                name = "Static",
+                text = {
+                    "{C:mult}X#1#{} Mult and {C:chips}X#2#{} Chips",
+                    "{C:red}-$#3#{} when this joker is",
+                    "sold or destroyed"
+                }
+            },
             --#endregion
 
             --#region legendary
