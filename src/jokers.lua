@@ -1585,7 +1585,7 @@ SMODS.Joker {
     end,
 }
 
---static
+--static - done!
 SMODS.Joker {
     key = "static",
     rarity = 3,
