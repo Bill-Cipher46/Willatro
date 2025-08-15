@@ -106,16 +106,20 @@ SMODS.Blind
     atlas = "WillatroBlinds",
     pos = { x = 0, y = 3},
     boss = {
-        showdown = true
+        --showdown = true
+        min = 0,
+        max = 0
     },
     boss_colour = HEX('ffd081'),
 
     calculate = function(self, blind, context)
         if not blind.disabled then
             if context.press_play then
-                local marked_card = pseudorandom_element(G.hand.highlighted, "golden_gun")
-                ease_dollars(-marked_card:get_id())
-                SMODS.destroy_cards(marked_card)
+                if #G.hand.highlighted > 1 then
+                    local marked_card = pseudorandom_element(G.hand.highlighted, "golden_gun")
+                    ease_dollars(-marked_card:get_id())
+                    SMODS.destroy_cards(marked_card)
+                end
             end
         end
     end
