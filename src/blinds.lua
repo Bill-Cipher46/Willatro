@@ -66,37 +66,30 @@ SMODS.Blind
         max = 0
     },
     boss_colour = HEX('279378'),
-    config = { 
-        extra = { 
-            odds = 3 
-        } 
-    },
 
     loc_vars = function(self)
-        local numerator, denominator = SMODS.get_probability_vars(self, 1, self.config.extra.odds)
+        local numerator, denominator = SMODS.get_probability_vars(self, 1, 3, 'willatro_arrow')
         return {
-            vars = { 
-                numerator, 
+            vars = {
+                numerator,
                 denominator
             }
         }
     end,
     collection_loc_vars = function(self)
-        local numerator, denominator = SMODS.get_probability_vars(self, 1, self.config.extra.odds)
         return {
-            vars = { 
-                numerator,
-                denominator
+            vars = {
+                '1',
+                '3'
             }
         }
     end,
 
     calculate = function(self, blind, context)
         if not blind.disabled then
-            if SMODS.pseudorandom_probability(self, 'willatro_arrow', 1, self.config.extra.odds) then
-                if context.destroy_card and context.cardarea == G.play then
-                    return
-                    { 
+            if context.destroy_card and context.cardarea == G.play then
+                if SMODS.pseudorandom_probability(blind, 'willatro_arrow', 1, 3) then
+                    return {
                         remove = true
                     }
                 end
