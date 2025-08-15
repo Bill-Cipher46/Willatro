@@ -471,7 +471,7 @@ SMODS.Joker {
             
             for _, hand in ipairs(all_hands) do
                 if not played_hands[hand] then
-                    SMODS.smart_level_up_hand(card, hand, false, 3)
+                    SMODS.smart_level_up_hand(card, hand)
                 end
             end
             
