@@ -355,7 +355,7 @@ return {
                 text = {
                     "{C:mult}X#1#{} Mult and {C:chips}X#2#{} Chips",
                     "{C:red}-$#3#{} when this joker is",
-                    "sold or destroyed"
+                    "{C:attention}sold{} or {C:attention}destroyed"
                 }
             },
             --#endregion
