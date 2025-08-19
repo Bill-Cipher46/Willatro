@@ -242,6 +242,15 @@ return {
                     "and scoring {C:attention}Queens{} give {C:white,X:mult}X#1#{} Mult"
                 }
             },
+            
+            j_willatro_wildflowers = {
+                name = "Wildflowers",
+                text = {
+                    "{C:attention}Overgrown{} cards count as {C:clubs}Clubs{},",
+                    "{C:hearts}Hearts{}, and {C:diamonds}Diamonds. {C:attention}Overgrown",
+                    "cards with {C:spade}Spades{} suit are debuffed"
+                }
+            },
             --#endregion
 
             --#region rare
