@@ -69,6 +69,12 @@ function Card:is_suit(suit, bypass_debuff, flush_calc)
     if not SMODS.has_no_suit(self) and next(SMODS.find_card("j_willatro_messy_joker")) then
         return true
     end
+
+    if not SMODS.has_no_suit(self) and next(SMODS.find_card("j_willatro_wildflowers")) and SMODS.has_enhancement(self, "m_willatro_overgrown") and
+    (self.base.suit == 'Hearts' or self.base.suit == 'Diamonds' or self.base.suit == 'Clubs') == (suit == 'Hearts' or suit == 'Diamonds' or suit == 'Clubs') then
+        return true
+    end
+
     return g
 end
 
