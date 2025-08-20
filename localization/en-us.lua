@@ -247,8 +247,8 @@ return {
                 name = "Wildflowers",
                 text = {
                     "{C:attention}Overgrown{} cards count as {C:clubs}Clubs{},",
-                    "{C:hearts}Hearts{}, and {C:diamonds}Diamonds. {C:attention}Overgrown",
-                    "cards with {C:spade}Spades{} suit are debuffed"
+                    "{C:hearts}Hearts{}, and {C:diamonds}Diamonds{}. {C:attention}Overgrown",
+                    "cards with {C:spades}Spades{} suit are debuffed"
                 }
             },
             --#endregion
