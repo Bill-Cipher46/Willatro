@@ -520,8 +520,8 @@ return {
                 }
             },
 
-            j_willatro_ive_league_graduate = {
-                name = "Ivy League Graduate",
+            j_willatro_ivy_league_diploma = {
+                name = "Ivy League Diploma",
                 text = {
                     "Played {C:attention}Aces",
                     "give {C:white,X:chips}X#1#{} Chips",
@@ -569,8 +569,8 @@ return {
                 }
             },
 
-            j_willatro_tsunami = {
-                name = "Tsunami",
+            j_willatro_flood = {
+                name = "Flood",
                 text = {
                     "Every {C:attention}played card",
                     "counts in scoring",
@@ -599,6 +599,16 @@ return {
                     --actually commits suicide and sets ante to 32 when played face card
                 }
             },
+            
+            j_willatro_cheshire_smile = {
+                "Destroy all played and scoring",
+                "{C:attention}face{} cards. Gain {C:white,X:chips}X#1#{} Chips",
+                "for each destroyed {C:attention}face{} card.",
+                "If no face cards are played,",
+                "at the end of the round, destroy",
+                "a random {C:attention}Joker and",
+                "gain {C:white,X:chips}X#2#{} chips instead"
+            },
             --#endregion
 
             --#region uncommon
@@ -614,8 +624,8 @@ return {
                 }
             },
 
-            j_willatro_special_effects_technician = {
-                name = "Special Effects Technician",
+            j_willatro_special_effects = {
+                name = "Special Effects",
                 text = {
                     "{C:green}#1# in #2#{} chance to make",
                     "a {C:dark_edition}negative{} copy of any",
@@ -624,8 +634,8 @@ return {
                 }
             },
 
-            j_willatro_ruby = {
-                name = "Ruby",
+            j_willatro_redstone = {
+                name = "Redstone",
                 text = {
                     "Played cards with{C:hearts}Heart",
                     "suit give {C:white,X:mult}X#1#{} Mult",
@@ -634,8 +644,8 @@ return {
                 }
             },
 
-            j_willatro_topaz = {
-                name = "Topaz",
+            j_willatro_diamond = {
+                name = "Diamond",
                 text = {
                     "Played cards with{C:diamonds}Diamond",
                     "suit give {C:money}$#1#{}",
@@ -654,8 +664,8 @@ return {
                 }
             },
 
-            j_willatro_lapis = {
-                name = "Lapis",
+            j_willatro_lapis_lazuli = {
+                name = "Lapis Lazuli",
                 text = {
                     "Played cards with{C:clubs}Club",
                     "suit give {C:mult}+#1#{} Mult",
@@ -707,7 +717,10 @@ return {
                     "Destroy all played and",
                     "scoring {C:attention}6{}s. Create",
                     "a {C:spectral}Spectral{} card for",
-                    "each destroyed {C:attention}6{}"
+                    "each destroyed {C:attention}6{}.",
+                    "{C:green}#1#{} in {C:green}#2#{} chance to add a",
+                    "random {C:attention}6{} to deck when",
+                    "blind is selected"
                 }
             },
 
@@ -756,7 +769,7 @@ return {
                 text = {
                     "Copies ability of leftmost",
                     "{C:attention}Joker{}. Earn {C:money}$#1#{} when",
-                    "leftmost {C:attention}Joker{} is triggered",
+                    "copied {C:attention}Joker{} is triggered",
                 }
             },
 
