@@ -15,7 +15,7 @@ SMODS.Atlas
 }
 
 SMODS.ObjectType {
-    key = "Upgradeable",
+    key = "willatro_Upgradeable",
     default = "j_joker",
     cards = {
         ["j_hanging_chad"] = true,
@@ -30,7 +30,8 @@ SMODS.ObjectType {
         ["j_odd_todd"] = true,
         ["j_supernova"] = true,
         ["j_smeared"] = true,
-        ["j_brainstorm"] = true
+        ["j_brainstorm"] = true,
+        ["j_scholar"] = true
     }
 }
 
@@ -85,6 +86,10 @@ G.willatro_upgrades = {
     },
     ["j_brainstorm"] = {
         key = "j_willatro_million_dollar_idea",
+        upgradeable = true
+    },
+    ["j_scholar"] = {
+        key = "j_willatro_ivy_league_diploma",
         upgradeable = true
     },
 }
@@ -329,6 +334,46 @@ SMODS.Joker {
             return {
                 mult = card.ability.extra.mult
             }
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+--ivy league - done!
+SMODS.Joker {
+    key = "ivy_league_diploma",
+    rarity = 1,
+    atlas = "WillatroEvolved",
+    pos = {x = 6, y = 1},
+    cost = 4,
+    blueprint_compat = true,
+    config = {
+        extra = {
+            x_mult = 1.5,
+            x_chips = 2
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.x_chips,
+                card.ability.extra.x_mult
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.cardarea == G.play and context.individual then
+            if context.other_card:get_id() == 14 then
+                return {
+                    x_chips = card.ability.extra.x_chips,
+                    x_mult = card.ability.extra.x_mult
+                }
+            end
         end
     end,
 
@@ -603,7 +648,7 @@ SMODS.Booster {
     end,
 
     create_card = function(self, card, i)
-        return { set = "Upgradeable" }
+        return { set = "willatro_Upgradeable" }
     end,
 
     in_pool = function(self, args)
