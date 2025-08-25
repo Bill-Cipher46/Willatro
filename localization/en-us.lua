@@ -609,6 +609,14 @@ return {
                 "a random {C:attention}Joker and",
                 "gain {C:white,X:chips}X#2#{} chips instead"
             },
+
+            j_willatro_string_theory = {
+                name = "String Theory",
+                text = {
+                    "{C:attention}Aces{} count as",
+                    "every other rank"
+                }
+            },
             --#endregion
 
             --#region uncommon
@@ -721,14 +729,6 @@ return {
                     "{C:green}#1#{} in {C:green}#2#{} chance to add a",
                     "random {C:attention}6{} to deck when",
                     "blind is selected"
-                }
-            },
-
-            j_willatro_string_theory = {
-                name = "String Theory",
-                text = {
-                    "{C:attention}Aces{} count as",
-                    "every other rank"
                 }
             },
 
