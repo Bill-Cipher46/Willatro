@@ -90,5 +90,5 @@ function poll_edition(_key, _mod, _no_neg, _guaranteed, _options)
             return {foil = true}
         end
     end
-    return nil
+    return oldpolledition
 end
