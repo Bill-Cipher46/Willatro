@@ -715,7 +715,7 @@ return {
                 name = "Precognition",
                 text = {
                     "Destroy all played and",
-                    "scoring {C:attention}6{}s. Create",
+                    "scoring {C:attention}6{}'s. Create",
                     "a {C:spectral}Spectral{} card for",
                     "each destroyed {C:attention}6{}.",
                     "{C:green}#1#{} in {C:green}#2#{} chance to add a",
