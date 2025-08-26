@@ -362,7 +362,7 @@ return {
             j_willatro_static = {
                 name = "Static",
                 text = {
-                    "{C:mult}X#1#{} Mult and {C:chips}X#2#{} Chips",
+                    "{C:mult}X#1#{} Mult and {C:chips}X#2#{} Chips.",
                     "{C:red}-$#3#{} when this joker is",
                     "{C:attention}sold{} or {C:attention}destroyed"
                 }
@@ -582,7 +582,7 @@ return {
                 name = "Crowd",
                 text = {
                     "When {C:attention}blind{} is selected,",
-                    "create {C:attention}2 {C:common}Common{}, {C:uncommon}Uncommon{},",
+                    "create {C:attention}#1# {C:common}Common{}, {C:uncommon}Uncommon{},",
                     "or {C:rare}Rare {C:attention}Jokers",
                     "{C:inactive}(Must have room)"
                 }
