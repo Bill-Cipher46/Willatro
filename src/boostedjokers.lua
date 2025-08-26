@@ -436,15 +436,15 @@ SMODS.Joker {
 	end
 }
 
---superposition
-SMODS.Joker {
+--string theory
+--[[ SMODS.Joker {
     key = "string_theory",
     atlas = "WillatroEvolved",
     blueprint_compat = false,
     rarity = 1,
     cost = 4,
     pos = { x = 2, y = 2 }
-}
+} ]]
 
 --#endregion
 
