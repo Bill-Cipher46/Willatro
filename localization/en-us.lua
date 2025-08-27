@@ -617,6 +617,15 @@ return {
                     "every other rank"
                 }
             },
+            
+            j_willatro_platinum = {
+                name = "Platinum Joker",
+                text = {
+                    "Earn the sell value of all",
+                    "currently owned {C:attention}Jokers{}",
+                    "{C:money}+$#1#{} at end of round"
+                }
+            },
             --#endregion
 
             --#region uncommon
