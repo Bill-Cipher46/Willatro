@@ -517,7 +517,7 @@ SMODS.Joker
             local toDestroy = 0
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:get_id() < 9 then
-                    toDestroy  = toDestroy + 1
+                    toDestroy = toDestroy + 1
                 end
             end
             if toDestroy > 0 and not context.blueprint then
