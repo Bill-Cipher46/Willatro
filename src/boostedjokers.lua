@@ -38,7 +38,11 @@ SMODS.ObjectType {
         ["j_vagabond"] = true,
         ["j_erosion"] = true,
         ["j_golden"] = true,
-        ["j_scary_face"] = true
+        ["j_scary_face"] = true,
+        ["j_bloodstone"] = true,
+        ["j_rough_gem"] = true,
+        ["j_arrowhead"] = true,
+        ["j_onyx_agate"] = true,
     }
 }
 
@@ -125,6 +129,22 @@ G.willatro_upgrades = {
     },
     ["j_scary_face"] = {
         key = "j_willatro_cheshire_smile",
+        upgradeable = true
+    },
+    ["j_bloodstone"] = {
+        key = "j_willatro_redstone",
+        upgradeable = true
+    },
+    ["j_rough_gem"] = {
+        key = "j_willatro_diamond",
+        upgradeable = true
+    },
+    ["j_arrowhead"] = {
+        key = "j_willatro_obsidian",
+        upgradeable = true
+    },
+    ["j_onyx_agate"] = {
+        key = "j_willatro_lapis_lazuli",
         upgradeable = true
     },
 }
@@ -807,6 +827,179 @@ SMODS.Joker {
                     x_mult = card.ability.extra.x_mult
                 }
             end
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+--redstone - done!
+SMODS.Joker {
+    key = "redstone",
+    rarity = 2,
+    atlas = "WillatroEvolved",
+    pos = {x = 2, y = 3},
+    cost = 7,
+    blueprint_compat = true,
+    config = {
+        extra = {
+            x_mult = 2.5
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.x_mult
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card:is_suit("Hearts") then
+            return {
+                x_mult = card.ability.extra.x_mult
+            }
+        end
+
+        if context.debuff_card and (context.debuff_card:is_suit("Clubs") or context.debuff_card:is_suit("Spades") or context.debuff_card:is_suit("Diamonds")) then
+            return {
+                debuff = true
+            }
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+--diamond - done!
+SMODS.Joker {
+    key = "diamond",
+    rarity = 2,
+    atlas = "WillatroEvolved",
+    pos = {x = 1, y = 3},
+    cost = 7,
+    blueprint_compat = true,
+    config = {
+        extra = {
+            dollars = 4
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.dollars
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card:is_suit("Diamonds") then
+            G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.dollars
+            return {
+                dollars = card.ability.extra.dollars,
+                func = function()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            G.GAME.dollar_buffer = 0
+                            return true
+                        end
+                    }))
+                end
+            }
+        end
+
+        if context.debuff_card and (context.debuff_card:is_suit("Clubs") or context.debuff_card:is_suit("Spades") or context.debuff_card:is_suit("Hearts")) then
+            return {
+                debuff = true
+            }
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+--obsidian - done!
+SMODS.Joker {
+    key = "obsidian",
+    rarity = 2,
+    atlas = "WillatroEvolved",
+    pos = {x = 3, y = 3},
+    cost = 7,
+    blueprint_compat = true,
+    config = {
+        extra = {
+            x_chips = 1.5
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.x_chips
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card:is_suit("Spades") then
+            return {
+                x_chips = card.ability.extra.x_chips
+            }
+        end
+
+        if context.debuff_card and (context.debuff_card:is_suit("Clubs") or context.debuff_card:is_suit("Hearts") or context.debuff_card:is_suit("Diamonds")) then
+            return {
+                debuff = true
+            }
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+--lapis lazuli - done!
+SMODS.Joker {
+    key = "lapis_lazuli",
+    rarity = 2,
+    atlas = "WillatroEvolved",
+    pos = {x = 4, y = 3},
+    cost = 7,
+    blueprint_compat = true,
+    config = {
+        extra = {
+            mult = 35
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.mult
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card:is_suit("Clubs") then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+
+        if context.debuff_card and (context.debuff_card:is_suit("Hearts") or context.debuff_card:is_suit("Spades") or context.debuff_card:is_suit("Diamonds")) then
+            return {
+                debuff = true
+            }
         end
     end,
 
