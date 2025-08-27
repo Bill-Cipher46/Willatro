@@ -36,7 +36,8 @@ SMODS.ObjectType {
         ["j_sixth_sense"] = true,
         ["j_riff_raff"] = true,
         ["j_vagabond"] = true,
-        ["j_erosion"] = true
+        ["j_erosion"] = true,
+        ["j_golden"] = true
     }
 }
 
@@ -115,6 +116,10 @@ G.willatro_upgrades = {
     },
     ["j_erosion"] = {
         key = "j_willatro_canyon",
+        upgradeable = true
+    },
+    ["j_golden"] = {
+        key = "j_willatro_platinum",
         upgradeable = true
     },
 }
@@ -504,6 +509,43 @@ SMODS.Joker {
                 colour = G.C.BLUE,
             }
         end
+    end,
+}
+
+--platinum - done!
+SMODS.Joker {
+    key = "platinum",
+    blueprint_compat = true,
+    atlas = "WillatroEvolved",
+    rarity = 1,
+    cost = 6,
+    pos = { x = 6, y = 2 },
+    config = {
+        extra = {
+            dollars = 4,
+            total = 0
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        local sell_cost = 0
+        card.ability.extra.total = 0
+        for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do
+            sell_cost = sell_cost + joker.sell_cost
+        end
+
+        card.ability.extra.total = card.ability.extra.total + sell_cost + card.ability.extra.dollars
+
+        return {
+            vars = {
+                card.ability.extra.dollars,
+                card.ability.extra.total
+            }
+        }
+    end,
+
+    calc_dollar_bonus = function(self, card)
+        return card.ability.extra.total
     end,
 }
 
