@@ -623,7 +623,8 @@ return {
                 text = {
                     "Earn the sell value of all",
                     "currently owned {C:attention}Jokers{}",
-                    "{C:money}+$#1#{} at end of round"
+                    "{C:money}+$#1#{} at end of round",
+                    "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
                 }
             },
             --#endregion
