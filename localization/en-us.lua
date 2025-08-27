@@ -659,7 +659,7 @@ return {
             j_willatro_redstone = {
                 name = "Redstone",
                 text = {
-                    "Played cards with{C:hearts}Heart",
+                    "Played cards with {C:hearts}Heart",
                     "suit give {C:white,X:mult}X#1#{} Mult",
                     "when scored.",
                     "Debuff every other suit"
@@ -669,7 +669,7 @@ return {
             j_willatro_diamond = {
                 name = "Diamond",
                 text = {
-                    "Played cards with{C:diamonds}Diamond",
+                    "Played cards with {C:diamonds}Diamond",
                     "suit give {C:money}$#1#{}",
                     "when scored.",
                     "Debuff every other suit"
@@ -679,7 +679,7 @@ return {
             j_willatro_obsidian = {
                 name = "Obsidian",
                 text = {
-                    "Played cards with{C:spades}Spade",
+                    "Played cards with {C:spades}Spade",
                     "suit give {C:white,X:chips}X#1#{} Chips",
                     "when scored.",
                     "Debuff every other suit"
@@ -689,7 +689,7 @@ return {
             j_willatro_lapis_lazuli = {
                 name = "Lapis Lazuli",
                 text = {
-                    "Played cards with{C:clubs}Club",
+                    "Played cards with {C:clubs}Club",
                     "suit give {C:mult}+#1#{} Mult",
                     "when scored.",
                     "Debuff every other suit"
