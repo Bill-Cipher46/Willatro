@@ -601,13 +601,17 @@ return {
             },
             
             j_willatro_cheshire_smile = {
-                "Destroy all played and scoring",
-                "{C:attention}face{} cards. Gain {C:white,X:chips}X#1#{} Chips",
-                "for each destroyed {C:attention}face{} card.",
-                "If no face cards are played,",
-                "at the end of the round, destroy",
-                "a random {C:attention}Joker and",
-                "gain {C:white,X:chips}X#2#{} chips instead"
+                name = "Cheshire Smile",
+                text = {
+                    "Destroy all played and scoring",
+                    "{C:attention}face{} cards. Gain {C:white,X:chips}X#1#{} Chips",
+                    "for each destroyed {C:attention}face{} card.",
+                    "If no face cards are scored,",
+                    "at the end of the round, destroy",
+                    "a random {C:attention}Joker{} and",
+                    "gain {C:white,X:chips}X#2#{} chips instead",
+                    "{C:inactive}(Currently {C:white,X:chips}X#3#{C:inactive} Chips)"
+                }
             },
 
             j_willatro_string_theory = {
