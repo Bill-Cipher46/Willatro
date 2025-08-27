@@ -695,9 +695,8 @@ return {
             j_willatro_canyon = {
                 name = "Canyon",
                 text = {
-                    "{C:white,X:mult}X#1#{} Mult if",
-                    "less than {C:attention}26{} cards",
-                    "remain in your full deck"
+                    "{C:white,X:mult}X#1#{} Mult if full deck",
+                    "is less than half of {C:attention}#2#{}"
                 }
             },
 
