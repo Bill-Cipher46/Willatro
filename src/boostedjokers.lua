@@ -43,6 +43,9 @@ SMODS.ObjectType {
         ["j_rough_gem"] = true,
         ["j_arrowhead"] = true,
         ["j_onyx_agate"] = true,
+        ["j_ring_master"] = true,
+        ["j_willatro_familiarweapon"] = true,
+        ["j_willatro_pear"] = true,
     }
 }
 
@@ -145,6 +148,18 @@ G.willatro_upgrades = {
     },
     ["j_onyx_agate"] = {
         key = "j_willatro_lapis_lazuli",
+        upgradeable = true
+    },
+    ["j_ring_master"] = {
+        key = "j_willatro_special_effects",
+        upgradeable = true
+    },
+    ["j_willatro_familiarweapon"] = {
+        key = "j_willatro_hellforged_weapon",
+        upgradeable = true
+    },
+    ["j_willatro_pear"] = {
+        key = "j_willatro_triple_baka",
         upgradeable = true
     },
 }
@@ -999,6 +1014,128 @@ SMODS.Joker {
         if context.debuff_card and (context.debuff_card:is_suit("Hearts") or context.debuff_card:is_suit("Spades") or context.debuff_card:is_suit("Diamonds")) then
             return {
                 debuff = true
+            }
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+--special effects - done!
+SMODS.Joker {
+    key = "special_effects",
+    rarity = 2,
+    atlas = "WillatroEvolved",
+    pos = {x = 5, y = 3},
+    cost = 5,
+    blueprint_compat = false,
+    config = {
+        extra = {
+            odds = 3
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_negative
+        local numerator, denominator = SMODS.get_probability_vars(card, 2, card.ability.extra.odds)
+        return {
+            vars = {
+                numerator,
+                denominator
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if not context.blueprint and context.buying_card and (context.card.ability.set == "Joker" or context.card.ability.set == "Planet" or context.card.ability.set == "Spectral" or context.card.ability.set == "Tarot") then
+            if SMODS.pseudorandom_probability(card, 'willatro_special_effects', 2, card.ability.extra.odds) then
+                local _card = context.card.config.center.key
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'before',
+                    delay = 0.4,
+                    func = function()
+                        SMODS.add_card {
+                            key = _card,
+                            edition = 'e_negative'
+                        }
+                        return true
+                    end
+                }))
+            end
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+--hellforged weapon - done!
+SMODS.Joker {
+    key = "hellforged_weapon",
+    rarity = 2,
+    atlas = "WillatroEvolved",
+    pos = {x = 6, y = 3},
+    cost = 6,
+    blueprint_compat = true,
+    config = {
+        extra = {
+            mult_gain = 20,
+            mult = 0,
+            message = false,
+            play = false
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return { 
+            vars = { 
+                card.ability.extra.mult_gain,
+                card.ability.extra.mult,
+            } 
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local toDestroy = 0
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i]:get_id() <= 9 then
+                    toDestroy = toDestroy + 1
+                end
+            end
+            if toDestroy > 0 and not context.blueprint then
+                card.ability.extra.mult = card.ability.extra.mult + (toDestroy * card.ability.extra.mult_gain)
+            end
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+
+        if context.destroy_card and context.cardarea == G.play and not context.blueprint then
+            if context.destroy_card:get_id() <= 9 then
+                card.ability.extra.message = true
+                return {
+                    remove = true
+                }
+            end
+        end
+        if not context.after and card.ability.extra.message == true then
+            card.ability.extra.play = true
+            card.ability.extra.message = false
+            return { 
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        if card.ability.extra.play == true then
+                            card:juice_up(0.8, 0.8)
+                            play_sound('slice1', 0.96 + math.random() * 0.08)
+                            card.ability.extra.play = false
+                        end
+                        return true
+                    end
+                }))
             }
         end
     end,
