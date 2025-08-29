@@ -506,8 +506,7 @@ SMODS.Joker
         return { 
             vars = { 
                 card.ability.extra.chip_gain, 
-                card.ability.extra.chips, 
-                card.ability.extra.addchips 
+                card.ability.extra.chips,
             } 
         }
     end,
