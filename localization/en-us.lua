@@ -763,8 +763,8 @@ return {
                 text = {
                     "If played hand is a {C:attention}High Card{},",
                     "{C:attention}Pair{}, or {C:attention}Three of a kind{}: level",
-                    "up the played hand by {C:attention}2{} levels,",
-                    "and the other {C:attention}2{} hands by {C:attention}1{}"
+                    "up the played hand by {C:attention}#1#{} levels,",
+                    "and the other {C:attention}2{} hands by {C:attention}#2#{}"
                 }
             },
 
