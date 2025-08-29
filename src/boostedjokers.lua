@@ -1365,6 +1365,57 @@ SMODS.Joker {
     end
 }
 
+--triple baka - done!
+SMODS.Joker {
+    key = "triple_baka",
+    rarity = 3,
+    atlas = "WillatroEvolved",
+    pos = {x = 0, y = 4},
+    cost = 8,
+    blueprint_compat = true,
+    config = {
+        extra = {
+            hands = {
+                "High Card",
+                "Pair",
+                "Three of a Kind"
+            },
+            small_upgrade = 1,
+            big_upgrade = 2
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return { 
+            vars = {
+                card.ability.extra.big_upgrade,
+                card.ability.extra.small_upgrade,
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        local hands = {
+            "High Card",
+            "Pair",
+            "Three of a Kind"
+        }
+
+        if context.before and context.main_eval then
+            for i = 1, #hands do
+                if hands[i] == context.scoring_name then
+                    SMODS.smart_level_up_hand(card, hands[i], nil, card.ability.extra.big_upgrade)
+                else
+                    SMODS.smart_level_up_hand(card, hands[i], nil, card.ability.extra.small_upgrade)
+                end
+            end
+        end
+    end,
+
+    in_pool = function(self, args)
+        return false
+    end
+}
 
 --#endregion
 
