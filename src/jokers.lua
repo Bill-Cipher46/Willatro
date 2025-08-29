@@ -541,8 +541,8 @@ SMODS.Joker
             return { 
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        card:juice_up(0.8, 0.8)
                         if card.ability.extra.play == true then
+                            card:juice_up(0.8, 0.8)
                             play_sound('slice1', 0.96 + math.random() * 0.08)
                             card.ability.extra.play = false
                         end
