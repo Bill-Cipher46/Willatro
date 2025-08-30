@@ -617,8 +617,9 @@ return {
             j_willatro_string_theory = {
                 name = "String Theory",
                 text = {
-                    "{C:attention}Aces{} count as",
-                    "every other rank"
+                    "All played {C:attention}Aces{} give the",
+                    "{C:chips}Chips{} and {C:mult}Mult{} of a {C:attention}Straight",
+                    "{C:inactive}(Currently {C:chips}+#1#{C:inactive} and {C:mult}+#2#{C:inactive})"
                 }
             },
             
