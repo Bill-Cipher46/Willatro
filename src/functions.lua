@@ -5,6 +5,10 @@ SMODS.current_mod.optional_features = function()
     }
 end
 
+to_big = to_big or function(x)
+    return x
+end
+
 function Prime(n)
     for i = 2, n^(1/2) do
         if (n % i) == 0 then
