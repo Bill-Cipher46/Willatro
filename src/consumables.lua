@@ -144,8 +144,6 @@ SMODS.Consumable {
                             return true
                         end
                     }))
-                else
-                    SMODS.add_card{key = "c_willatro_boost"}
                 end
             end
         else
@@ -153,6 +151,16 @@ SMODS.Consumable {
         end
     end,
     can_use = function(self, card)
+        if G.jokers and G.jokers.highlighted and #G.jokers.highlighted > 0 and #G.jokers.highlighted <= card.ability.extra.max_highlighted then
+            for i = 1, #G.jokers.highlighted do
+                if G.willatro_upgrades[G.jokers.highlighted[i].config.center.key] then
+                    return true
+                else
+                    return false
+                end
+            end
+        end
+
         return true
     end,
 
