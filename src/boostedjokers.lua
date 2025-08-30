@@ -497,14 +497,14 @@ SMODS.Joker {
 }
 
 --string theory
---[[ SMODS.Joker {
+SMODS.Joker {
     key = "string_theory",
     atlas = "WillatroEvolved",
-    blueprint_compat = false,
+    blueprint_compat = true,
     rarity = 1,
     cost = 4,
     pos = { x = 2, y = 2 }
-} ]]
+}
 
 --crowd - done!
 SMODS.Joker {
@@ -1337,7 +1337,7 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.joker_main then
-            if G.GAME.dollars >= card.ability.extra.money then
+            if G.GAME.dollars >= to_big(card.ability.extra.money) then
                 if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                     G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                     G.E_MANAGER:add_event(Event({
