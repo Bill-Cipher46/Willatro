@@ -751,25 +751,19 @@ SMODS.Joker {
         if context.scoring_hand and context.destroy_card and not context.blueprint then
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:get_id() == 6 and context.destroy_card:get_id() == 6 then
-                    if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                        G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                        G.E_MANAGER:add_event(Event({
-                            func = (function()
-                                SMODS.add_card {
-                                    set = 'Spectral',
-                                    key_append = 'willatro_precognition'
-                                }
-                                G.GAME.consumeable_buffer = 0
-                                return true
-                            end)
-                        }))
-                        return {
-                            message = localize('k_plus_spectral'),
-                            colour = G.C.SECONDARY_SET.Spectral,
-                            remove = true
-                        }
-                    end
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            SMODS.add_card {
+                                set = 'Spectral',
+                                key_append = 'willatro_precognition'
+                            }
+                            G.GAME.consumeable_buffer = 0
+                            return true
+                        end)
+                    }))
                     return {
+                        message = localize('k_plus_spectral'),
+                        colour = G.C.SECONDARY_SET.Spectral,
                         remove = true
                     }
                 end
