@@ -144,6 +144,8 @@ SMODS.Consumable {
                             return true
                         end
                     }))
+                else
+                    SMODS.add_card{key = "c_willatro_boost"}
                 end
             end
         else
