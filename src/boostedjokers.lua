@@ -46,6 +46,7 @@ SMODS.ObjectType {
         ["j_ring_master"] = true,
         ["j_willatro_familiarweapon"] = true,
         ["j_willatro_pear"] = true,
+        ["j_superposition"] = true,
     }
 }
 
@@ -160,6 +161,10 @@ G.willatro_upgrades = {
     },
     ["j_willatro_pear"] = {
         key = "j_willatro_triple_baka",
+        upgradeable = true
+    },
+    ["j_superposition"] = {
+        key = "j_willatro_string_theory",
         upgradeable = true
     },
 }
@@ -496,14 +501,44 @@ SMODS.Joker {
 	end
 }
 
---string theory
+--string theory - done!
 SMODS.Joker {
     key = "string_theory",
     atlas = "WillatroEvolved",
     blueprint_compat = true,
     rarity = 1,
     cost = 4,
-    pos = { x = 2, y = 2 }
+    pos = { x = 2, y = 2 },
+    config = {
+        extra = {
+            chips = 30,
+            mult = 4
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        card.ability.extra.chips = 30 + ((G.GAME.hands["Straight"].level - 1) * G.GAME.hands["Straight"].l_chips)
+        card.ability.extra.mult = 4 + ((G.GAME.hands["Straight"].level - 1) * G.GAME.hands["Straight"].l_mult)
+
+        return {
+            vars = {
+                card.ability.extra.chips,
+                card.ability.extra.mult
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        card.ability.extra.chips = 30 + ((G.GAME.hands["Straight"].level - 1) * G.GAME.hands["Straight"].l_chips)
+        card.ability.extra.mult = 4 + ((G.GAME.hands["Straight"].level - 1) * G.GAME.hands["Straight"].l_mult)
+
+        if context.individual and context.other_card:get_id() == 14 then
+            return {
+                chips = card.ability.extra.chips,
+                mult = card.ability.extra.mult
+            }
+        end
+    end
 }
 
 --crowd - done!
