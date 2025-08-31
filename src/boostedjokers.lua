@@ -498,7 +498,11 @@ SMODS.Joker {
 		if not G.GAME.before_play_buffer then
 			G.hand:unhighlight_all()
 		end
-	end
+	end,
+
+    in_pool = function(self, args)
+        return false
+    end
 }
 
 --string theory - done!
@@ -532,12 +536,16 @@ SMODS.Joker {
         card.ability.extra.chips = 30 + ((G.GAME.hands["Straight"].level - 1) * G.GAME.hands["Straight"].l_chips)
         card.ability.extra.mult = 4 + ((G.GAME.hands["Straight"].level - 1) * G.GAME.hands["Straight"].l_mult)
 
-        if context.individual and context.other_card:get_id() == 14 then
+        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 14 then
             return {
                 chips = card.ability.extra.chips,
                 mult = card.ability.extra.mult
             }
         end
+    end,
+
+    in_pool = function(self, args)
+        return false
     end
 }
 
@@ -585,6 +593,10 @@ SMODS.Joker {
             }
         end
     end,
+
+    in_pool = function(self, args)
+        return false
+    end
 }
 
 --platinum - done!
@@ -622,6 +634,10 @@ SMODS.Joker {
     calc_dollar_bonus = function(self, card)
         return card.ability.extra.total
     end,
+
+    in_pool = function(self, args)
+        return false
+    end
 }
 
 --cheshire smile - done!
@@ -715,6 +731,10 @@ SMODS.Joker {
                 card.ability.extra.faces = false
             end
         end
+    end,
+
+    in_pool = function(self, args)
+        return false
     end
 }
 
