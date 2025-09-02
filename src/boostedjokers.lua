@@ -521,8 +521,8 @@ SMODS.Joker {
     },
 
     loc_vars = function(self, info_queue, card)
-        card.ability.extra.chips = 30 + ((G.GAME.hands["Straight"].level - 1) * G.GAME.hands["Straight"].l_chips)
-        card.ability.extra.mult = 4 + ((G.GAME.hands["Straight"].level - 1) * G.GAME.hands["Straight"].l_mult)
+        card.ability.extra.chips = G.GAME.hands["Straight"].chips
+        card.ability.extra.mult = G.GAME.hands["Straight"].mult
 
         return {
             vars = {
@@ -533,8 +533,8 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        card.ability.extra.chips = 30 + ((G.GAME.hands["Straight"].level - 1) * G.GAME.hands["Straight"].l_chips)
-        card.ability.extra.mult = 4 + ((G.GAME.hands["Straight"].level - 1) * G.GAME.hands["Straight"].l_mult)
+        card.ability.extra.chips = G.GAME.hands["Straight"].chips
+        card.ability.extra.mult = G.GAME.hands["Straight"].mult
 
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 14 then
             return {
