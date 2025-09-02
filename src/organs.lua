@@ -594,6 +594,20 @@ SMODS.Joker{
     end
 }
 
+--large intestine - done!
+SMODS.Joker{
+    key = "skin",
+    rarity = "willatro_organ",
+    atlas = "WillatroOrgans",
+    pos = { x = 0, y = 2 },
+    cost = 6,
+    blueprint_compat = false,
+
+    calculate = function(self, card, context)
+        
+    end
+}
+
 --#endregion
 
 SMODS.Booster
