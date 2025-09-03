@@ -594,7 +594,7 @@ SMODS.Joker{
     end
 }
 
---large intestine - done!
+--skin - done!
 SMODS.Joker{
     key = "skin",
     rarity = "willatro_organ",
@@ -602,9 +602,34 @@ SMODS.Joker{
     pos = { x = 0, y = 2 },
     cost = 6,
     blueprint_compat = false,
+    config = {
+        extra = {
+            immune = {}
+        }
+    },
 
     calculate = function(self, card, context)
-        
+        if context.debuff_card then
+            SMODS.debuff_card(card, "prevent_debuff", "j_willatro_skin")
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i] == card then
+                    if i > 1 then
+                        if context.debuff_card == G.jokers.cards[i-1] then
+                            return {
+                                prevent_debuff = true
+                            }
+                        end
+                    end
+                    if i < #G.jokers.cards then
+                       if context.debuff_card == G.jokers.cards[i+1] then
+                            return {
+                                prevent_debuff = true
+                            }
+                        end
+                    end
+                end
+            end
+        end
     end
 }
 
