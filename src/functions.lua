@@ -38,10 +38,11 @@ end
 
 local oldsetcost = Card.set_cost
 function Card:set_cost()
-    oldsetcost(self)
     if next(SMODS.find_card('j_willatro_troll')) and self.config.center.key == 'j_willatro_troll' then
         self.cost = 0
     end
+
+    return oldsetcost(self)
 end
 
 local oldhighlight = Card.highlight
@@ -80,6 +81,33 @@ function Card:is_suit(suit, bypass_debuff, flush_calc)
     end
 
     return g
+end
+
+local oldflipcard = Card.flip
+function Card:flip()
+    local immune = { }
+
+    if G.jokers then
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i].config.center.key == "j_willatro_skin" then
+                immune[#immune+1] = G.jokers.cards[i]
+                if i > 1 then
+                    immune[#immune+1] = G.jokers.cards[i-1]
+                end
+                if i < #G.jokers.cards then
+                    immune[#immune+1] = G.jokers.cards[i+1]
+                end
+            end
+        end
+    end
+
+    for i = 1, #immune do
+        if self == immune[i] then
+            return nil
+        end
+    end
+
+    return oldflipcard(self)
 end
 
 function SMODS.current_mod.reset_game_globals(run_start)
