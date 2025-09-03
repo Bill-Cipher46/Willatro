@@ -512,9 +512,24 @@ return {
             j_willatro_appendix = {
                 name = "Appendix",
                 text = {
-                    "{C:dark_edition}+2{} Joker slots.",
-                    "{C:green}#1#{} in {C:green}#2#{} chance this card",
+                    "{C:dark_edition}+#1#{} Joker slots.",
+                    "{C:green}#2#{} in {C:green}#3#{} chance this card",
                     "is destroyed at end of round"
+                }
+            },
+            
+            j_willatro_tooth = {
+                name = "Tooth",
+                text = { 
+                    "Gain {C:mult}+#1#{} Mult when a",
+                    "{C:attention}Joker{} destroys itself"
+                }
+            },
+            
+            j_willatro_consciousness = {
+                name = "Consciousness...",
+                text = {
+                    "???"
                 }
             },
             --#endregion
