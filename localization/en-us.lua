@@ -498,6 +498,25 @@ return {
                     "{C:inactive}(Currently {C:white,X:mult}X#2#{C:inactive} Mult)"
                 }
             },
+            
+            j_willatro_skin = {
+                name = "Skin",
+                text = {
+                    "Can not be {C:attention}flipped{} or {C:attention}debuffed{}.",
+                    "Prevents all adjacent {C:attention}Jokers",
+                    "from being {C:attention}flipped{} or {C:attention}debuffed{}"
+                }
+
+            },
+            
+            j_willatro_appendix = {
+                name = "Appendix",
+                text = {
+                    "{C:dark_edition}+2{} Joker slots.",
+                    "{C:green}#1#{} in {C:green}#2#{} chance this card",
+                    "is destroyed at end of round"
+                }
+            },
             --#endregion
 
             --#region evolved
