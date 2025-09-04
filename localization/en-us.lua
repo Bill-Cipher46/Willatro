@@ -522,7 +522,8 @@ return {
                 name = "Tooth",
                 text = { 
                     "Gain {C:mult}+#1#{} Mult when a",
-                    "{C:attention}Joker{} destroys itself"
+                    "{C:attention}Joker{} destroys itself",
+                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
                 }
             },
             
