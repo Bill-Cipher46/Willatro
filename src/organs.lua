@@ -711,7 +711,7 @@ SMODS.Joker{
     end
 }
 
---tooth
+--tooth - done!
 SMODS.Joker{
     key = "tooth",
     rarity = "willatro_organ",
@@ -742,12 +742,27 @@ SMODS.Joker{
                 colour = G.C.MULT
             }
         end
-        
+
         if context.joker_main then
             return {
                 mult = card.ability.extra.mult
             }
         end
+    end
+}
+
+--consciousness - done!
+SMODS.Joker{
+    key = "consciousness",
+    rarity = "willatro_organ",
+    atlas = "WillatroOrgans",
+    pos = { x = 3, y = 2 },
+    soul_pos = { x = 4, y = 2},
+    cost = 6,
+    blueprint_compat = false,
+
+    calculate = function(self, card, context)
+        
     end
 }
 
