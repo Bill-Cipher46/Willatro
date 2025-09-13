@@ -1,18 +1,25 @@
-willatro.quip_weight = 15
+willatro.quip_weight = 30
 local quips = {
-    lose = {
+    win = {
         ["j_willatro_willow"] = {
             { "That really was Balatro..." },
             { "Are we gonna do a", "music video now?", "Oh wait, that's PvZ.", "Nevermind"}
+        },
+        ["j_willatro_bill"] = {
+            { "Remember: Reality is an", "illusion, the universe", "is a hologram, buy", "gold, bye!" },
+            { "Well, well, well, and here", "I thought today couldn't", "get any BETTER"}
         }
+
     },
-    win = {
+    lose = {
         ["j_willatro_willow"] = {
             { "It's Balatrover..." },
             { "Skill issue" }
-
+        },
+        ["j_willatro_bill"] = {
+            { "ahahahaha. It's funny", "how dumb you are." },
+            { "Don't know where, don't", "know when, oh I know", "we'll meet again", "some sunny day"}
         }
-
     }
 
 }
