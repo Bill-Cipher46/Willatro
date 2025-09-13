@@ -38,7 +38,7 @@ end
 
 local oldsetcost = Card.set_cost
 function Card:set_cost()
-    if next(SMODS.find_card('j_willatro_troll')) and self.config.center.key == 'j_willatro_troll' then
+    if self.config.center.key == 'j_willatro_troll' then
         self.cost = 0
     end
 
