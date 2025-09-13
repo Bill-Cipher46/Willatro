@@ -736,7 +736,8 @@ SMODS.Joker{
     end,
 
     calculate = function(self, card, context)
-        if (context.joker_type_destroyed and context.card.ability.set == "Joker" and context.card ~= card) or (context.selling_card and context.card.ability.set == "Joker" and context.card ~= card) then            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
+        if (context.joker_type_destroyed and context.card.ability.set == "Joker" and context.card ~= card) or (context.selling_card and context.card.ability.set == "Joker" and context.card ~= card) then            
+            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
             return {
                 message = "Munch!",
                 colour = G.C.MULT
