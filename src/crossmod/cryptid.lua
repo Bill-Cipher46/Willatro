@@ -20,9 +20,6 @@ SMODS.Joker {
     soul_pos = { x = 1, y = 0 },
     cost = 50,
     blueprint_compat = true,
-    pools = {
-        ["willatro_Upgradeable"] = true
-    },
     config = {
         extra = {
             emult = 4
