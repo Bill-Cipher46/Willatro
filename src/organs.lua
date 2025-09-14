@@ -684,6 +684,10 @@ SMODS.Joker{
                 return {
                     message = "Burst!",
                 }
+            else
+                return {
+                    message = localize('k_safe_ex')
+                }
             end
         end
     end,
