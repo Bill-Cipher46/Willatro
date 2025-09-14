@@ -48,9 +48,10 @@ local oldsetcost = Card.set_cost
 function Card:set_cost()
     if self.config.center.key == 'j_willatro_troll' then
         self.cost = 0
+    else
+        return oldsetcost(self)
     end
 
-    return oldsetcost(self)
 end
 
 local oldhighlight = Card.highlight
@@ -116,6 +117,19 @@ function Card:flip()
     end
 
     return oldflipcard(self)
+end
+
+local oldgetboss = get_new_boss
+function get_new_boss()
+    if next(SMODS.find_card("j_willatro_consciousness")) then
+        if G.GAME.round_resets.ante % 8 == 0 then
+            return "bl_willatro_virulent_void"
+        else
+            return "bl_willatro_hollow"
+        end
+    else
+        return oldgetboss()
+    end
 end
 
 function SMODS.current_mod.reset_game_globals(run_start)
