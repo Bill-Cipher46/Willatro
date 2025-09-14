@@ -14,6 +14,11 @@ SMODS.Atlas
     py = 34
 }
 
+local cryptid = false
+if next(SMODS.find_mod('Cryptid')) and 'cryptid.lua' then
+    cryptid = true
+end
+
 SMODS.ObjectType {
     key = "willatro_Upgradeable",
     default = "j_joker",
@@ -47,6 +52,7 @@ SMODS.ObjectType {
         ["j_willatro_familiarweapon"] = true,
         ["j_willatro_pear"] = true,
         ["j_superposition"] = true,
+        ["j_willatro_thecoolerjoker"] = cryptid
     }
 }
 
