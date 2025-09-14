@@ -32,6 +32,23 @@ return {
                     "card before scoring and lose",
                     "money proportional to it's rank"
                 }
+            },
+
+            bl_willatro_hollow = {
+                name = "The Hollow",
+                text = {
+                    "Must play High Card.",
+                    "+#1# hand"
+                }
+            },
+
+            bl_willatro_virulent_void = {
+                name = "Virulent Void",
+                text = {
+                    "All Jokers debuffed.",
+                    "Must play High Card",
+                    "+#1# hands"
+                }
             }
         },
 
