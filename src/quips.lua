@@ -1,4 +1,4 @@
-willatro.quip_weight = 30
+willatro.quip_weight = 15
 local quips = {
     win = {
         ["j_willatro_willow"] = {
@@ -7,7 +7,7 @@ local quips = {
         },
         ["j_willatro_bill"] = {
             { "Remember: Reality is an", "illusion, the universe", "is a hologram, buy", "gold, bye!" },
-            { "Well, well, well, and here", "I thought today couldn't", "get any BETTER"}
+            { "Well, well, well, and here", "I thought today couldn't", "get any better"}
         }
 
     },
@@ -18,7 +18,7 @@ local quips = {
         },
         ["j_willatro_bill"] = {
             { "ahahahaha. It's funny", "how dumb you are." },
-            { "Don't know where, don't", "know when, oh I know", "we'll meet again", "some sunny day"}
+            { "We'll meet again,", "Don't know where, don't", "know when, oh I know", "we'll meet again", "some sunny day"}
         }
     }
 
