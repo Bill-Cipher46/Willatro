@@ -113,7 +113,7 @@ SMODS.Consumable {
     use = function(self, card, area, copier)
         if G.jokers and G.jokers.highlighted and #G.jokers.highlighted > 0 and #G.jokers.highlighted <= card.ability.extra.max_highlighted then
             for i = 1, #G.jokers.highlighted do
-                if G.willatro_upgrades[G.jokers.highlighted[i].config.center.key] then
+                if willatro.upgrades[G.jokers.highlighted[i].config.center.key] then
                     G.E_MANAGER:add_event(Event({
                         trigger = 'after',
                         delay = 0.4,
@@ -131,7 +131,7 @@ SMODS.Consumable {
                             blockable = false,
                             func = function()
                                 G.jokers.highlighted[i]:juice_up(0.3, 0.5)
-                                G.jokers.highlighted[i]:set_ability(G.willatro_upgrades[G.jokers.highlighted[i].config.center.key].key)
+                                G.jokers.highlighted[i]:set_ability(willatro.upgrades[G.jokers.highlighted[i].config.center.key].key)
                                 return true
                             end
                         }))
@@ -153,7 +153,7 @@ SMODS.Consumable {
     can_use = function(self, card)
         if G.jokers and G.jokers.highlighted and #G.jokers.highlighted > 0 and #G.jokers.highlighted <= card.ability.extra.max_highlighted then
             for i = 1, #G.jokers.highlighted do
-                if G.willatro_upgrades[G.jokers.highlighted[i].config.center.key] then
+                if willatro.upgrades[G.jokers.highlighted[i].config.center.key] then
                     return true
                 else
                     return false
@@ -166,7 +166,7 @@ SMODS.Consumable {
 
     add_to_deck = function(self, card, from_debuff)
         for i = 1, #G.jokers.cards do
-            if G.willatro_upgrades[G.jokers.cards[i].config.center.key] then
+            if willatro.upgrades[G.jokers.cards[i].config.center.key] then
                 local eval = function(card2)
                     return not card.REMOVED
                 end
