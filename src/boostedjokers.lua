@@ -50,7 +50,7 @@ SMODS.ObjectType {
     }
 }
 
-G.willatro_upgrades = {
+willatro.upgrades = {
     ["j_hanging_chad"] = {
         key = "j_willatro_ballot_box",
         upgradeable = true
