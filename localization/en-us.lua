@@ -863,6 +863,18 @@ return {
             --#endregion
 
             --#endregion
+
+            --#region cryptid
+
+            j_willatro_coolest_joker = {
+                name = "The COOLEST Joker",
+                text = {
+                    "{X:dark_edition,C:white}^#1#{} Mult"
+                }
+            }
+
+            --#endregion
+
         },
 
         Tarot = {
