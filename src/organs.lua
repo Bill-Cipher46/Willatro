@@ -8,8 +8,13 @@ SMODS.Atlas {
 SMODS.Rarity {
     key = "organ",
     loc_txt = {},
-    badge_colour = HEX("6f222c")
+    badge_colour = HEX("6f222c"),
+    default_weight = 1
+}
 
+SMODS.ObjectType {
+    key = "willatro_organ_set",
+    default = "j_willatro_heart"
 }
 
 --#region organs
@@ -23,6 +28,9 @@ SMODS.Joker {
     spul_pos = { x = 1, y = 0 },
     cost = 6,
     blueprint_compat = true,
+    pools = {
+        ["willatro_organ_set"] = true
+    },
     config = {
         extra = {
             odds = 2,
@@ -52,24 +60,6 @@ SMODS.Joker {
                 return {
                     x_mult = card.ability.extra.x_mult
                 }
-            end
-        end
-    end,
-
-    draw = function(self, card, layer)
-        if card.config.center.discovered then
-            if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-                local scale_mod = 0.05 + 0.05 * math.sin(1.8 * G.TIMERS.REAL) +
-                    0.07 * math.sin((G.TIMERS.REAL - math.floor(G.TIMERS.REAL)) * math.pi * 14) *
-                    (1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL))) ^ 3
-                local rotate_mod = 0.1 * math.sin(1.219 * G.TIMERS.REAL) +
-                    0.07 * math.sin((G.TIMERS.REAL) * math.pi * 5) * (1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL))) ^ 2
-
-                local image = Sprite(0, 0, 71, 95, G.ASSET_ATLAS["willatro_WillatroOrgans"], {x = 1, y = 0})
-                image.role.draw_major = card
-                image:draw_shader('dissolve', 0, nil, nil, card.children.center, scale_mod, rotate_mod, nil,
-                    0.1 + 0.03 * math.sin(1.8 * G.TIMERS.REAL), nil, 0.6)
-                image:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod)
             end
         end
     end
@@ -106,6 +96,9 @@ SMODS.Joker {
     soul_pos = { x = 3, y = 0 },
     cost = 6,
     blueprint_compat = false,
+    pools = {
+        ["willatro_organ_set"] = true
+    },
     config = {
         extra = {
             repetitions = 1,
@@ -189,6 +182,9 @@ SMODS.Joker {
     pos = { x = 4, y = 0 },
     cost = 6,
     blueprint_compat = true,
+    pools = {
+        ["willatro_organ_set"] = true
+    },
     config = {
         chosen_card = {
             suit = 'Spades'
@@ -259,6 +255,9 @@ SMODS.Joker {
     pos = { x = 5, y = 0 },
     cost = 6,
     blueprint_compat = true,
+    pools = {
+        ["willatro_organ_set"] = true
+    },
     config = {
         extra = {
             odds = 4
@@ -291,6 +290,9 @@ SMODS.Joker {
     pos = { x = 0, y = 1 },
     cost = 6,
     blueprint_compat = true,
+    pools = {
+        ["willatro_organ_set"] = true
+    },
     config = { 
         extra = { 
             chip_gain = 20, 
@@ -371,6 +373,9 @@ SMODS.Joker {
     pos = { x = 1, y = 1 },
     cost = 6,
     blueprint_compat = true,
+    pools = {
+        ["willatro_organ_set"] = true
+    },
     config = {
         extra = {
             xmult_gain = 0.2,
@@ -426,6 +431,9 @@ SMODS.Joker{
     pos = { x = 3, y = 1 },
     cost = 6,
     blueprint_compat = true,
+    pools = {
+        ["willatro_organ_set"] = true
+    },
     config = {
         extra = {
             odds = 10,
@@ -487,6 +495,9 @@ SMODS.Joker{
     pos = { x = 4, y = 1 },
     cost = 6,
     blueprint_compat = true,
+    pools = {
+        ["willatro_organ_set"] = true
+    },
     config = {
         extra = {
             xmult_gain = 0.1,
@@ -545,6 +556,9 @@ SMODS.Joker{
     pos = { x = 5, y = 1 },
     cost = 6,
     blueprint_compat = true,
+    pools = {
+        ["willatro_organ_set"] = true
+    },
     config = {
         extra = {
             xmult_gain = 0.2,
@@ -602,6 +616,9 @@ SMODS.Joker{
     pos = { x = 0, y = 2 },
     cost = 6,
     blueprint_compat = false,
+    pools = {
+        ["willatro_organ_set"] = true
+    },
     config = {
         extra = {
             immune = {}
@@ -641,6 +658,9 @@ SMODS.Joker{
     pos = { x = 1, y = 2 },
     cost = 6,
     blueprint_compat = false,
+    pools = {
+        ["willatro_organ_set"] = true
+    },
     config = {
         extra = {
             slots = 2,
@@ -723,6 +743,9 @@ SMODS.Joker{
     pos = { x = 2, y = 2 },
     cost = 6,
     blueprint_compat = true,
+    pools = {
+        ["willatro_organ_set"] = true
+    },
     config = {
         extra = {
             mult_gain = 5,
@@ -765,9 +788,12 @@ SMODS.Joker{
     soul_pos = { x = 4, y = 2},
     cost = 6,
     blueprint_compat = false,
+    pools = {
+        ["willatro_organ_set"] = true
+    },
 
-    calculate = function(self, card, context)
-        
+    in_pool = function(self, args)
+        return false
     end
 }
 
@@ -801,7 +827,7 @@ SMODS.Booster
     end,
 
     create_card = function(self, card, i)
-        return { set = "Joker", rarity = "willatro_organ" }
+        return { set = "willatro_organ_set" }
     end,
 
     ease_background_colour = function(self)
