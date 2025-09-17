@@ -1006,6 +1006,7 @@ return {
 
         dictionary = {
             k_willatro_organ = "Organ",
+            k_willatro_Organ = "Organ",
             k_willatro_organ_pack = "Organ Pack",
             k_willatro_boostable_pack = "Boostable Pack"
         },
