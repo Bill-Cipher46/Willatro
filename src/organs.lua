@@ -12,6 +12,13 @@ SMODS.Rarity {
     default_weight = 1
 }
 
+SMODS.Rarity {
+    key = "Organ",
+    loc_txt = {},
+    badge_colour = HEX("6f222c"),
+    default_weight = 0.003
+}
+
 SMODS.ObjectType {
     key = "willatro_organ_set",
     default = "j_willatro_heart"
@@ -62,6 +69,10 @@ SMODS.Joker {
                 }
             end
         end
+    end,
+
+    in_pool = function(self, args)
+        return not args or args.source ~= 'sho'
     end
 
 }
@@ -171,6 +182,10 @@ SMODS.Joker {
                 }
             end
         end
+    end,
+
+    in_pool = function(self, args)
+        return not args or args.source ~= 'sho'
     end
 }
 
@@ -244,6 +259,10 @@ SMODS.Joker {
                 mult = card.ability.extra.mult
             }
         end
+    end,
+
+    in_pool = function(self, args)
+        return not args or args.source ~= 'sho'
     end
 }
 
@@ -279,6 +298,10 @@ SMODS.Joker {
                 }
             end
         end
+    end,
+
+    in_pool = function(self, args)
+        return not args or args.source ~= 'sho'
     end
 }
 
@@ -362,6 +385,10 @@ SMODS.Joker {
                 chips = card.ability.extra.chips
             }
         end
+    end,
+
+    in_pool = function(self, args)
+        return not args or args.source ~= 'sho'
     end
 }
 
@@ -420,6 +447,10 @@ SMODS.Joker {
                 x_mult = card.ability.extra.x_mult
             }
         end
+    end,
+
+    in_pool = function(self, args)
+        return not args or args.source ~= 'sho'
     end
 }
 
@@ -484,6 +515,10 @@ SMODS.Joker{
                 mult = card.ability.extra.mult
             }
         end
+    end,
+
+    in_pool = function(self, args)
+        return not args or args.source ~= 'sho'
     end
 }
 
@@ -545,6 +580,10 @@ SMODS.Joker{
                 x_mult = card.ability.extra.x_mult
             }
         end
+    end,
+
+    in_pool = function(self, args)
+        return not args or args.source ~= 'sho'
     end
 }
 
@@ -605,6 +644,10 @@ SMODS.Joker{
                 x_mult = card.ability.extra.x_mult
             }
         end
+    end,
+
+    in_pool = function(self, args)
+        return not args or args.source ~= 'sho'
     end
 }
 
@@ -647,6 +690,10 @@ SMODS.Joker{
                 end
             end
         end
+    end,
+
+    in_pool = function(self, args)
+        return not args or args.source ~= 'sho'
     end
 }
 
@@ -732,6 +779,10 @@ SMODS.Joker{
                 return true
             end
         }))
+    end,
+
+    in_pool = function(self, args)
+        return not args or args.source ~= 'sho'
     end
 }
 
@@ -776,13 +827,17 @@ SMODS.Joker{
                 mult = card.ability.extra.mult
             }
         end
+    end,
+
+    in_pool = function(self, args)
+        return not args or args.source ~= 'sho'
     end
 }
 
 --consciousness - done!
 SMODS.Joker{
     key = "consciousness",
-    rarity = "willatro_organ",
+    rarity = "willatro_Organ",
     atlas = "WillatroOrgans",
     pos = { x = 3, y = 2 },
     soul_pos = { x = 4, y = 2},
@@ -793,7 +848,7 @@ SMODS.Joker{
     },
 
     in_pool = function(self, args)
-        return false
+        return not args or args.source ~= 'sho'
     end
 }
 
