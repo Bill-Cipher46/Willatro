@@ -705,6 +705,7 @@ SMODS.Joker{
     pos = { x = 1, y = 2 },
     cost = 6,
     blueprint_compat = false,
+    eternal_compat = false,
     pools = {
         ["willatro_organ_set"] = true
     },
@@ -794,6 +795,7 @@ SMODS.Joker{
     pos = { x = 2, y = 2 },
     cost = 6,
     blueprint_compat = true,
+    perishable_compat = false,
     pools = {
         ["willatro_organ_set"] = true
     },
@@ -814,7 +816,8 @@ SMODS.Joker{
     end,
 
     calculate = function(self, card, context)
-        if (context.joker_type_destroyed and context.card.ability.set == "Joker" and context.card ~= card) or (context.selling_card and context.card.ability.set == "Joker" and context.card ~= card) then            
+        if (context.joker_type_destroyed and context.card.ability.set == "Joker" and context.card ~= card) or (context.selling_card and context.card.ability.set == "Joker" and context.card ~= card)
+        and not context.blueprint then            
             card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
             return {
                 message = "Munch!",
