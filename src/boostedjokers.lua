@@ -791,7 +791,7 @@ SMODS.Joker {
     atlas = "WillatroEvolved",
     pos = {x = 1, y = 2},
     cost = 6,
-    blueprint_compat = true,
+    blueprint_compat = false,
     config = {
         extra = {
             odds = 6
@@ -1135,6 +1135,7 @@ SMODS.Joker {
     pos = {x = 6, y = 3},
     cost = 6,
     blueprint_compat = true,
+    perishable_compat = false,
     config = {
         extra = {
             mult_gain = 20,
@@ -1177,7 +1178,7 @@ SMODS.Joker {
                 }
             end
         end
-        if not context.after and card.ability.extra.message == true then
+        if not context.after and card.ability.extra.message == true and not context.blueprint then
             card.ability.extra.play = true
             card.ability.extra.message = false
             return { 
@@ -1212,6 +1213,7 @@ SMODS.Joker {
     pos = {x = 3, y = 0},
     cost = 8,
     blueprint_compat = true,
+    perishable_compat = false,
     config = {
         extra = {
             chip_gain = 0.25,
