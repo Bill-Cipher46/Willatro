@@ -903,6 +903,7 @@ SMODS.Joker {
     pos = { x = 5, y = 4 },
     cost = 5,
     blueprint_compat = false,
+    eternal_compat = false,
     config = {
         extra = {
             dollars = 7,
