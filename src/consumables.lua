@@ -161,7 +161,9 @@ SMODS.Consumable {
             end
         end
 
-        return true
+        if card.area == G.pack_cards then
+            return true
+        end
     end,
 
     add_to_deck = function(self, card, from_debuff)

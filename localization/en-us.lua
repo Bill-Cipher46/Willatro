@@ -891,7 +891,8 @@ return {
                 name = "Boost",
                 text = {
                     "Boost {C:attention}#1#{} compatible selected",
-                    "card to its superior form"
+                    "card to its superior form",
+                    "{s:0.8}can be used in pack to get in consumable slot"
                 }
             }
         },
