@@ -934,7 +934,7 @@ SMODS.Joker {
             }
         end
 
-        if context.debuff_card and not context.blueprint and (context.debuff_card:is_suit("Clubs") or context.debuff_card:is_suit("Spades") or context.debuff_card:is_suit("Diamonds")) then
+        if context.debuff_card and not context.blueprint and not context.debuff_card:is_suit("Hearts") and context.debuff_card.playing_card then
             return {
                 debuff = true
             }
@@ -984,7 +984,7 @@ SMODS.Joker {
             }
         end
 
-        if context.debuff_card and not context.blueprint and (context.debuff_card:is_suit("Clubs") or context.debuff_card:is_suit("Spades") or context.debuff_card:is_suit("Hearts")) then
+        if context.debuff_card and not context.blueprint and not context.debuff_card:is_suit("Diamonds") and context.debuff_card.playing_card then
             return {
                 debuff = true
             }
@@ -1025,7 +1025,7 @@ SMODS.Joker {
             }
         end
 
-        if context.debuff_card and not context.blueprint and (context.debuff_card:is_suit("Clubs") or context.debuff_card:is_suit("Hearts") or context.debuff_card:is_suit("Diamonds")) then
+        if context.debuff_card and not context.blueprint and not context.debuff_card:is_suit("Spades") and context.debuff_card.playing_card then
             return {
                 debuff = true
             }
@@ -1066,7 +1066,7 @@ SMODS.Joker {
             }
         end
 
-        if context.debuff_card and not context.blueprint and (context.debuff_card:is_suit("Hearts") or context.debuff_card:is_suit("Spades") or context.debuff_card:is_suit("Diamonds")) then
+        if context.debuff_card and not context.blueprint and not context.debuff_card:is_suit("Clubs") and context.debuff_card.playing_card then
             return {
                 debuff = true
             }
