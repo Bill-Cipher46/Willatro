@@ -1021,6 +1021,12 @@ return {
 
         poker_hands = {
             ["willatro_Split House"] = "Split House"
+        },
+
+        v_text = {
+            ch_c_one_card = {
+                "All but {C:attention}1{} playing cards are removed at start of round"
+            }
         }
     }
 }

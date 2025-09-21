@@ -10,6 +10,12 @@ SMODS.Challenge {
         { id = 'c_emperor' }
     },
 
+    rules = {
+        custom = {
+            {id = "one_card"}
+        }
+    },
+
     restrictions = {
 
         banned_cards = {
@@ -43,13 +49,21 @@ SMODS.Challenge {
     },
 
     apply = function(self)
-        local safe_card = pseudorandom_element(G.deck, "willatro_split")
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.4,
+            func = function()
+                local safe_card = pseudorandom_element(G.playing_cards, "willatro_split")
 
-        for k, v in ipairs(G.deck) do
-            if v ~= safe_card then
-                SMODS.destroy_cards(v)
+                for k, v in ipairs(G.playing_cards) do
+                    if v ~= safe_card then
+                        SMODS.destroy_cards(v)
+                    end
+                end
+
+                return true
             end
-        end
+        }))
     end
 
 }
