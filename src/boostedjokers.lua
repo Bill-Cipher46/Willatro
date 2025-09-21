@@ -934,7 +934,7 @@ SMODS.Joker {
             }
         end
 
-        if context.debuff_card and (context.debuff_card:is_suit("Clubs") or context.debuff_card:is_suit("Spades") or context.debuff_card:is_suit("Diamonds")) then
+        if context.debuff_card and not context.blueprint and (context.debuff_card:is_suit("Clubs") or context.debuff_card:is_suit("Spades") or context.debuff_card:is_suit("Diamonds")) then
             return {
                 debuff = true
             }
@@ -984,7 +984,7 @@ SMODS.Joker {
             }
         end
 
-        if context.debuff_card and (context.debuff_card:is_suit("Clubs") or context.debuff_card:is_suit("Spades") or context.debuff_card:is_suit("Hearts")) then
+        if context.debuff_card and not context.blueprint and (context.debuff_card:is_suit("Clubs") or context.debuff_card:is_suit("Spades") or context.debuff_card:is_suit("Hearts")) then
             return {
                 debuff = true
             }
@@ -1025,7 +1025,7 @@ SMODS.Joker {
             }
         end
 
-        if context.debuff_card and (context.debuff_card:is_suit("Clubs") or context.debuff_card:is_suit("Hearts") or context.debuff_card:is_suit("Diamonds")) then
+        if context.debuff_card and not context.blueprint and (context.debuff_card:is_suit("Clubs") or context.debuff_card:is_suit("Hearts") or context.debuff_card:is_suit("Diamonds")) then
             return {
                 debuff = true
             }
@@ -1066,7 +1066,7 @@ SMODS.Joker {
             }
         end
 
-        if context.debuff_card and (context.debuff_card:is_suit("Hearts") or context.debuff_card:is_suit("Spades") or context.debuff_card:is_suit("Diamonds")) then
+        if context.debuff_card and not context.blueprint and (context.debuff_card:is_suit("Hearts") or context.debuff_card:is_suit("Spades") or context.debuff_card:is_suit("Diamonds")) then
             return {
                 debuff = true
             }
@@ -1358,8 +1358,12 @@ SMODS.Joker {
         local ret = SMODS.blueprint_effect(card, G.jokers.cards[1], context)
         if ret then
             ret.colour = G.C.RED
+        end
+
+        if context.post_trigger and context.other_card == G.jokers.cards[1] then
             ease_dollars(card.ability.extra.money)
         end
+
         return ret
     end,
 
@@ -1452,18 +1456,13 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        local hands = {
-            "High Card",
-            "Pair",
-            "Three of a Kind"
-        }
 
-        if context.before and context.main_eval then
-            for i = 1, #hands do
-                if hands[i] == context.scoring_name then
-                    SMODS.smart_level_up_hand(card, hands[i], nil, card.ability.extra.big_upgrade)
+        if context.before then
+            for i = 1, #card.ability.extra.hands do
+                if card.ability.extra.hands[i] == context.scoring_name then
+                    SMODS.smart_level_up_hand(card, card.ability.extra.hands[i], nil, card.ability.extra.big_upgrade)
                 else
-                    SMODS.smart_level_up_hand(card, hands[i], nil, card.ability.extra.small_upgrade)
+                    SMODS.smart_level_up_hand(card, card.ability.extra.hands[i], nil, card.ability.extra.small_upgrade)
                 end
             end
         end
