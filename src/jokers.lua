@@ -1496,7 +1496,15 @@ SMODS.Joker
             card.ability.extra.current_rounds = card.ability.extra.current_rounds + 1
             if card.ability.extra.current_rounds >= card.ability.extra.rounds then
                 if #G.jokers.cards <= G.jokers.config.card_limit then
-                    SMODS.add_card( { key = "j_egg", stickers = { "perishable" }, edition = "e_negative" } )
+                    local _card = SMODS.create_card({
+                        set= "Joker",
+                        key = "j_egg",
+                        area = G.jokers,
+                        edition = "e_negative"
+                    })
+                    _card:add_to_deck()
+                    _card:set_perishable(true)
+                    G.jokers:emplace(_card)
                     card.ability.extra.current_rounds = 0
                     return { 
                         message = "Egg!" 
