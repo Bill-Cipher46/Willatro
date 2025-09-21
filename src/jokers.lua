@@ -1497,7 +1497,7 @@ SMODS.Joker
             if card.ability.extra.current_rounds >= card.ability.extra.rounds then
                 if #G.jokers.cards <= G.jokers.config.card_limit then
                     local _card = SMODS.create_card({
-                        set= "Joker",
+                        set = "Joker",
                         key = "j_egg",
                         area = G.jokers,
                         edition = "e_negative"
@@ -1507,7 +1507,7 @@ SMODS.Joker
                     G.jokers:emplace(_card)
                     card.ability.extra.current_rounds = 0
                     return { 
-                        message = "Egg!" 
+                        message = "Egg!"
                     }
                 end
             end
