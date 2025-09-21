@@ -161,7 +161,7 @@ SMODS.Consumable {
             end
         end
 
-        if card.area == G.pack_cards then
+        if card.area == G.pack_cards and not (G.jokers and G.jokers.highlighted and #G.jokers.highlighted > 0 and #G.jokers.highlighted <= card.ability.extra.max_highlighted) then
             return true
         end
     end,
