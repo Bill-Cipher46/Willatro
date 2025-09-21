@@ -39,10 +39,17 @@ SMODS.Challenge {
     },
     
     deck = {
-        type = 'Challenge Deck',
-        cards = {
-            { s = 'S', r = '5' }
-        }
-    }
+        type = 'Challenge Deck'
+    },
+
+    apply = function(self)
+        local safe_card = pseudorandom_element(G.deck, "willatro_split")
+
+        for k, v in ipairs(G.deck) do
+            if v ~= safe_card then
+                SMODS.destroy_cards(v)
+            end
+        end
+    end
 
 }
