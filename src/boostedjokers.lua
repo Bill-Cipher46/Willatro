@@ -1106,18 +1106,11 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if not context.blueprint and context.buying_card and (context.card.ability.set == "Joker" or context.card.ability.set == "Planet" or context.card.ability.set == "Spectral" or context.card.ability.set == "Tarot") then
             if SMODS.pseudorandom_probability(card, 'willatro_special_effects', 2, card.ability.extra.odds) then
-                local _card = context.card.config.center.key
-                G.E_MANAGER:add_event(Event({
-                    trigger = 'before',
-                    delay = 0.4,
-                    func = function()
-                        SMODS.add_card {
-                            key = _card,
-                            edition = 'e_negative'
-                        }
-                        return true
-                    end
-                }))
+                local _card = copy_card(context.card)
+                
+                _card:add_to_deck()
+                _card:set_edition("e_negative", true)
+                G.jokers:emplace(_card)
             end
         end
     end,
