@@ -64,8 +64,12 @@ SMODS.Voucher
 
 local oldpolledition = poll_edition
 function poll_edition(_key, _mod, _no_neg, _guaranteed, _options)
+    local g = oldpolledition(_key, _mod, _no_neg, _guaranteed, _options)
+
+    local no_neg = _no_neg
+
     if _key == 'wheel_of_fortune' and G.GAME.used_vouchers['v_willatro_addict'] == true then
-        _no_neg = false
+        no_neg = false
     end
-    return oldpolledition
+    return oldpolledition(_key, _mod, no_neg, _guaranteed, _options)
 end
