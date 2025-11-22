@@ -87,15 +87,17 @@ SMODS.DrawStep {
             local rotate_mod = 0.1 * math.sin(1.219 * G.TIMERS.REAL) +
                 0.07 * math.sin((G.TIMERS.REAL) * math.pi * 5) * (1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL))) ^ 2
 
-            local image = Sprite(0, 0, 71, 95, G.ASSET_ATLAS["willatro_WillatroOrgans"], {x = 1, y = 0})
-            image.role.draw_major = card
-            image:draw_shader('dissolve', 0, nil, nil, card.children.center, scale_mod, rotate_mod, nil,
+            if not G.willatro_heart_sprite then
+                G.willatro_heart_sprite = Sprite(0, 0, 71, 95, G.ASSET_ATLAS["willatro_WillatroOrgans"], {x = 1, y = 0})
+            end
+            
+            G.willatro_heart_sprite.role.draw_major = card
+            G.willatro_heart_sprite:draw_shader('dissolve', 0, nil, nil, card.children.center, scale_mod, rotate_mod, nil,
                 0.1 + 0.03 * math.sin(1.8 * G.TIMERS.REAL), nil, 0.6)
-            image:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod)
+            G.willatro_heart_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod)
         end
     end,
     conditions = { vortex = false, facing = 'front' },
-
 }
 
 --brain - done!
