@@ -35,7 +35,7 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.joker_main and (to_big(card.ability.extra.emult) > to_big(1)) then
+        if context.joker_main then
 			return {
 				message = localize({
 					type = "variable",
