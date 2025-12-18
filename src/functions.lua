@@ -6,16 +6,24 @@ SMODS.current_mod.optional_features = function()
     }
 end
 
+if not willatro then
+    willatro = {}
+end
+
+willatro.pseudorandom = {
+    set_predict_mode = function(bool)
+        G.GAME.pseudorandom.predict_mode = bool or false
+        G.GAME.pseudorandom.predicts = {}
+        return G.GAME.pseudorandom.predict_mode
+    end
+}
+
 to_big = to_big or function(x)
     return x
 end
 
 to_number = to_number or function(x)
     return x
-end
-
-if not willatro then
-    willatro = {}
 end
 
 function Prime(n)
@@ -131,6 +139,102 @@ function get_new_boss()
     else
         return oldgetboss()
     end
+end
+
+
+function predict_next_bosses(num_predictions)
+    local predictions = {}
+
+    willatro.psueodrandom.set_predict_mode = true
+
+    local sim_ante = G.GAME.round_resets.ante
+    local sim_bosses_used = {}
+
+    for k, v in pairs(G.GAME.bosses_used) do
+        sim_bosses_used[k] = v
+    end
+
+    for i = 1, num_predictions do
+        sim_ante = sim_ante + 1
+
+        if G.GAME.perscribed_bosses and G.GAME.perscribed_bosses[sim_ante] then
+            local boss = G.GAME.perscribed_bosses[sim_ante]
+            table.insert(predictions, {ante = sim_ante, boss = boss})
+            sim_bosses_used[boss] = (sim_bosses_used[boss] or 0) + 1
+        else
+            
+            local eligible_bosses = {}
+            for k, v in pairs(G.P_BLINDS) do
+                if not v.boss then
+                elseif not v.boss.showdown and (v.boss.min <= math.max(1, sim_ante) and ((math.max(1, sim_ante))%G.GAME.win_ante ~= 0 or sim_ante < 2)) then
+
+                    if not v.in_pool or v:in_pool() then
+                        eligible_bosses[k] = true
+                    end
+                elseif v.boss.showdown and (sim_ante)%G.GAME.win_ante == 0 and sim_ante >= 2 then
+
+                    if not v.in_pool or v:in_pool() then
+                        eligible_bosses[k] = true
+                    end
+                end
+            end
+
+            for k, v in pairs(G.GAME.banned_keys) do
+                if eligible_bosses[k] then eligible_bosses[k] = nil end
+            end
+
+            local min_use = 100
+            for k, v in pairs(sim_bosses_used) do
+                if eligible_bosses[k] then
+                    eligible_bosses[k] = v
+                    if eligible_bosses[k] <= min_use then 
+                        min_use = eligible_bosses[k]
+                    end
+                end
+            end
+
+            for k, v in pairs(eligible_bosses) do
+                if eligible_bosses[k] and eligible_bosses[k] > min_use then 
+                    eligible_bosses[k] = nil
+                end
+            end
+
+            local _, boss = pseudorandom_element(eligible_bosses, pseudoseed('boss'))
+
+            table.insert(predictions, {ante = sim_ante, boss = boss})
+            sim_bosses_used[boss] = (sim_bosses_used[boss] or 0) + 1
+        end
+    end
+
+    willatro.psueodrandom.set_predict_mode = false
+
+    return predictionsd
+end
+
+local ref_pseudoseed = pseudoseed
+function pseudoseed(key, predict_seed, ...)
+
+    if not G.GAME.pseudorandom.predict_mode then
+        return ref_pseudoseed(key, predict_seed, ...)
+    end
+
+    if key == 'seed' then return math.random() end
+    if G.SETTINGS.paused and key ~= 'to_do' then return math.random() end
+
+    local _pseed = 0
+    if not G.GAME.pseudorandom.predicts[key] then
+        _pseed = pseudohash(key..(predict_seed or G.GAME.pseudorandom.seed or ''))
+        G.GAME.pseudorandom.predicts[key] = {
+            value = G.GAME.pseudorandom[key] or _pseed,
+            pos = 0
+        }
+    end
+
+    _pseed = math.abs(tonumber(string.format("%.13f", (2.134453429141+G.GAME.pseudorandom.predicts[key].value*1.72431234)%1)))
+    G.GAME.pseudorandom.predicts[key].value = _pseed
+    G.GAME.pseudorandom.predicts[key].pos = G.GAME.pseudorandom.predicts[key].pos + 1
+
+    return (_pseed + (G.GAME.pseudorandom.hashed_seed or 0))/2
 end
 
 function SMODS.current_mod.reset_game_globals(run_start)
