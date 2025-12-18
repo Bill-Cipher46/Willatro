@@ -218,6 +218,7 @@ SMODS.Joker {
     rarity = 1,
     atlas = "WillatroEvolved",
     pos = {x = 1, y = 0},
+    pixel_size = { h = 95 / 1.2 },
     cost = 5,
     blueprint_compat = true,
     config = {
