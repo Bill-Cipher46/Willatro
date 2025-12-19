@@ -66,6 +66,7 @@ SMODS.Joker {
     end
 }
 
+--telepathy
 SMODS.Joker {
     key = "monitoring",
     rarity = "willatro_playlist",
@@ -75,6 +76,7 @@ SMODS.Joker {
     blueprint_compat = false,
 }
 
+--goodbye
 SMODS.Joker {
     key = "goodbye_to_a_world",
     rarity = "willatro_playlist",
@@ -82,6 +84,7 @@ SMODS.Joker {
     pos = { x = 2, y = 0 },
     cost = 5,
     blueprint_compat = false,
+    eternal_compat = false,
 
     calculate = function(self, card, context)
 
@@ -110,6 +113,51 @@ SMODS.Joker {
 
         end
     end,
+}
+
+--liar dancer
+SMODS.Joker {
+    key = "liar_dancer",
+    rarity = "willatro_playlist",
+    atlas = "WillatroPlaylist",
+    pos = { x = 3, y = 0 },
+    cost = 5,
+    blueprint_compat = true,
+    perishable_compat = false,
+    config = {
+        extra = {
+            mult_gain = 4,
+            mult = 0
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = { key = "tag_boss", set = "Tag" }
+
+        return {
+            vars = {
+                localize { type = 'name_text', set = 'Tag', key = 'tag_boss' },
+                card.ability.extra.mult_gain,
+                card.ability.extra.mult
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.setting_blind then
+            add_tag(Tag("tag_boss"))
+
+            if not context.blueprint then
+                card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
+            end
+        end
+
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+    end
 }
 
 
