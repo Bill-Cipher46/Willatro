@@ -1433,8 +1433,22 @@ SMODS.Joker
                 table.insert(tags, v.key)
             end
             table.sort(tags, function(a, b) return G.P_TAGS[a].order < G.P_TAGS[b].order end)
+
 			for i = 1, card.ability.extra.tags do
-                add_tag(Tag(tags[card.ability.extra.tagnumber]))
+
+                local tag = Tag(tags[card.ability.extra.tagnumber])
+                if tag.name == "Orbital Tag" then
+                    local _poker_hands = {}
+                    for k, v in pairs(G.GAME.hands) do
+                        if v.visible then
+                            _poker_hands[#_poker_hands + 1] = k
+                        end
+                    end
+                    tag.ability.orbital_hand = pseudorandom_element(_poker_hands, "seed")
+                end
+                tag:set_ability()
+            
+                add_tag(tag)
                 card.ability.extra.tagnumber = card.ability.extra.tagnumber + 1
                 if card.ability.extra.tagnumber >= 25 then
                     card.ability.extra.tagnumber = 1
