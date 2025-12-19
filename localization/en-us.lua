@@ -864,6 +864,48 @@ return {
 
             --#endregion
 
+            --#region playlist
+
+            j_willatro_telepathy = {
+                name = "Telepathy",
+                text = {
+                    "Next blinds are",
+                    "{C:attention}#1#{}, {C:attention}#2#{}, and {C:attention}#3#{}"
+                }
+            },
+
+            j_willatro_monitoring = {
+                name = "Monitoring",
+                text = {
+                    "Jokers can spawn",
+                    "with {C:attention}Hallucination{} sticker"
+                }
+            },
+
+            j_willatro_goodbye_to_a_world = {
+                name = "Goodbye To A World",
+                text = {
+                    "Prevents death if chips",
+                    "scored are at least {C:attention}50%",
+                    "of required chips. Then",
+                    "{C:red}self destructs{}, sets all",
+                    "{C:attention}Jokers'{} sell value to {C:money}$0{}, and",
+                    "resets {C:blue}hands{} and {C:red}discards"
+                }
+            },
+
+            j_willatro_liar_dancer = {
+                name = "Liar Dancer",
+                text = {
+                    "When blind is selected",
+                    "create a free {C:attention}#1#{}",
+                    "and gain {C:mult}+#2#{} Mult",
+                    "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+                }
+            },
+
+            --#endregion
+
             --#region cryptid
 
             j_willatro_coolest_joker = {
@@ -995,6 +1037,15 @@ return {
                     "Choose {C:attention}#1#{} of up to",
                     "{C:attention}#2# {V:1}Organ{} Jokers"
                 }
+            },
+
+            willatro_hallucination_sticker = {
+                name = "Hallucination",
+                text = {
+                    "On purchase, {C:attention}destroy{}",
+                    "this card and gain",
+                    "{C:attention}4 times{} its {C:attention}sell value"
+                }
             }
         }
 
@@ -1009,7 +1060,9 @@ return {
             k_willatro_organ = "Organ",
             k_willatro_Organ = "Organ",
             k_willatro_organ_pack = "Organ Pack",
-            k_willatro_boostable_pack = "Boostable Pack"
+            k_willatro_boostable_pack = "Boostable Pack",
+            k_willatro_playlist = "playlist",
+            k_willatro_playlist_pack = "Playlist Pack",
         },
 
         poker_hand_descriptions = {
@@ -1027,6 +1080,10 @@ return {
             ch_c_one_card = {
                 "All but {C:attention}1{} playing cards are removed at start of round"
             }
+        },
+
+        labels = {
+            willatro_hallucination_sticker = "Hallucination"
         }
     }
 }
