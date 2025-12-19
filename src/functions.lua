@@ -55,12 +55,13 @@ end
 
 local oldsetcost = Card.set_cost
 function Card:set_cost()
-    if self.config.center.key == 'j_willatro_troll' then
+    if self.config.center.key == 'j_willatro_troll' or self.ability.willatro_saved == true then
         self.cost = 0
+        self.sell_cost = 0
+        self.sell_cost_label = self.facing == 'back' and '?' or self.sell_cost
     else
         return oldsetcost(self)
     end
-
 end
 
 local oldhighlight = Card.highlight
