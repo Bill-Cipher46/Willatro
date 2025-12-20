@@ -835,7 +835,7 @@ SMODS.Joker {
         if context.first_hand_drawn then
             if SMODS.pseudorandom_probability(card, 'willatro_precognition', 1, card.ability.extra.odds) then
                 local _card = SMODS.create_card { set = "Base", seal = SMODS.poll_seal({ guaranteed = false, type_key = 'willatro_precognition' }),
-                edition = poll_edition({ _key = 'j_willatro_precognition', _no_neg = true, _guaranteed = false, }), rank = 6,
+                edition = poll_edition('willatro_precognition', nil, true, false), rank = 6,
                 enhancement = SMODS.poll_enhancement({ guaranteed = false, type_key = 'willatro_precognition' }), area = G.discard }
                 G.playing_card = (G.playing_card and G.playing_card + 1) or 1
                 _card.playing_card = G.playing_card
