@@ -212,6 +212,12 @@ SMODS.Consumable
 
     can_use = function(self, card)
         return G.jokers.cards
+    end,
+
+    draw = function(self, card, layer)
+        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
+            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
+        end
     end
     
 }
