@@ -984,8 +984,8 @@ return {
                 name = "Boosted Deck",
                 text = {
                     "Start run with",
-                    "{C:tarot,T:c_willatro_boost}Boost{} tarot card",
-                    "and a {C:attention,T:tag_willatro_boost_tag}Boost Tag{}"
+                    "{C:tarot,T:c_willatro_boost}#1#{} tarot card",
+                    "and a {C:attention,T:tag_willatro_boost_tag}#2#{}"
                 }
             }
         },
@@ -1042,7 +1042,7 @@ return {
             willatro_hallucination_sticker = {
                 name = "Hallucination",
                 text = {
-                    "On purchase, {C:attention}destroy{}",
+                    "When obtained, {C:attention}destroy{}",
                     "this card and gain",
                     "{C:attention}4 times{} its {C:attention}sell value"
                 }
