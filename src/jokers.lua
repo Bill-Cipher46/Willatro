@@ -1243,7 +1243,7 @@ SMODS.Joker
     atlas = "WillatroJokers",
     pos = {x = 3, y = 1 },
     cost = 8,
-    blueprint_compat = false,
+    blueprint_compat = true,
     config = { 
         trigger = true
     },
