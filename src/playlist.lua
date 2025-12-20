@@ -173,32 +173,6 @@ SMODS.Sticker {
     },
     badge_colour = HEX('ed6a71'),
 
-    calculate = function(self, card, context)
-        if context.buying_self and card.ability.willatro_hallucination_sticker then
-            G.E_MANAGER:add_event(Event({
-                func = function()
-                    play_sound('tarot1')
-                    card.T.r = -0.2
-                    card:juice_up(0.3, 0.4)
-                    card.states.drag.is = true
-                    card.children.center.pinch.x = true
-                    G.E_MANAGER:add_event(Event({
-                        trigger = 'after',
-                        delay = 0.3,
-                        blockable = false,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
-                    return true
-                end
-            }))
-
-            ease_dollars(4*card.sell_cost)
-        end
-    end,
-
     should_apply = function(self, card)
         if next(SMODS.find_card("j_willatro_monitoring")) and card.ability.set == "Joker" and not card.eternal and pseudorandom("hallucination") < 0.3 then
             return true
