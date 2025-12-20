@@ -921,7 +921,7 @@ return {
 
         Tarot = {
             c_willatro_tree = {
-                name = "The Tree",
+                name = "Tree of Life",
                 text = {
                     "Enhances {C:attention}#1#{}",
                     "selected cards to",
@@ -930,7 +930,7 @@ return {
             },
 
             c_willatro_boost = {
-                name = "Boost",
+                name = "Amulet",
                 text = {
                     "Boost {C:attention}#1#{} compatible selected",
                     "card to its superior form",
@@ -1061,7 +1061,7 @@ return {
             k_willatro_Organ = "Organ",
             k_willatro_organ_pack = "Organ Pack",
             k_willatro_boostable_pack = "Boostable Pack",
-            k_willatro_playlist = "playlist",
+            k_willatro_playlist = "Playlist",
             k_willatro_playlist_pack = "Playlist Pack",
         },
 
