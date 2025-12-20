@@ -238,6 +238,36 @@ function pseudoseed(key, predict_seed, ...)
     return (_pseed + (G.GAME.pseudorandom.hashed_seed or 0))/2
 end
 
+local oldaddtodeck = Card.add_to_deck
+function Card:add_to_deck()
+    if self.ability.willatro_hallucination_sticker then
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                play_sound('tarot1')
+                self.T.r = -0.2
+                self:juice_up(0.3, 0.4)
+                self.states.drag.is = true
+                self.children.center.pinch.x = true
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.3,
+                    blockable = false,
+                    func = function()
+                        self:remove()
+                        return true
+                    end
+                }))
+                return true
+            end
+        }))
+
+        ease_dollars(4*self.sell_cost)
+    end
+
+    return oldaddtodeck(self)
+end
+
+
 function SMODS.current_mod.reset_game_globals(run_start)
     reset_willatro_jokeinthebox()
 end
