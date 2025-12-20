@@ -760,6 +760,12 @@ SMODS.Joker
             copied:add_to_deck()
             G.consumeables:emplace(copied)
         end
+    end,
+
+    draw = function(self, card, layer)
+        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
+            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
+        end
     end
 }
 
