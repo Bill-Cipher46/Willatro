@@ -66,7 +66,7 @@ SMODS.Joker {
     end
 }
 
---telepathy
+--monitoring
 SMODS.Joker {
     key = "monitoring",
     rarity = "willatro_playlist",
