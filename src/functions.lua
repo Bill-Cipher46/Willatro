@@ -146,7 +146,7 @@ end
 function predict_next_bosses(num_predictions)
     local predictions = {}
 
-    willatro.psueodrandom.set_predict_mode = true
+    willatro.pseudorandom.set_predict_mode(true)
 
     local sim_ante = G.GAME.round_resets.ante
     local sim_bosses_used = {}
@@ -207,9 +207,9 @@ function predict_next_bosses(num_predictions)
         end
     end
 
-    willatro.psueodrandom.set_predict_mode = false
+    willatro.pseudorandom.set_predict_mode(false)
 
-    return predictionsd
+    return predictions
 end
 
 local ref_pseudoseed = pseudoseed
