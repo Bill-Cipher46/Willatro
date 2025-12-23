@@ -203,7 +203,7 @@ SMODS.Consumable
     end,
 
     use = function(self, card, area, copier)
-        if #G.jokers.cards != nil then
+        if #G.jokers.cards ~= nil then
             local debuffed_joker = pseudorandom('bomb', 1, #G.jokers.cards)
             SMODS.debuff_card(G.jokers.cards[debuffed_joker], true, 'bomb')
         end
