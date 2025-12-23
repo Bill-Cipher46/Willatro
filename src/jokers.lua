@@ -592,8 +592,10 @@ SMODS.Joker
     calculate = function(self, card, context)
         if G.jokers and not context.blueprint then
             for i = 1, #G.jokers.cards do
-                if context.selling_self and G.jokers.cards[i+1] == card then
-                    G.jokers.cards[i]:set_eternal(true)
+                if context.selling_self and G.jokers.cards[i] == card then
+					if G.jokers.card[i] ~= nil then
+                    	G.jokers.cards[i]:set_eternal(true)
+					end
                 end
             end
         end
