@@ -106,7 +106,7 @@ SMODS.Blind
     atlas = "WillatroBlinds",
     pos = { x = 0, y = 3},
     boss = {
-        min = 1
+        showdown = true
     },
     boss_colour = HEX('ffd081'),
 
