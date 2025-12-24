@@ -203,8 +203,10 @@ SMODS.Consumable
     end,
 
     use = function(self, card, area, copier)
-        local debuffed_joker = pseudorandom('bomb', 1, #G.jokers.cards)
-        SMODS.debuff_card(G.jokers.cards[debuffed_joker], true, 'bomb')
+        if #G.jokers.cards > 0 then
+            local debuffed_joker = pseudorandom('bomb', 1, #G.jokers.cards)
+            SMODS.debuff_card(G.jokers.cards[debuffed_joker], true, 'bomb')
+        end
         delay(0.5)
         ease_dollars(card.ability.extra.money)
         delay(0.3)
