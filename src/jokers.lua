@@ -231,7 +231,7 @@ SMODS.Joker
                     end
                 end
 				if context.selling_self and not context.blueprint then
-					if vampire.perished == false then
+					if vampire.perishable == false and vampire.debuffed == true then
 						SMODS.debuff_card(vampire, false, "j_willatro_silvermirror")
                 	end
         		end
