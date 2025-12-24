@@ -593,7 +593,9 @@ SMODS.Joker
         if G.jokers and not context.blueprint then
             for i = 1, #G.jokers.cards do
                 if context.selling_self and G.jokers.cards[i] == card then
-                    G.jokers.cards[i+1]:set_eternal(true)
+					if G.jokers.cards[i+1] ~= nil then
+                    	G.jokers.cards[i+1]:set_eternal(true)
+					end
                 end
             end
         end
