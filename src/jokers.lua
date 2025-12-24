@@ -230,6 +230,11 @@ SMODS.Joker
                         SMODS.debuff_card(vampire, false, "j_willatro_silvermirror")
                     end
                 end
+				if context.selling_self and not context.blueprint then
+					if vampire.debuffed == false then
+						SMODS.debuff_card(vampire, false, "j_willatro_silvermirror")
+                	end
+        		end
             end
         end
 
@@ -264,16 +269,6 @@ SMODS.Joker
                     message = localize('k_safe_ex')
                 }
             end
-        end
-		
-		if context.selling_self and not context.blueprint then
-			if G.jokers.cards[i].config.center.key == 'j_vampire' then
-                local vampire = G.jokers.cards[i]
-				if vampire.perishable == false and vampire.debuff == true then
-					SMODS.debuff_card(vampire, false, "j_willatro_silvermirror")
-                end
-            end
-
         end
     end
 }
