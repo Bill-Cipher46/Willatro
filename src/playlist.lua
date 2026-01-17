@@ -19,6 +19,11 @@ SMODS.Rarity {
     default_weight = 0.25
 }
 
+SMODS.ObjectType {
+    key = "willatro_playlist_set",
+    default = "j_willatro_heart"
+}
+
 --#region Jokers 
 
 --telapathy
@@ -29,6 +34,9 @@ SMODS.Joker {
     pos = { x = 0, y = 0 },
     cost = 5,
     blueprint_compat = false,
+    pools = {
+        ["willatro_playlist_set"] = true
+    },
     config = {
         extra = {
             blind1 = "???",
@@ -74,6 +82,9 @@ SMODS.Joker {
     pos = { x = 1, y = 0 },
     cost = 5,
     blueprint_compat = false,
+    pools = {
+        ["willatro_playlist_set"] = true
+    },
 }
 
 --goodbye
@@ -85,6 +96,9 @@ SMODS.Joker {
     cost = 5,
     blueprint_compat = false,
     eternal_compat = false,
+    pools = {
+        ["willatro_playlist_set"] = true
+    },
 
     calculate = function(self, card, context)
 
@@ -124,6 +138,9 @@ SMODS.Joker {
     cost = 5,
     blueprint_compat = true,
     perishable_compat = false,
+    pools = {
+        ["willatro_playlist_set"] = true
+    },
     config = {
         extra = {
             mult_gain = 4,
@@ -179,4 +196,41 @@ SMODS.Sticker {
         end
     end
 
+}
+
+SMODS.Booster
+{
+    key = "playlist_pack",
+    group_key = "k_willatro_playlist_pack",
+    atlas = "WillatroPlaylist",
+    cost = 5,
+    weight = 0.9,
+    pos = { x = 4, y = 0 },
+    kind = "Playlist",
+    draw_hand = false,
+    config = {
+        extra = 3,
+        choose = 1
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                colours = { 
+                    G.C.RARITY["willatro_playlist"] 
+                },
+                card.ability.choose,
+                card.ability.extra
+            }
+        }
+    end,
+
+    create_card = function(self, card, i)
+        return { set = "willatro_playlist_set" }
+    end,
+
+    ease_background_colour = function(self)
+        ease_colour(G.C.DYN_UI.MAIN, G.C.RARITY["willatro_playlist"])
+        ease_background_colour({ new_colour = HEX('00ecfe'), special_colour = G.C.RARITY["willatro_playlist"], contrast = 2 })
+    end
 }

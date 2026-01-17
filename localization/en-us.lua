@@ -1039,6 +1039,15 @@ return {
                 }
             },
 
+            p_willatro_playlist_pack = {
+                name = "Playlist Pack",
+                group_name = "Playlist Pack Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {V:1}Playlist{} Jokers"
+                }
+            },
+
             willatro_hallucination_sticker = {
                 name = "Hallucination",
                 text = {
