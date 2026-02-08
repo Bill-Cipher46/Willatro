@@ -862,6 +862,19 @@ return {
 
             --#endregion
 
+            --#region legendary
+
+            j_willatro_quantum_trib = {
+                name = "Quantum Triboulet",
+                text = {
+                    "Played {C:attention}Kings{}, {C:attention}Aces{} and",
+                    "{C:attention}Queens{} each give",
+                    "{X:mult,C:white} X#1# {} Mult when scored",
+                }
+            },
+
+            --#endregion
+
             --#endregion
 
             --#region playlist
@@ -901,6 +914,46 @@ return {
                     "create a free {C:attention}#1#{}",
                     "and gain {C:mult}+#2#{} Mult",
                     "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+                }
+            },
+            
+            j_willatro_butcher_vanity = {
+                name = "Butcher Vanity",
+                text = {
+                    "{C:green}#1#{} in {C:green}#2#{} chance to",
+                    "create a {C:dark_edition}negative{C:attention} Cadaver{}.",
+                    "When blind is selected, {C:attention}destroy{}",
+                    "all {V:1}Organs{} and {C:attention}Cadavers{},",
+                    "then gain {C:mult}+#3#{} Mult",
+                    "{C:inactive}(Currently {C:mult}+#4#{C:inactive} Mult)"
+                }
+            },
+
+            j_willatro_the_town_inside_me = {
+                name = "The Town Inside Me",
+                text = {
+                    "Each {C:attention}Queen{}",
+                    "held in hand",
+                    "gives {C:white,X:mult}X#1#{} Mult"
+                }
+            },
+            
+            j_willatro_black_knife = {
+                name = "Black Knife",
+                text = {
+                    "When blind is selected,",
+                    "destroy {C:attention}Joker{} to the right",
+                    "and create a {C:attention}Swooned Joker{}"
+                }
+            },
+            
+            j_willatro_swooned_joker = {
+                name = "Swooned Joker",
+                text = {
+                    "{c:White,X:mult}X#1#{} Mult for every{}",
+                    "{C:attention}Swooned Joker{},",
+                    "{C:white,X:mult}X#2#{} Mult for every{}",
+                    "{C:attention}Black Knife Joker{}"
                 }
             },
 
@@ -1072,6 +1125,7 @@ return {
             k_willatro_boostable_pack = "Boostable Pack",
             k_willatro_playlist = "Playlist",
             k_willatro_playlist_pack = "Playlist Pack",
+            k_willatro_superlegend = "SuperLegend",
         },
 
         poker_hand_descriptions = {
