@@ -161,6 +161,7 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
+        
         if context.setting_blind then
             add_tag(Tag("tag_boss"))
 
