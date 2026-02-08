@@ -178,6 +178,8 @@ SMODS.Joker {
 }
 
 
+
+
 --#endregion
 
 
@@ -198,8 +200,7 @@ SMODS.Sticker {
 
 }
 
-SMODS.Booster
-{
+SMODS.Booster {
     key = "playlist_pack",
     group_key = "k_willatro_playlist_pack",
     atlas = "WillatroPlaylist",

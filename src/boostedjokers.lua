@@ -14,6 +14,23 @@ SMODS.Atlas
     py = 34
 }
 
+SMODS.Atlas
+{
+    key = "TribEvolved",
+    path = "TribAnimation.png",
+    px = 71,
+    py = 95,
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 49
+}
+
+SMODS.Rarity
+{
+    key = "superlegend",
+    loc_txt = {},
+    badge_colour = HEX("feff5a")
+}
+
 local cryptid = false
 if next(SMODS.find_mod('Cryptid')) and 'cryptid.lua' then
     cryptid = true
@@ -1464,6 +1481,42 @@ SMODS.Joker {
 
     in_pool = function(self, args)
         return false
+    end
+}
+
+--#endregion
+
+--#region legendary
+
+SMODS.Joker {
+    key = "quantum_trib",
+    rarity = "willatro_superlegend",
+    atlas = "TribEvolved",
+    pos = {x = 0, y = 0 },
+    soul_pos = {x = 0, y = 1 },
+    cost = 20,
+    blueprint_compat = true,
+    config = {
+        extra = {
+            xmult = 4
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return { 
+            vars = {
+                card.ability.extra.xmult
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and
+            (context.other_card:get_id() >= 12) then
+            return {
+                xmult = card.ability.extra.xmult
+            }
+        end
     end
 }
 
