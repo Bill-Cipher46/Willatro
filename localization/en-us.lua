@@ -865,15 +865,13 @@ return {
             --#region legendary
 
             j_willatro_quantum_trib = {
-                name = "Quantum Triboulet",
+                name = "Triboulet, the Quantum",
                 text = {
                     "Played {C:attention}Kings{}, {C:attention}Aces{} and",
                     "{C:attention}Queens{} each give",
                     "{X:mult,C:white} X#1# {} Mult when scored",
                 }
             },
-
-            --#endregion
 
             --#endregion
 
@@ -921,10 +919,11 @@ return {
                 name = "Butcher Vanity",
                 text = {
                     "{C:green}#1#{} in {C:green}#2#{} chance to",
-                    "create a {C:dark_edition}negative{C:attention} Cadaver{}.",
+                    "create a {C:dark_edition}negative{C:attention} Cadaver{}",
+                    "when exiting the shop.",
                     "When blind is selected, {C:attention}destroy{}",
                     "all {V:1}Organs{} and {C:attention}Cadavers{},",
-                    "then gain {C:mult}+#3#{} Mult",
+                    "and gain {C:mult}+#3#{} Mult for each",
                     "{C:inactive}(Currently {C:mult}+#4#{C:inactive} Mult)"
                 }
             },
@@ -942,15 +941,15 @@ return {
                 name = "Black Knife",
                 text = {
                     "When blind is selected,",
-                    "destroy {C:attention}Joker{} to the right",
-                    "and create a {C:attention}Swooned Joker{}"
+                    "destroy {C:attention}Joker{} to the right,",
+                    "then create a {C:attention}Swooned Joker{}"
                 }
             },
             
             j_willatro_swooned_joker = {
                 name = "Swooned Joker",
                 text = {
-                    "{c:White,X:mult}X#1#{} Mult for every{}",
+                    "{C:white,X:mult}X#1#{} Mult for every{}",
                     "{C:attention}Swooned Joker{},",
                     "{C:white,X:mult}X#2#{} Mult for every{}",
                     "{C:attention}Black Knife Joker{}"
