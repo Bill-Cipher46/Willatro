@@ -293,7 +293,7 @@ SMODS.Joker {
     end
 }
 
---black knife 
+--black knife - done!
 SMODS.Joker {
     key = "black_knife",
     rarity = "willatro_playlist",
@@ -323,7 +323,7 @@ SMODS.Joker {
     end
 }
 
---swooned
+--swooned - done!
 SMODS.Joker {
     key = "swooned_joker",
     rarity = "willatro_playlist",
