@@ -955,6 +955,16 @@ return {
                     "{C:attention}Black Knife Joker{}"
                 }
             },
+            
+            j_willatro_machine_love = {
+                name = "Machine Love",
+                description = {
+                    "Played {C:attention}Steel{} cards get",
+                    "the {C:ettention}Love{} seal. {C:chips}+#1#{}",
+                    "Chips for each {C:attention}Love{}",
+                    "seal in full deck"
+                }
+            },
 
             --#endregion
 
