@@ -1107,7 +1107,7 @@ end
 --swooned - done!
 SMODS.Joker {
     key = "swooned_joker",
-    rarity = "2",
+    rarity = 2,
     atlas = "WillatroPlaylist",
     pos = { x = 2, y = 1 },
     cost = 5,
