@@ -1083,6 +1083,8 @@ return {
         },
 
         Other = {
+
+            --#region packs
             p_willatro_boostable_pack = {
                 name = "Boostable Booster Pack",
                 group_name = "Boostable Booster Pack",
@@ -1110,12 +1112,23 @@ return {
                 }
             },
 
+            --#endregion
+
             willatro_hallucination_sticker = {
                 name = "Hallucination",
                 text = {
                     "When obtained, {C:attention}destroy{}",
                     "this card and gain",
                     "{C:attention}4 times{} its {C:attention}sell value"
+                }
+            },
+
+            willatro_love_seal = {
+                name = "Love Seal",
+                text = {
+                    "Gives additional {C:white,X:chips}X#1#{} Chips",
+                    "for every scoring card",
+                    "with a {C:attention}Love Seal{}"
                 }
             }
         }
@@ -1155,7 +1168,8 @@ return {
         },
 
         labels = {
-            willatro_hallucination_sticker = "Hallucination"
+            willatro_hallucination_sticker = "Hallucination",
+            willatro_love_seal = "Love Seal"
         }
     }
 }
