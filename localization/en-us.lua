@@ -412,8 +412,7 @@ return {
                     "All played and scoring cards without",
                     "an enhancement become {C:attention,T:info_queue[1]}Overgrown{} cards.",
                     "{C:attention}Overgrown{} cards have a {C:green}#1# in #2#{}",
-                    "chance to give {C:money}$#3#{} when scored",
-                    "{s:0.8}character depicted is Megumin"
+                    "chance to give {C:money}$#3#{} when scored"
                 }
             },
             --#endregion
