@@ -965,6 +965,46 @@ return {
                 }
             },
 
+            j_willatro_rabbit_hole = {
+                name = "Rabbit Hole",
+                description = {
+                    "Destroy every played and scoring",
+                    "{C:attention}King of Hearts{}. All other",
+                    "played and scoring {C:attention}Kings{} gain",
+                    "a random {C:attention}Seal{} and {C:attention}Enhancement"
+                }
+            },
+
+            j_willatro_candy_cookie_chocolate = {
+                name = "CandyCookieChocolate",
+                description = {
+                    "When {C:attention}blind{} is selected, create a",
+                    "{C:attention}Candy{}, {C:attention}Cookie{}, or {C:attention}Chocolate{}"
+                }
+            },
+
+            j_willatro_spoken_for = {
+                name = "Spoken For",
+                description = {
+                    "Each played {C:attention}#1#{} of {V:1}#2#{}",
+                    "gives {C:white,X:mult}X#3#{} Mult when scored.",
+                    "All other played cards give",
+                    "{C:white,X:mult}#4#{} Mult when scored",
+                    "{s:0.8}Card changes every round"
+                }
+            },
+
+            j_willatro_hammer_of_justice = {
+                name = "Hammer of Justice",
+                description = {
+                    "Disable all {C:attention}Boss Blinds{} that",
+                    "{C:attention}flip{} or {C:attention}disable{} cards. Halve",
+                    "{C:attention}required score{} of all disabled {C:attention}Boss Blinds{}.",
+                    "Can only be removed by selling"
+                }
+            },
+
+
             --#endregion
 
             --#region cryptid
