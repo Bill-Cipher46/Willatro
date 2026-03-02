@@ -2,7 +2,7 @@
     "id": "Willatro",
     "name": "Willatro",
     "author": ["Bill Cipher and Willow"],
-    "description": "Credits to: Willow for the art and ideas. Bill Cipher for the coding. Chloe (Willow's Girlfriend): for being awesome",
+    "description": "Credits to: Willow for the art and ideas. Bill Cipher for the coding, with much help from the balatro modding community. Chloe (Willow's Girlfriend): for being awesome",
     "prefix": "willatro",
     "main_file": "Willatro.lua",
     "badge_colour": "F5A9B8",
