@@ -18,18 +18,50 @@ local rlc = SMODS.Atlas{
     py = 95
 }
 
-for i, suit in ipairs(suits) do
+SMODS.DeckSkin {
+	key = "deckskins_Hearts",
+	suit = "Hearts",
+	loc_txt = {
+		['default'] = "Megumin's Stuff"
+	},
+	palettes = {},
+}
 
-	SMODS.DeckSkin {
-		key = "deckskins_"..suit,
-		suit = suit,
-		loc_txt = {
-			['default'] = "Willatro Deck Skins"
-		},
-		palettes = {},
-	}
-	
-	SMODS.DeckSkin.add_palette(SMODS.DeckSkins['willatro_deckskins_'..suit], {key = 'willatro_deckskins_lc', ranks = ranks, display_ranks = dranks, atlas = rlc.key,})
-	SMODS.DeckSkin.add_palette(SMODS.DeckSkins['willatro_deckskins_'..suit], {key = 'willatro_deckskins_hc', ranks = ranks, display_ranks = dranks, atlas = rhc.key,})
+SMODS.DeckSkin.add_palette(SMODS.DeckSkins['willatro_deckskins_Hearts'], {key = 'willatro_deckskins_lc', ranks = ranks, display_ranks = dranks, atlas = rlc.key,})
+SMODS.DeckSkin.add_palette(SMODS.DeckSkins['willatro_deckskins_Hearts'], {key = 'willatro_deckskins_hc', ranks = ranks, display_ranks = dranks, atlas = rhc.key,})
 
-end
+SMODS.DeckSkin {
+	key = "deckskins_Clubs",
+	suit = "Clubs",
+	loc_txt = {
+		['default'] = "Gravity Falls"
+	},
+	palettes = {},
+}
+
+SMODS.DeckSkin.add_palette(SMODS.DeckSkins['willatro_deckskins_Clubs'], {key = 'willatro_deckskins_lc', ranks = ranks, display_ranks = dranks, atlas = rlc.key,})
+SMODS.DeckSkin.add_palette(SMODS.DeckSkins['willatro_deckskins_Clubs'], {key = 'willatro_deckskins_hc', ranks = ranks, display_ranks = dranks, atlas = rhc.key,})
+
+SMODS.DeckSkin {
+	key = "deckskins_Diamonds",
+	suit = "Diamonds",
+	loc_txt = {
+		['default'] = "Unseen Explosion"
+	},
+	palettes = {},
+}
+
+SMODS.DeckSkin.add_palette(SMODS.DeckSkins['willatro_deckskins_Diamonds'], {key = 'willatro_deckskins_lc', ranks = ranks, display_ranks = dranks, atlas = rlc.key,})
+SMODS.DeckSkin.add_palette(SMODS.DeckSkins['willatro_deckskins_Diamonds'], {key = 'willatro_deckskins_hc', ranks = ranks, display_ranks = dranks, atlas = rhc.key,})
+
+SMODS.DeckSkin {
+	key = "deckskins_Spades",
+	suit = "Spades",
+	loc_txt = {
+		['default'] = "Willow's OCs"
+	},
+	palettes = {},
+}
+
+SMODS.DeckSkin.add_palette(SMODS.DeckSkins['willatro_deckskins_Spades'], {key = 'willatro_deckskins_lc', ranks = ranks, display_ranks = dranks, atlas = rlc.key,})
+SMODS.DeckSkin.add_palette(SMODS.DeckSkins['willatro_deckskins_Spades'], {key = 'willatro_deckskins_hc', ranks = ranks, display_ranks = dranks, atlas = rhc.key,})
