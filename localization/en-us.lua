@@ -957,17 +957,18 @@ return {
             
             j_willatro_machine_love = {
                 name = "Machine Love",
-                description = {
+                text = {
                     "Played {C:attention}Steel{} cards get",
-                    "the {C:ettention}Love{} seal. {C:chips}+#1#{}",
-                    "Chips for each {C:attention}Love{}",
-                    "seal in full deck"
+                    "the {C:attention}Love{} seal when scored.",
+                    "{C:chips}+#1#{} Chips for each {C:attention}Love{}",
+                    "seal in full deck",
+                    "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
                 }
             },
 
             j_willatro_rabbit_hole = {
                 name = "Rabbit Hole",
-                description = {
+                text = {
                     "Destroy every played and scoring",
                     "{C:attention}King of Hearts{}. All other",
                     "played and scoring {C:attention}Kings{} gain",
@@ -977,7 +978,7 @@ return {
 
             j_willatro_candy_cookie_chocolate = {
                 name = "CandyCookieChocolate",
-                description = {
+                text = {
                     "When {C:attention}blind{} is selected, create a",
                     "{C:attention}Candy{}, {C:attention}Cookie{}, or {C:attention}Chocolate{}"
                 }
@@ -985,7 +986,7 @@ return {
 
             j_willatro_spoken_for = {
                 name = "Spoken For",
-                description = {
+                text = {
                     "Each played {C:attention}#1#{} of {V:1}#2#{}",
                     "gives {C:white,X:mult}X#3#{} Mult when scored.",
                     "All other played cards give",
@@ -996,7 +997,7 @@ return {
 
             j_willatro_hammer_of_justice = {
                 name = "Hammer of Justice",
-                description = {
+                text = {
                     "Disable all {C:attention}Boss Blinds{} that",
                     "{C:attention}flip{} or {C:attention}disable{} cards. Halve",
                     "{C:attention}required score{} of all disabled {C:attention}Boss Blinds{}.",
