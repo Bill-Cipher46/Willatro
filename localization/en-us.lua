@@ -1170,8 +1170,43 @@ return {
                     "for every scoring card",
                     "with a {C:attention}Love Seal{}"
                 }
+            },
+
+            undiscovered_willatro_treat = {
+                name = "Not Discovered",
+                text = {
+                    "Purchase or use",
+                    "this card in an",
+                    "unseeded run to",
+                    "learn what it does",
+                },
+            },
+        },
+
+        willatro_treat = {
+            c_willatro_candy = {
+                name = "Candy",
+                text = {
+                    "{C:mult}+#1#{} Mult to your",
+                    "most played hand"
+                }
+            },
+
+            c_willatro_cookie = {
+                name = "Cookie",
+                text = {
+                    "{C:chips}+#1#{} Chips to your",
+                    "most played hand"
+                }
+            },
+
+            c_willatro_chocolate = {
+                name = "Chocolate",
+                text = {
+                    "Gives {C:money}$#1#{}"
+                }
             }
-        }
+        },
 
     },
         
@@ -1181,6 +1216,7 @@ return {
         },
 
         dictionary = {
+            b_willatro_treat_cards = "Treat Cards",
             k_willatro_organ = "Organ",
             k_willatro_Organ = "Organ",
             k_willatro_organ_pack = "Organ Pack",
@@ -1188,6 +1224,7 @@ return {
             k_willatro_playlist = "Playlist",
             k_willatro_playlist_pack = "Playlist Pack",
             k_willatro_superlegend = "SuperLegend",
+            k_willatro_treat = "Treat"
         },
 
         poker_hand_descriptions = {
@@ -1209,7 +1246,8 @@ return {
 
         labels = {
             willatro_hallucination_sticker = "Hallucination",
-            willatro_love_seal = "Love Seal"
+            willatro_love_seal = "Love Seal",
+            willatro_treat = "Treat"
         }
     }
 }
