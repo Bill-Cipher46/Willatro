@@ -990,7 +990,7 @@ return {
                     "Each played {C:attention}#1#{} of {V:1}#2#{}",
                     "gives {C:white,X:mult}X#3#{} Mult when scored.",
                     "All other played cards give",
-                    "{C:white,X:mult}#4#{} Mult when scored",
+                    "{C:white,X:mult}X#4#{} Mult when scored",
                     "{s:0.8}Card changes every round"
                 }
             },
