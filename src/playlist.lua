@@ -406,7 +406,6 @@ SMODS.Joker {
     atlas = "WillatroPlaylist",
     pos = { x = 4, y = 1 },
     cost = 5,
-    blueprint_compat = false,
     pools = {
         ["willatro_playlist_set"] = true
     },
@@ -430,33 +429,38 @@ SMODS.Joker {
     end
 }
 
---rabbit hole - done!
+--candycookichocolate - done!
 SMODS.Joker {
-    key = "rabbit_hole",
+    key = "candy_cookie_chocolate",
     rarity = "willatro_playlist",
     atlas = "WillatroPlaylist",
-    pos = { x = 4, y = 1 },
+    pos = { x = 5, y = 1 },
     cost = 5,
-    blueprint_compat = false,
+    blueprint_compat = true,
     pools = {
         ["willatro_playlist_set"] = true
     },
 
     calculate = function(self, card, context)
-        if context.before and not context.blueprint then
-            for k, v in ipairs(context.scoring_hand) do
-                if v:get_id() == 13 then
-                    if v.base.suit == "Hearts" then
-                        SMODS.destroy_cards(v)
-                    else
-                        local edition = SMODS.poll_edition { key = "willatro_rabbit_hole", guaranteed = true, no_negative = false }
-                        local seal = SMODS.poll_seal {key = "willatro_rabbit_hole", guaranteed = true}
-
-                        v:set_edition(edition)
-                        v:set_seal(seal)
-                    end
-                end
-            end
+        if context.setting_blind and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+            G.E_MANAGER:add_event(Event({
+                func = (function()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card {
+                                set = 'willatro_treat'
+                            }
+                            G.GAME.consumeable_buffer = 0
+                            return true
+                        end
+                    }))
+                    SMODS.calculate_effect({ message = "+1 Treat", colour = HEX("282322") },
+                        context.blueprint_card or card)
+                    return true
+                end)
+            }))
+            return nil, true
         end
     end
 }
