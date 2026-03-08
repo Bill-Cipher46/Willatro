@@ -53,6 +53,22 @@ local function reset_willatro_jokeinthebox()
     G.GAME.current_round.willatro_jokeinthebox.suit = jokeinthebox_card
 end
 
+local function reset_willatro_spokenfor()
+    G.GAME.current_round.willatro_spoken_for_card = G.GAME.current_round.willatro_spoken_for_card or { rank = 'Ace', suit = 'Spades' }
+    local valid_spoken_for_cards = {}
+    for _, playing_card in ipairs(G.playing_cards) do
+        if not SMODS.has_no_suit(playing_card) and not SMODS.has_no_rank(playing_card) then
+            valid_spoken_for_cards[#valid_spoken_for_cards + 1] = playing_card
+        end
+    end
+    local spoken_for_card = pseudorandom_element(valid_spoken_for_cards, 'willatro_spoken_for' .. G.GAME.round_resets.ante)
+    if spoken_for_card then
+        G.GAME.current_round.willatro_spoken_for_card.rank = spoken_for_card.base.value
+        G.GAME.current_round.willatro_spoken_for_card.suit = spoken_for_card.base.suit
+        G.GAME.current_round.willatro_spoken_for_card.id = spoken_for_card.base.id
+    end
+end
+
 local oldsetcost = Card.set_cost
 function Card:set_cost()
     if self.config.center.key == 'j_willatro_troll' or self.ability.willatro_saved == true then
@@ -270,4 +286,5 @@ end
 
 function SMODS.current_mod.reset_game_globals(run_start)
     reset_willatro_jokeinthebox()
+    reset_willatro_spokenfor()
 end
