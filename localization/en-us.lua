@@ -998,9 +998,9 @@ return {
             j_willatro_hammer_of_justice = {
                 name = "Hammer of Justice",
                 text = {
-                    "Disable all {C:attention}Boss Blinds{} that",
-                    "{C:attention}flip{} or {C:attention}disable{} cards. Halve",
-                    "{C:attention}required score{} of all disabled {C:attention}Boss Blinds{}.",
+                    "Prevent all cards from being",
+                    "{C:attention}flipped{} or {C:attention}debuffed{}. Halve",
+                    "{C:attention}required score{} of all {C:attention}Boss Blinds{}.",
                     "Can only be removed by selling"
                 }
             },
