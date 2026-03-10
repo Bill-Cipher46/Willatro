@@ -672,7 +672,13 @@ SMODS.Joker{
 
     calculate = function(self, card, context)
         if context.debuff_card and not context.blueprint then
-            SMODS.debuff_card(card, "prevent_debuff", "j_willatro_skin")
+
+            if context.debuff_card == card then
+                return {
+                    prevent_debuff = true
+                }
+            end
+
             for i = 1, #G.jokers.cards do
                 if G.jokers.cards[i] == card then
                     if i > 1 then
