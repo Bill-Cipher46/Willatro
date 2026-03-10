@@ -118,12 +118,26 @@ function Card:is_suit(suit, bypass_debuff, flush_calc)
     return g
 end
 
+local oldstayflipped = Blind.stay_flipped
+function Blind:stay_flipped(area, card)
+    if next(SMODS.find_card("j_willatro_hammer_of_justice")) then
+        return nil
+    end
+
+    return oldstayflipped(self, area, card)
+end
+
 local oldflipcard = Card.flip
 function Card:flip()
-    local immune = { }
+    if next(SMODS.find_card("j_willatro_hammer_of_justice")) and self.facing == 'front' and not self == G.discard then
+        return nil
+    end
+
+    local immune = {}
 
     if G.jokers then
         for i = 1, #G.jokers.cards do
+
             if G.jokers.cards[i].config.center.key == "j_willatro_skin" then
                 immune[#immune+1] = G.jokers.cards[i]
                 if i > 1 then
