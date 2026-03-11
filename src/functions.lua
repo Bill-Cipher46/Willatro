@@ -159,6 +159,15 @@ function Card:flip()
     return oldflipcard(self)
 end
 
+local oldiseternal = SMODS.is_eternal
+function SMODS.is_eternal(card, trigger)
+    if card.config.center.key == "j_willatro_hammer_of_justice" and (trigger and next(trigger) and not trigger.from_sell) then
+        return true
+    end
+
+    return oldiseternal(card, trigger)
+end
+
 local oldgetboss = get_new_boss
 function get_new_boss()
     if next(SMODS.find_card("j_willatro_consciousness")) then
