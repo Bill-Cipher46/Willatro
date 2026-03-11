@@ -131,6 +131,17 @@ return {
                     "random {V:1}Organ {C:attention}Joker"
                 }
             },
+
+            j_willatro_cobbler = {
+                name = "Cobbler",
+                text = {
+                    "Gains {C:mult}+#1#{} Mult every round.",
+                    "This card is {C:attention}destroyed",
+                    "after reaching {C:mult}+#3#{} Mult",
+                    "{C:inactive}(Currently {C:red}+#2#{C:inactive} Mult)"
+                }
+            },
+            
             --#endregion
 
             --#region uncommon
@@ -171,16 +182,6 @@ return {
                     "Gains {C:mult}+#1#{} Mult for each",
                     "{C:attention}Joker{} bought this run",
                     "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
-                }
-            },
-
-            j_willatro_cobbler = {
-                name = "Cobbler",
-                text = {
-                    "Gains {C:mult}+#1#{} Mult every round.",
-                    "This card is {C:attention}destroyed",
-                    "after reaching {C:mult}+30{} Mult",
-                    "{C:inactive}(Currently {C:red}+#2#{C:inactive} Mult)"
                 }
             },
 
@@ -871,6 +872,8 @@ return {
                     "{X:mult,C:white} X#1# {} Mult when scored",
                 }
             },
+
+            --#endregion
 
             --#endregion
 
