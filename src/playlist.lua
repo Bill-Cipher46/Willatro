@@ -512,7 +512,7 @@ SMODS.Joker {
     end
 }
 
---hammer of justice
+--hammer of justice - done!
 SMODS.Joker {
     key = "hammer_of_justice",
     rarity = "willatro_playlist",
