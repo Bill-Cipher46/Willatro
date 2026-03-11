@@ -22,7 +22,7 @@ SMODS.DeckSkin {
 	key = "deckskins_Hearts",
 	suit = "Hearts",
 	loc_txt = {
-		['default'] = "Megumin's Stuff"
+		['default'] = "The Blahaj Council"
 	},
 	palettes = {},
 }
