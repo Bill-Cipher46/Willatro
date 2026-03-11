@@ -8,6 +8,9 @@ local quips = {
         ["j_willatro_bill"] = {
             { "Remember: Reality is an", "illusion, the universe", "is a hologram, buy", "gold, bye!" },
             { "Well, well, well, and here", "I thought today couldn't", "get any better"}
+        },
+        ["j_willatro_thecoolerjoker"] = {
+            { "B)" }
         }
 
     },
@@ -17,8 +20,11 @@ local quips = {
             { "Skill issue" }
         },
         ["j_willatro_bill"] = {
-            { "ahahahaha. It's funny", "how dumb you are." },
+            { "ahahahaha! It's funny", "how dumb you are." },
             { "We'll meet again,", "Don't know where, don't", "know when, oh I know", "we'll meet again", "some sunny day"}
+        },
+        ["j_willatro_thecoolerjoker"] = {
+            { "B)" }
         }
     }
 
