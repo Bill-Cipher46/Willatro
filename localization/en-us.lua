@@ -975,7 +975,7 @@ return {
                     "Destroy every played and scoring",
                     "{C:attention}King of Hearts{}. All other",
                     "played and scoring {C:attention}Kings{} gain",
-                    "a random {C:attention}Seal{} and {C:attention}Enhancement"
+                    "a random {C:attention}Seal{} and {C:attention}Edition"
                 }
             },
 
