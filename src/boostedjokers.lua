@@ -1542,6 +1542,10 @@ SMODS.Joker
                 remove = true
             }
         end
+    end,
+
+    in_pool = function(self, args)
+        return false
     end
 }
 
