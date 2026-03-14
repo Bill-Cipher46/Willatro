@@ -265,7 +265,14 @@ SMODS.Consumable {
         end
 
         if _hand then
-            G.GAME.hands[_hand].mult = G.GAME.hands[_hand].mult + card.ability.extra.mult
+            SMODS.upgrade_poker_hands({
+                hands = _hand,
+                parameters = { "mult" },
+                func = function(current, base, param)
+                    return current + card.ability.extra.mult
+                end,
+                from = card
+            })
         end
     end,
 
@@ -316,7 +323,14 @@ SMODS.Consumable {
         end
 
         if _hand then
-            G.GAME.hands[_hand].chips = G.GAME.hands[_hand].chips + card.ability.extra.chips
+            SMODS.upgrade_poker_hands({
+                hands = _hand,
+                parameters = { "chips" },
+                func = function(current, base, parameter)
+                    return current + card.ability.extra.chips
+                end,
+                from = card
+            })
         end
     end,
 
