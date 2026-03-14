@@ -1557,8 +1557,14 @@ SMODS.Joker
 
     calculate = function(self, card, context)
         if context.before and context.main_eval and (context.scoring_name == "Pair" or context.scoring_name == "Two Pair") then
-            SMODS.smart_level_up_hand(card, "Pair")
-            SMODS.smart_level_up_hand(card, "Two Pair")
+            SMODS.upgrade_poker_hands({
+                hands = {
+                    "Pair",
+                    "Two Pair"
+                },
+                level_up = 1,
+                from = card
+            })
             return {
                 message = localize('k_level_up_ex')
             }
