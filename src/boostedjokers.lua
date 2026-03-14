@@ -1473,24 +1473,16 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
 
-        if context.before then
-            for i = 1, #card.ability.extra.hands do
-                if card.ability.extra.hands[i] == context.scoring_name then
-                    SMODS.upgrade_poker_hands({
-                        hands = {
-                            card.ability.extra.hands[i]
-                        },
-                        level_up = card.ability.extra.big_upgrade,
-                        from = card
-                    })
-                else
-                    SMODS.upgrade_poker_hands({
-                        hands = {
-                            card.ability.extra.hands[i]
-                        },
-                        level_up = card.ability.extra.small_upgrade,
-                        from = card
-                    })
+        if context.before and context.main_eval then
+            local tracked = {}
+            for _, hand in ipairs(card.ability.extra.hands) do
+                tracked[hand] = true
+            end
+
+            if tracked[context.scoring_name] then
+                for _, hand in ipairs(card.ability.extra.hands) do
+                    local level = hand == context.scoring_name and card.ability.extra.big_upgrade or card.ability.extra.small_upgrade
+                    SMODS.upgrade_poker_hands({ hands = {hand}, level_up = level, from = card })
                 end
             end
         end
