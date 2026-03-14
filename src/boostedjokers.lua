@@ -1476,9 +1476,21 @@ SMODS.Joker {
         if context.before then
             for i = 1, #card.ability.extra.hands do
                 if card.ability.extra.hands[i] == context.scoring_name then
-                    SMODS.smart_level_up_hand(card, card.ability.extra.hands[i], nil, card.ability.extra.big_upgrade)
+                    SMODS.upgrade_poker_hands({
+                        hands = {
+                            card.ability.extra.hands[i]
+                        },
+                        level_up = card.ability.extra.big_upgrade,
+                        from = card
+                    })
                 else
-                    SMODS.smart_level_up_hand(card, card.ability.extra.hands[i], nil, card.ability.extra.small_upgrade)
+                    SMODS.upgrade_poker_hands({
+                        hands = {
+                            card.ability.extra.hands[i]
+                        },
+                        level_up = card.ability.extra.small_upgrade,
+                        from = card
+                    })
                 end
             end
         end
