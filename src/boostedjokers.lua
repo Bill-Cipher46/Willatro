@@ -70,6 +70,7 @@ SMODS.ObjectType {
         ["j_willatro_pear"] = true,
         ["j_superposition"] = true,
         ["j_dna"] = true,
+        ["j_willatro_quantum_trib"] = true,
         ["j_willatro_thecoolerjoker"] = cryptid
     }
 }
@@ -193,6 +194,10 @@ willatro.upgrades = {
     },
     ["j_dna"] = {
         key = "j_willatro_mitosis",
+        upgradeable = true
+    },
+    ["j_triboulet"] = {
+        key = "j_willatro_quantum_trib",
         upgradeable = true
     },
 }
@@ -1557,6 +1562,7 @@ SMODS.Joker
 
 --#region legendary
 
+--trib the quantum - done!
 SMODS.Joker {
     key = "quantum_trib",
     rarity = "willatro_superlegend",
