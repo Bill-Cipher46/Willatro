@@ -597,7 +597,7 @@ return {
                     "Played cards with",
                     "{C:attention}prime{} rank give",
                     "{C:white,X:chips}X#1#{} Chips when scored",
-                    "{C:inactive}(5, 7, 3, 2)"
+                    "{C:inactive}(2, 3, 5, 7)"
                 }
             },
 
