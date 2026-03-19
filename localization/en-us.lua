@@ -49,6 +49,47 @@ return {
                     "Must play High Card",
                     "+#1# hands"
                 }
+            },
+
+            bl_willatro_violent = {
+                name = "The Violent",
+                text = {
+                    "Destroy all scored",
+                    "cards with an enhancement"
+                }
+            },
+
+            bl_willatro_lustful = {
+                name = "The Lustful",
+                text = {
+                    "Playing a card of #1#",
+                    "suit sets money to $0"
+                }
+            },
+
+            bl_willatro_companion = {
+                name = "The Companion",
+                text = {
+                    "+#1# hand size if blind",
+                    "is beaten in one hand.",
+                    "Otherwise, -#1# hand size"
+                }
+            },
+
+            bl_willatro_glutton = {
+                name = "The Glutton",
+                text = {
+                    "Destroy all held consumables.",
+                    "0 consumable slots this round"
+                }
+            },
+
+            bl_willatro_resilient = {
+                name = "The Resilient",
+                text = {
+                    "+#1#% blind size for every",
+                    "Joker and Consumable slot"
+                }
             }
         },
 
