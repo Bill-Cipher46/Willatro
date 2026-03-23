@@ -177,6 +177,27 @@ function get_new_boss()
             return "bl_willatro_hollow"
         end
     else
+        if G.playing_cards then
+            local suits = { Hearts = 0, Diamonds = 0, Clubs = 0, Spades = 0 }
+            for _, card in ipairs(G.playing_cards) do
+                for suit in pairs(suits) do
+                    if card:is_suit(suit) then
+                        suits[suit] = suits[suit] + 1
+                        break
+                    end
+                end
+            end
+            local highest = -1
+            for _, count in pairs(suits) do
+                if count > highest then highest = count end
+            end
+            local tied = {}
+            for suit, count in pairs(suits) do
+                if count == highest then tied[#tied + 1] = suit end
+            end
+            G.GAME.willatro_majority_suit = tied[math.ceil(pseudorandom("most_common_suit") * #tied)]
+        end
+
         return oldgetboss()
     end
 end
