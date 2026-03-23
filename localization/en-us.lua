@@ -70,9 +70,9 @@ return {
             bl_willatro_companion = {
                 name = "The Companion",
                 text = {
-                    "+#1# hand size if blind",
+                    "+1 hand size if blind",
                     "is beaten in one hand.",
-                    "Otherwise, -#1# hand size"
+                    "Otherwise, -1 hand size"
                 }
             },
 
