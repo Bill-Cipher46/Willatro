@@ -72,7 +72,8 @@ return {
                 text = {
                     "+1 hand size if blind",
                     "is beaten in one hand.",
-                    "Otherwise, -1 hand size"
+                    "Otherwise, -1 hand size",
+                    "at end of round"
                 }
             },
 
