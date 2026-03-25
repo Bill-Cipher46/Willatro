@@ -88,7 +88,7 @@ return {
             bl_willatro_resilient = {
                 name = "The Resilient",
                 text = {
-                    "+#1#% blind size for every",
+                    "+5% blind size for every",
                     "Joker and Consumable slot"
                 }
             }
