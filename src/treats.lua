@@ -1,6 +1,6 @@
 SMODS.Atlas {
     key = "WillatroTreats",
-    path = "WillatroTreats.png",
+    path = "WillowTreats.png",
     px = 71,
     py = 95,
 }
@@ -12,7 +12,7 @@ SMODS.ConsumableType {
     collection_rows = { 3, 4 }
 }
 
---candy
+--candy - done!
 SMODS.Consumable {
     key = "candy",
     set = 'willatro_treat',
@@ -69,7 +69,7 @@ SMODS.Consumable {
 
 }
 
---cookie
+--cookie - done!
 SMODS.Consumable {
     key = "cookie",
     set = 'willatro_treat',
@@ -126,7 +126,7 @@ SMODS.Consumable {
 
 }
 
---chocolate
+--chocolate - done!
 SMODS.Consumable {
     key = "chocolate",
     set = 'willatro_treat',
