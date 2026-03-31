@@ -1,6 +1,6 @@
 SMODS.Atlas {
     key = "WillatroTarots",
-    path = "WillatroTarots.png",
+    path = "WillowTarots.png",
     px = 71,
     py = 95,
 }
@@ -9,7 +9,7 @@ SMODS.Atlas {
 SMODS.Consumable {
     key = "tree",
     set = 'Tarot',
-    atlas = 'WillatroConsumables',
+    atlas = 'WillatroTarots',
     pos = { x = 0, y = 0 },
     cost = 3,
     config = { 
@@ -92,7 +92,7 @@ SMODS.Consumable {
 SMODS.Consumable {
     key = "boost",
     set = 'Tarot',
-    atlas = 'WillatroConsumables',
+    atlas = 'WillatroTarots',
     pos = { x = 1, y = 0 },
     cost = 3,
     config = { 

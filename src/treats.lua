@@ -16,7 +16,7 @@ SMODS.ConsumableType {
 SMODS.Consumable {
     key = "candy",
     set = 'willatro_treat',
-    atlas = 'WillatroConsumables',
+    atlas = 'WillatroTreats',
     pos = { x = 0, y = 0 },
     cost = 3,
     config = {
@@ -73,7 +73,7 @@ SMODS.Consumable {
 SMODS.Consumable {
     key = "cookie",
     set = 'willatro_treat',
-    atlas = 'WillatroConsumables',
+    atlas = 'WillatroTreats',
     pos = { x = 1, y = 0 },
     cost = 3,
     config = {
@@ -130,7 +130,7 @@ SMODS.Consumable {
 SMODS.Consumable {
     key = "chocolate",
     set = 'willatro_treat',
-    atlas = 'WillatroConsumables',
+    atlas = 'WillatroTreats',
     pos = { x = 2, y = 0 },
     cost = 3,
     config = {
