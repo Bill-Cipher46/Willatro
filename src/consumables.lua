@@ -359,7 +359,7 @@ SMODS.Consumable {
     cost = 3,
     config = {
         extra = {
-            dollars = 4
+            dollars = 8
         }
     },
 
