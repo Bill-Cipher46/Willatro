@@ -1190,10 +1190,28 @@ return {
 
             p_willatro_playlist_pack = {
                 name = "Playlist Pack",
-                group_name = "Playlist Pack Pack",
+                group_name = "Playlist Pack",
                 text = {
                     "Choose {C:attention}#1#{} of up to",
                     "{C:attention}#2# {V:1}Playlist{} Jokers"
+                }
+            },
+
+            p_willatro_treat_normal = {
+                name = "Treat Pack",
+                group_name = "Treat Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {V:1}Treat{} Jokers"
+                }
+            },
+
+            p_willatro_treat_jumbo = {
+                name = "Jumbo Treat Pack",
+                group_name = "Jumbo Treat Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {V:1}Treat{} Jokers"
                 }
             },
 
