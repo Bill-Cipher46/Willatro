@@ -1268,6 +1268,16 @@ return {
                 text = {
                     "Gives {C:money}$#1#{}"
                 }
+            },
+
+            c_willatro_cake = {
+                name = "Cake",
+                text = {
+                    "Select {C:attention}#1#{} cards. Destroy",
+                    "one and give the other",
+                    "an additional {C:mult}+#2#{} Mult",
+                    "when scored"
+                }
             }
         },
 
