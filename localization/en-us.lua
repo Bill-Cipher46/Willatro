@@ -1278,6 +1278,14 @@ return {
                     "an additional {C:mult}+#2#{} Mult",
                     "when scored"
                 }
+            },
+
+            c_willatro_cupcake = {
+                name = "Cupcake",
+                text = {
+                    "Create a random",
+                    "{C:dark_edition}Negative{} {V:1}Treat{} card"
+                }
             }
         },
 
