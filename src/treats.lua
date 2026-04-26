@@ -13,6 +13,8 @@ SMODS.ConsumableType {
     default = "c_willatro_candy"
 }
 
+--#region treats
+
 --candy - done!
 SMODS.Consumable {
     key = "candy",
@@ -158,6 +160,11 @@ SMODS.Consumable {
 
 }
 
+--#endregion
+
+
+--#region boosters
+
 --normal booster 1 - done!
 SMODS.Booster {
     atlas = "WillatroTreats",
@@ -244,7 +251,7 @@ SMODS.Booster {
 SMODS.Booster {
     atlas = "WillatroTreats",
     key = "treat_jumbo_1",
-    weight = 1,
+    weight = 0.5,
     kind = 'willatro_treat',
     cost = 6,
     pos = { x = 0, y = 2 },
@@ -285,7 +292,7 @@ SMODS.Booster {
 SMODS.Booster {
     atlas = "WillatroTreats",
     key = "treat_jumbo_2",
-    weight = 1,
+    weight = 0.5,
     kind = 'willatro_treat',
     cost = 6,
     pos = { x = 1, y = 2 },
@@ -321,3 +328,5 @@ SMODS.Booster {
         }
     end
 }
+
+--#endregion
