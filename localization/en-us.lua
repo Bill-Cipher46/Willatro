@@ -1286,8 +1286,16 @@ return {
                     "Create a random",
                     "{C:dark_edition}Negative{} {V:1}Treat{} card"
                 }
-            }
-        },
+            },
+
+            c_willatro_ice_cream = {
+                name = "Ice Cream",
+                text = {
+                    "Selected card gains",
+                    "{C:chips}+#1#{} Chips and {C:red}#2#{} Mult",
+                }
+            },
+        }
 
     },
         
