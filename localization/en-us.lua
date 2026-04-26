@@ -343,15 +343,6 @@ return {
                 }
             },
 
-            j_willatro_mitosis = {
-                name = "Mitosis",
-                text = {
-                    "If played and scoring card has a",
-                    "{C:attention}modifier{}, destroy it, add two permanent",
-                    "copies to deck and draw them to {C:attention}hand"
-                }
-            },
-
             j_willatro_portal = {
                 name = "Portal",
                 text = {
@@ -902,6 +893,15 @@ return {
                 }
             },
 
+            j_willatro_mitosis = {
+                name = "Mitosis",
+                text = {
+                    "If played and scoring card has a",
+                    "{C:attention}modifier{}, destroy it, add two permanent",
+                    "copies to deck and draw them to {C:attention}hand"
+                }
+            },
+
             --#endregion
 
             --#region legendary
@@ -1293,6 +1293,41 @@ return {
                 text = {
                     "Selected card gains",
                     "{C:chips}+#1#{} Chips and {C:red}#2#{} Mult",
+                }
+            },
+
+            c_willatro_donut = {
+                name = "Donut",
+                text = {
+                    "Decrease next {C:attention}Boss Blind{}'s",
+                    "required score by {C:attention}#1#%{}",
+                    "{C:inactive}Stacks additively up to {C:attention}99%{C:inactive})"
+                }
+            },
+
+            c_willatro_marshmallow = {
+                name = "Marshmallow",
+                text = {
+                    "All cards held in hand",
+                    "without a {C:attention}modifier{}",
+                    "gain {C:mult}+#1#{} Mult"
+                }
+            },
+
+            c_willatro_waffle = {
+                name = "Waffle",
+                text = {
+                    "Destroy all cards held in hand",
+                    "with a rank of {C:attention}9{} or higher",
+                }
+            },
+
+            c_willatro_hot_cocoa = {
+                name = "Hot Cocoa",
+                text = {
+                    "All cards held in hand",
+                    "without a {C:attention}modifier{}",
+                    "gain {C:money}$#1#{}"
                 }
             },
         }
