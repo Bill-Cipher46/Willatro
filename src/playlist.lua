@@ -21,8 +21,20 @@ SMODS.Rarity {
 
 SMODS.ObjectType {
     key = "willatro_playlist_set",
-    default = "j_willatro_heart"
+    default = "j_willatro_telepathy"
 }
+
+
+
+SMODS.ObjectType({
+    key = "willatro_ccc_set",
+    default = "c_willatro_candy",
+    cards = {
+        c_willatro_candy = true,
+        c_willatro_cookie = true,
+        c_willatro_chocolate = true
+    },
+})
 
 --#region Jokers 
 
@@ -449,7 +461,8 @@ SMODS.Joker {
                     G.E_MANAGER:add_event(Event({
                         func = function()
                             SMODS.add_card {
-                                set = 'willatro_treat'
+                                set = 'willatro_ccc_set',
+                                area = G.consumeables
                             }
                             G.GAME.consumeable_buffer = 0
                             return true
