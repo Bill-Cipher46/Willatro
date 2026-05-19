@@ -1269,13 +1269,22 @@ SMODS.Joker {
             }
         end
 
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and card.ability.extra.chip_gain < card.ability.extra.cap then
-            card.ability.extra.chip_gain = card.ability.extra.chip_gain * 2
-            return {
-                message = localize('k_upgrade_ex'),
-                colour = G.C.CHIPS,
-                message_card = card
-            }
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+            if card.ability.extra.chip_gain < card.ability.extra.cap then
+                card.ability.extra.chip_gain = card.ability.extra.chip_gain * 2
+                return {
+                    message = localize('k_upgrade_ex'),
+                    colour = G.C.CHIPS,
+                    message_card = card
+                }
+            else
+                card.ability.extra.chip_gain = 0.25
+                return {
+                    message = "Reset!",
+                    colour = G.C.CHIPS,
+                    message_card = card
+                }
+            end
         end
     end,
 
