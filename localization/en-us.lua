@@ -877,8 +877,8 @@ return {
                 text = {
                     "This Joker gains {C:chips}+#1#{} Chips when",
                     "each played {C:attention}2{} is scored.",
-                    "Chip gain doubles at end",
-                    "of round, capped at {C:chips}+#3#{}",
+                    "Chip gain doubles at end of",
+                    "round, resets after reaching {C:chips}+#3#{}",
                     "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
                 }
             },
@@ -1202,7 +1202,7 @@ return {
                 group_name = "Treat Pack",
                 text = {
                     "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2# {V:1}Treat{} Jokers"
+                    "{C:attention}#2# {V:1}Treat{} cards"
                 }
             },
 
@@ -1211,7 +1211,7 @@ return {
                 group_name = "Jumbo Treat Pack",
                 text = {
                     "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2# {V:1}Treat{} Jokers"
+                    "{C:attention}#2# {V:1}Treat{} cards"
                 }
             },
 
